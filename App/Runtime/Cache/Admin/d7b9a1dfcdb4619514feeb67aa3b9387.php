@@ -537,7 +537,7 @@
                 , page: true //开启分页
                 , limit: localStorage.limit == null ? 20 : localStorage.limit
                 // , limits: [5, 10]
-                , cols: [[ //表头s
+                , cols: [[ //表头
                     { type: 'checkbox', width: 50, fixed: 'left' }
                     , { field: 'order_id', title: '报名号', width: 200 }
                     , { field: 'school_title', title: '所属学校', width: 100 }
