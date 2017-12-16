@@ -6,20 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>后台</title>
-    <include file="App/Admin/View/component/importComponent.html" />
+    <include file="App/Admin/View/component/impot.comp.html" />
     <style>
         body {
-            background-color: #f9f9ff;
-            padding: 0;
-            padding-top: 20px;
+            padding: 15px;
+            padding-top: 0;
         }
 
         .cube {
-            padding: 50px 0;
-            font-size: 30px;
+            padding: 20px 0;
+            font-size: 20px;
             width: 100%;
             display: block;
-            background-color: #8dc63f;
+            background-color: #eee;
+            color: #333;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cube:hover {
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.15);
         }
     </style>
 
@@ -28,22 +35,114 @@
 <body>
 
 
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-6">
-                <span class="label label-success cube">__APPNAME__</span>
+    <div class="page-header">
+        <h1>
+            <small>
+                [__APPNAME__]后台管理系统
+            </small>
+        </h1>
+    </div>
+
+    <ol class="breadcrumb">
+
+        <li class="active">
+            <a href="__MODULE__/Index/home">首页</a>
+        </li>
+
+        <li class="active">
+            <a href="__MODULE__/Index/home">首页</a>
+        </li>
+    </ol>
+
+    <div class="container-fluid">
+        <div class="row" id="eApp">
+
+            <div class="col-xs-3" v-for='(item,index) in items' @click='show(item.url)'>
+                <span class="label label-success cube">
+                    <canvas :id='e(index)'></canvas>
+                    <p>[ {{item.title}} ]</p>
+                </span>
             </div>
-            <div class="col-xs-3">
-                <span class="label label-success cube">__APPNAME__</span>
-            </div>
-            <div class="col-xs-3">
-                <span class="label label-success cube">__APPNAME__</span>
-            </div>
+
         </div>
 
+    </div>
 
-    </div> -->
 
+    <script src="__VENDOR__/qrious/qrious.js"></script>
+    <script>
+
+        var list = [
+
+            { url: '{:U("home/Index/index",null,null,true)}', title: '首页' },
+            { url: '{:U("home/Build/build",null,null,true)}', title: '楼宇' },
+            // 
+            { url: '{:U("home/Book/showList","type=1",null,true)}', title: '看书坊' },
+            { url: '{:U("home/Book/showList","type=2",null,true)}', title: '听书吧' },
+            { url: '{:U("home/Book/showList","type=3",null,true)}', title: '微课堂' },
+            // 
+            { url: '{:U("home/Paper/panel","",null,true)}', title: '虹桥面塑' },
+            { url: '{:U("home/Paper/tradition","",null,true)}', title: '传统礼仪' },
+            { url: '{:U("home/Paper/originality","",null,true)}', title: '独具匠心' },
+
+        ]
+
+        var eApp = new Vue({
+            el: '#eApp',
+            data: {
+                items: list
+            },
+            methods: {
+                e: function (index) {
+
+                    var _this = this;
+                    var id = 'can' + index;
+                    _this.items[index].id = id;
+
+
+                    return id;
+                },
+                update: function () {
+
+                    var _this = this;
+
+                    for (var i = 0; i < _this.items.length; i++) {
+                        console.log(_this.items[i].url);
+
+                        new QRious({
+                            background: 'transparent',
+                            foreground: '#333',
+                            element: document.getElementById(_this.items[i].id),
+                            value: _this.items[i].url,
+                            size: 200
+                        });
+
+                    }
+
+                },
+                show: function (url) {
+                    layer.prompt(
+                        {
+                            formType: 2,
+                            value: url,
+                            title: '复制地址',
+                            btn: ['关闭'],
+                            yes: function (index) {
+                                layer.close(index);
+                            }
+                        },
+
+                    );
+
+                }
+            }
+        });
+        eApp.update();
+
+
+
+
+    </script>
 
 
 </body>
