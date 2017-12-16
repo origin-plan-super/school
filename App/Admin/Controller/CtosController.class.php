@@ -87,6 +87,8 @@ class CtosController extends Controller{
             //=========添加数据区
             $add=[];
             $add=$post;
+            $add['admin_name']=$admin_id;
+            $add['admin_head_img']='/Public/Upload/admin/head_img/h5.jpg';
             $add['add_time']=time();
             $add['edit_time']=time();
             //=========sql区

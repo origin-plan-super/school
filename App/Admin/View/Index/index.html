@@ -111,17 +111,17 @@
                 <a href="javascript:;" data-src=' '>
                     <!-- <i class="fa fa-home"></i> -->
                     <img src="__ROOT__/{$Think.session.admin_head_img}" alt="">{$Think.session.admin_name}
-                    <span class="spot spot-danger"></span>
+                    <!-- <span class="spot spot-danger"></span> -->
                 </a>
                 <div class="o-nav-item-s">
                     <ul>
-                        <li>
+                        <!-- <li>
                             <a href="">
                                 <i class="fa fa-bell fa-fw"></i>
                                 消息
                                 <span class="spot spot-danger"></span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="" data-src='Config/user '>
                                 <i class="fa fa-cog fa-fw"></i>
@@ -240,30 +240,6 @@
                         </a>
                     </li>
 
-                    <!-- <li>
-                        <a href="javascript:;" data-src='Pages/showList '>
-                            <i class="fa fa-desktop fa-fw"></i>
-                            页面管理
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-src='info/showList/pages_id/1 '>
-                            <i class="fa fa-file-text fa-fw"></i>
-                            <span id="pages1">{$pages1}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-src='info/showList/pages_id/2 '>
-                            <i class="fa fa-file-text fa-fw"></i>
-                            <span id="pages2">{$pages2}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-src='info/showList/pages_id/3 '>
-                            <i class="fa fa-file-text fa-fw"></i>
-                            <span id="pages3">{$pages3}</span>
-                        </a>
-                    </li> -->
                 </ul>
 
             </div>
@@ -294,35 +270,41 @@
             </div>
         </div>
         <hr>
-        <div class="o-nav-item" id="vo">
-            <a href="javascript:;">
-                <i class="fa fa-cogs fa-fw"></i>
-                系统设置
-            </a>
-            <div class="o-nav-list-s">
-                <ul>
-                    <li>
-                        <a href="javascript:;" data-src='Config/showList '>
-                            <i class="fa fa-id-card"></i>
-                            管理员管理
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-src=' '>
-                            <i class="fa fa-pie-chart"></i>
-                            统计
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-src=' '>
-                            <i class="fa fa-info-circle"></i>
-                            关于
-                        </a>
-                    </li>
-                </ul>
+
+        <if condition='$Think.session.admin_id == "admin" || $Think.session.admin_id == "root"'>
+
+            <div class="o-nav-item" id="vo">
+                <a href="javascript:;">
+                    <i class="fa fa-cogs fa-fw"></i>
+                    系统设置
+                </a>
+                <div class="o-nav-list-s">
+                    <ul>
+                        <li>
+                            <a href="javascript:;" data-src='Config/showList'>
+                                <i class="fa fa-id-card"></i>
+                                管理员管理
+                            </a>
+                        </li>
+                        <!-- <li>
+                                    <a href="javascript:;" data-src=' '>
+                                        <i class="fa fa-pie-chart"></i>
+                                        统计
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" data-src=' '>
+                                        <i class="fa fa-info-circle"></i>
+                                        关于
+                                    </a>
+                                </li> -->
+                    </ul>
+                </div>
             </div>
-        </div>
-        <hr>
+            <hr>
+        </if>
+
+
         <div class="footer">
             <a href="">上海 © 信久网络</a>
         </div>

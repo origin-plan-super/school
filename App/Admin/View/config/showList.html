@@ -268,18 +268,13 @@
                             layer.msg('两次输入的密码不一致！')
                             return;
                         }
-                        w(admin_id);
-                        w(admin_pwd);
-                        w(admin_pwd2);
 
                         (function () {
 
                             var url = '__CONTROLLER__/add';
                             var obj = {
-
                                 admin_id: admin_id,
-                                admin_pwd: admin_pwd2
-
+                                admin_pwd: admin_pwd2,
                             };
                             var fun = function (res) {
 
