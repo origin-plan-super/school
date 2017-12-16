@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导出</title>
+    <include file="App/Admin/View/component/impot.comp.html" />
+    <style>
+        table * {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            /* text-align: center; */
+        }
+
+        body {
+            padding: 0 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 企业预约列表 -->
+
+    <div class="page-header">
+        <h1>
+            <small>导出企业预约列表</small>
+        </h1>
+    </div>
+
+    <ol class="breadcrumb">
+
+        <li>
+            <a href="__MODULE__/Index/index">企业预约管理</a>
+        </li>
+        <li>
+            <a href="__MODULE__/Index/index">企业预约列表</a>
+        </li>
+        <li class="active">导出列表</li>
+
+    </ol>
+
+    <button class="layui-btn layui-black" id="down" data-tips='3' title='下载'>
+        <i class="fa fa-fw fa-cloud-download"></i>
+    </button>
+
+
+    <hr>
+    <div class="table-responsive">
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>预约号</th>
+                    <th>课程号</th>
+                    <th>企业名称</th>
+                    <th>地址</th>
+                    <th>联系人</th>
+                    <th>联系方式</th>
+                    <th>科目名</th>
+                    <th>课程名</th>
+                    <th>添加时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <volist name='firm' id='vol' empty='没有相关数据！'>
+                    <tr>
+                        <td>{$vol.firm_id}&nbsp;</td>
+                        <td>{$vol.subject_id}</td>
+                        <td>{$vol.firm_name}</td>
+                        <td>{$vol.firm_location}</td>
+                        <td>{$vol.firm_people}</td>
+                        <td>{$vol.firm_phone}</td>
+                        <td>{$vol.exam_title}</td>
+                        <td>{$vol.subject_title}</td>
+                        <td>{$vol.add_time}</td>
+                    </tr>
+                </volist>
+            </tbody>
+        </table>
+    </div>
+    <!-- <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="__VENDOR__/tableExport/tableExport.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+
+
+        $('#down').on('click', function () {
+            $('#table').tableExport({
+                filename: "{$file_name}",
+                format: 'xls'
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

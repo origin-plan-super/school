@@ -119,4 +119,84 @@ class OrderController extends CommonController{
     public function showList(){
         $this->display();
     }
+    
+    public function printXLS(){
+        
+        
+        if(IS_POST){
+            
+            $list=I('post.list');
+            
+            F('order.list',$list);
+            
+            $res['res']=$order;
+            $res['msg']=U();
+            
+            
+            //=========输出json=========
+            echo json_encode($res);
+            //=========输出json=========
+            
+        }else{
+            
+            $list=   F('order.list');
+            
+            
+            $model=M('order');
+            $where=[];
+            if(!I('get.is_all')){
+                $where['order_id']=['in',$list];
+            }
+            $order=$model->where($where)->select();
+            
+            
+            
+            //找到课程信息
+            $subject=M('subject');
+            $exam=M('exam');
+            $school=M('school');
+            
+            foreach ($order as $key => $value) {
+                
+                $where=[];
+                $where['subject_id']=$value['subject_id'];
+                
+                $subject_info = $subject->where($where)->find();
+                
+                //找exam
+                $where=[];
+                $where['exam_id']=$subject_info['exam_id'];
+                $exam_info = $exam->where($where)->find();
+                
+                
+                //找school
+                $where=[];
+                $where['school_id']=$exam_info['school_id'];
+                $school_info = $school->where($where)->find();
+                
+                unset($exam_info['add_time']);
+                unset($subject_info['add_time']);
+                unset($school_info['add_time']);
+                
+                $order[$key] = array_merge($order[$key],$subject_info,$exam_info,$school_info);
+                
+            }
+            
+            
+            //转换时间戳
+            $order=   toTime($order);
+            
+            
+            $this->assign('order',$order);
+            
+            $file_name='【'.__APPNAME__.'】报名列表'. date('Y-m-d H:i:s');
+            $this->assign('file_name',$file_name);
+            
+            $this->display('print');
+            
+        }
+        
+        
+    }
+    
 }

@@ -29,6 +29,8 @@ class CommonController extends Controller {
         
         $app_name = M('config')->getField('app_name');
         C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
+        define('__APPNAME__', $app_name);
+        
     }
     
     //空操作

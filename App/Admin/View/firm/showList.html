@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>企业预约列表</title>
-    <include file="App/Admin/View/component/importComponent.html" />
+    <include file="App/Admin/View/component/impot.comp.html" />
     <style>
         body {
             padding: 15px;
@@ -38,6 +38,14 @@
             <div class="layui-btn-group">
                 <button class="layui-btn layui-btn-sm layui-black" id="removeAll" data-tips='3' data-color='rgb(253, 51, 51)' title='批量删除'>
                     <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-sm layui-black" id="getAll" data-tips='3' title='全部导出'>
+                    <i class="fa fa-download fa-fw"></i> 全部导出
+                </button>
+                <button class="layui-btn layui-btn-sm layui-black" id="getSelected" data-tips='3' title='导出选中'>
+                    <i class="fa fa-cloud-download fa-fw"></i> 选中导出
                 </button>
             </div>
             <!--  -->
@@ -334,6 +342,7 @@
             // w('开始批量删除');
             var o = table.checkStatus('table');
             if (o.data.length <= 0) {
+                layer.msg('未选择任何数据~');
                 return;
             }
 
@@ -356,6 +365,60 @@
             });
 
         });
+
+        /**
+         * 全部导出
+         */
+        $(document).on('click', '#getAll', function () {
+
+            window.open('__CONTROLLER__/printXLS/is_all/t');
+
+        });
+
+        /**
+         * 导出选中
+         */
+        $(document).on('click', '#getSelected', function () {
+            var o = table.checkStatus('table');
+            if (o.data.length <= 0) {
+                layer.msg('未选择任何数据~');
+                return;
+            }
+
+            var id = [];
+            for (var i = 0; i < o.data.length; i++) {
+                id[i] = o.data[i].firm_id;
+            }
+
+            (function () {
+
+                var url = '__CONTROLLER__/printXLS';
+                var obj = {
+                    list: id
+                };
+                var fun = function (res) {
+
+                    try {
+                        res = JSON.parse(res);
+                        window.open(res.msg);
+                    } catch (error) {
+                        //转换错误
+                        layer.msg('接口错误！', {
+                            anim: 6
+                        });
+                        return
+                    }
+
+
+                };
+                $.post(url, obj, fun);
+
+            }());
+
+
+        });
+
+
     </script>
 </body>
 

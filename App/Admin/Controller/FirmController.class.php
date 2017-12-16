@@ -16,7 +16,7 @@
 */
 namespace Admin\Controller;
 use Think\Controller;
-class FirmController extends Controller{
+class FirmController extends CommonController{
     
     /**
     * 获得
@@ -116,6 +116,78 @@ class FirmController extends Controller{
     //主
     public function showList(){
         $this->display();
+    }
+    
+    
+    public function printXLS(){
+        
+        
+        if(IS_POST){
+            
+            $list=I('post.list');
+            
+            F('firm.list',$list);
+            
+            $res['res']=$firm;
+            $res['msg']=U();
+            
+            
+            //=========输出json=========
+            echo json_encode($res);
+            //=========输出json=========
+            
+        }else{
+            
+            $list=   F('firm.list');
+            
+            
+            $model=M('firm');
+            $where=[];
+            if(!I('get.is_all')){
+                $where['firm_id']=['in',$list];
+            }
+            $firm=$model->where($where)->select();
+            
+            
+            //找到课程信息
+            $subject=M('subject');
+            $exam=M('exam');
+            $school=M('school');
+            
+            foreach ($firm as $key => $value) {
+                
+                $where=[];
+                $where['subject_id']=$value['subject_id'];
+                
+                $subject_info = $subject->where($where)->find();
+                
+                //找exam
+                $where=[];
+                $where['exam_id']=$subject_info['exam_id'];
+                $exam_info = $exam->where($where)->find();
+                
+                unset($exam_info['add_time']);
+                unset($subject_info['add_time']);
+                
+                $firm[$key] = array_merge($firm[$key],$subject_info,$exam_info);
+                
+            }
+            
+            
+            //转换时间戳
+            $firm=   toTime($firm);
+            
+            
+            $this->assign('firm',$firm);
+            
+            $file_name='【'.__APPNAME__.'】企业预约列表'. date('Y-m-d H:i:s');
+            $this->assign('file_name',$file_name);
+            
+            $this->display('print');
+            
+        }
+        
+        
     }
     
     

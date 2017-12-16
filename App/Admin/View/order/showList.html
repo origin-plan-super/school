@@ -41,6 +41,15 @@
                 </button>
             </div>
             <!--  -->
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-sm layui-black" id="getAll" data-tips='3' title='全部导出'>
+                    <i class="fa fa-download fa-fw"></i> 全部导出
+                </button>
+                <button class="layui-btn layui-btn-sm layui-black" id="getSelected" data-tips='3' title='导出选中'>
+                    <i class="fa fa-cloud-download fa-fw"></i> 选中导出
+                </button>
+            </div>
+            <!--  -->
             <div class="" style="float:right">
                 <div class="layui-inline">
                     <input class="layui-input layui-input-sm" id="key" placeholder="搜索" autocomplete="off">
@@ -357,6 +366,59 @@
                 });
 
             });
+
+        });
+
+
+        /**
+         * 全部导出
+         */
+        $(document).on('click', '#getAll', function () {
+
+            window.open('__CONTROLLER__/printXLS/is_all/t');
+
+        });
+
+        /**
+        * 导出选中
+        */
+        $(document).on('click', '#getSelected', function () {
+            var o = table.checkStatus('table');
+            if (o.data.length <= 0) {
+                layer.msg('未选择任何数据~');
+                return;
+            }
+
+            var id = [];
+            for (var i = 0; i < o.data.length; i++) {
+                id[i] = o.data[i].order_id;
+            }
+
+            (function () {
+
+                var url = '__CONTROLLER__/printXLS';
+                var obj = {
+                    list: id
+                };
+                var fun = function (res) {
+
+                    try {
+                        res = JSON.parse(res);
+                        window.open(res.msg);
+                    } catch (error) {
+                        //转换错误
+                        layer.msg('接口错误！', {
+                            anim: 6
+                        });
+                        return
+                    }
+
+
+                };
+                $.post(url, obj, fun);
+
+            }());
+
 
         });
     </script>
