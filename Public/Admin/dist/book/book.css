@@ -1,0 +1,74 @@
+#book_list {
+  position: relative;
+  margin: 0;
+  padding: 0; }
+  #book_list .book-item {
+    padding: 15px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transition-property: border, padding, margin, -webkit-box-shadow;
+    transition-property: border, padding, margin, -webkit-box-shadow;
+    transition-property: box-shadow, border, padding, margin;
+    transition-property: box-shadow, border, padding, margin, -webkit-box-shadow;
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /*====*/ }
+    #book_list .book-item.book-head {
+      position: relative;
+      border-left: solid 7px #666;
+      margin-left: 0;
+      margin-right: 0; }
+      #book_list .book-item.book-head .book-item-title {
+        font-size: 20px;
+        font-weight: bold; }
+    #book_list .book-item .book-item-title .text-danger {
+      color: #f00; }
+    #book_list .book-item .book-item-tool {
+      float: right;
+      position: relative;
+      display: none; }
+      #book_list .book-item .book-item-tool i {
+        display: inline-block;
+        font-size: 20px;
+        padding: 0 10px;
+        text-align: center; }
+      #book_list .book-item .book-item-tool .book-item-remove {
+        color: #cf4747;
+        color: #E74C3C; }
+      #book_list .book-item .book-item-tool .book-item-edit {
+        color: #666; }
+      #book_list .book-item .book-item-tool .book-item-up {
+        color: #666; }
+    #book_list .book-item .book-item-body {
+      width: 100%;
+      display: block; }
+    #book_list .book-item .book-item-footer {
+      width: 100%; }
+      #book_list .book-item .book-item-footer .panel {
+        width: 100%;
+        margin-top: 10px;
+        display: none; }
+      #book_list .book-item .book-item-footer .up-file {
+        display: none;
+        margin-left: 20px; }
+      #book_list .book-item .book-item-footer .file-box {
+        background-color: #ddd;
+        width: 100%; }
+        #book_list .book-item .book-item-footer .file-box .video,
+        #book_list .book-item .book-item-footer .file-box .audio {
+          width: 300px;
+          display: none; }
+        #book_list .book-item .book-item-footer .file-box .pdf {
+          display: none; }
+    #book_list .book-item:hover {
+      -webkit-box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.2);
+              box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.2); }
+      #book_list .book-item:hover .book-item-tool {
+        display: block; }

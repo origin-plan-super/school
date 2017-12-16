@@ -1,0 +1,31 @@
+/*改变模态框的高度*/
+
+.modal-content {
+	height: 100%;
+}
+.modal-dialog.modal-lg {
+	height: 100%;
+}
+
+
+
+/*把detail-12改成了video-12 因为样式不一样*/
+.video-12 {
+	background: #FFFFFF;
+	border-top: 1px solid #a64233;
+}
+/*改变detail样式*/
+.video-12 ul {
+	padding: 0;
+	margin: 0;
+}
+
+/*设置所有li的样式*/
+/*改变detail的样式*/
+.video-12 ul li {
+	list-style: none;
+	font-size: 14px;
+	padding: 10px 10px;
+	border-bottom: 1px solid #eeeeee;
+}
+

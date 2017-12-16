@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <include file="App/Admin/View/component/impot.comp.html" />
+    <link href="__ADIST__/ctos/ctos.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/umeditor/themes/default/css/umeditor.css" />
+    <title>发布文章</title>
+    <style>
+        body {
+            padding: 0 100px;
+            background-color: #f9f9f9;
+        }
+
+        .o-panel {
+            box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .edui-container {
+            display: inline-block;
+
+        }
+
+        .layui-form-select dl {
+            z-index: 9999;
+        }
+
+        #paper_head_img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="o-panel">
+        <div class="o-panel-head">
+            <div class="o-panel-title">
+                发布文章
+            </div>
+        </div>
+        <div class="o-panel-body">
+
+            <form class="layui-form">
+                <div class="form-group">
+                    <label>文章标题</label>
+                    <input type="text" value="{$paper.paper_title}" autocomplete="off" class="o-form-control" name="paper_title" placeholder="文章标题">
+                </div>
+                <div class="form-group" id="is_head">
+                    <label>封面图</label>
+                    <button type='button' class="layui-btn layui-black" id="upload">
+                        <i class="layui-icon">&#xe67c;</i>
+                        上传封面图（最大8M）
+                    </button>
+                    <br>
+                    <img src="__ROOT__/{$paper.paper_head}" alt="" id="paper_head_img" name="paper_head">
+                    <input type="hidden" name="paper_head" value='{$paper.paper_head}' id="paper_head">
+                </div>
+                <div class="form-group " id='is_video' style="display: none">
+                    <label>视频</label>
+                    <button type='button' class="layui-btn layui-black" id="video_upload">
+                        <i class="layui-icon">&#xe67c;</i>
+                        上传视频（最大8M）
+                    </button>
+                    <br>
+                    <video id="video_box" controls loop style='max-width:400px;display: block;margin: 0 auto'>
+                        <source src="">
+                        <!-- /school//Public/Upload//paper/video/2017-12-14/5a3221aa0f9b8.mp4 -->
+                    </video>
+
+                    <input type="hidden" name="video" value='{$paper.video}' id="video">
+                </div>
+                <div class="form-group">
+                    <label>发布到页面</label>
+                    <select name="pages_title" lay-verify="" lay-filter='l1' id="l1">
+                        <option value="">选择页面</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>发布到类型</label>
+                    <select name="class_title" lay-verify="" lay-filter='l2' id="l2">
+                        <option value="">选择类型</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="is_content">
+                    <label style="">文章详情</label>
+                    <!-- <textarea cols="30" rows="10" class="o-form-control" name="subject_info" placeholder="课程简述">{$subject.subject_info}</textarea> -->
+                    <script id="container" name="content" type="text/plain" style="width:100%" lay-verify='required'>{$paper.content|htmlspecialchars_decode}</script>
+
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-default o-btn" lay-submit lay-filter="save">保存</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="o-panel-footer">
+        </div>
+    </div>
+
+    <!-- 引入 etpl -->
+    <script src="__VENDOR__/umeditor/third-party/template.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 配置文件 -->
+    <script src="__VENDOR__/umeditor/umeditor.config.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 编辑器源码文件 -->
+    <script src="__VENDOR__/umeditor/umeditor.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 语言包文件 -->
+    <script src="__VENDOR__/umeditor/lang/zh-cn/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script src="__ADIST__/linkage/linkage.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+
+        window.um = UM.getEditor('container', {
+            /* 传入配置参数,可配参数列表看umeditor.config.js */
+        });
+
+        layui.use(['form', 'upload'], function () {
+            var form = layui.form;
+            upload = layui.upload;
+
+            form.on('submit(save)', function (data) {
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                // console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+
+
+                (function () {
+
+                    var url = '__MODULE__/use/add';
+                    var obj = {
+                        table: 'paper',
+                        add: data.field
+                    };
+                    var fun = function (res) {
+                        w(res);
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            layer.msg('接口错误！', {
+                                amin: 6
+                            });
+                            return;
+                        }
+
+                        if (res.res >= 0) {
+                            layer.msg('保存成功~');
+
+                        } else {
+                            layer.msg('保存失败~', {
+                                amin: 6
+                            });
+                        }
+
+                    };
+                    $.post(url, obj, fun);
+
+                }());
+
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#upload' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                // , accept: 'file' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    src: '/paper/img/',
+                    del_src: '{$paper.paper_head}'
+                }
+                , drag: true
+                , done: function (res) {
+                    //上传完毕回调4
+                    w(res);
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+                        $('#paper_head_img').attr('src', '__ROOT__/' + res.data.src);
+                        $('#paper_head').val(res.data.src);
+
+                    }
+                }
+                , error: function () {
+                    //请求异常回调
+                    layer.msg('异步接口出错！', {
+                        anim: 6
+                    });
+                }
+            });
+
+
+
+            //执行实例-上传视频
+            var uploadInst = upload.render({
+                elem: '#video_upload' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                , accept: 'video' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    src: '/paper/video/',
+                    // del_src: '{$paper.video}'
+                }
+                , drag: true
+                , done: function (res) {
+                    //上传完毕回调4
+                    w(res);
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+
+                        $('#video_box').empty();
+                        var $source = $('<source/>')
+                        $source.attr('src', '__ROOT__/' + res.data.src);
+                        $('#video_box').append($source);
+
+
+                        $('#video').val(res.data.src);
+
+
+
+                    }
+                }
+                , error: function (res) {
+                    // e(res);
+
+                    // //请求异常回调
+                    // layer.msg('异步接口出错！', {
+                    //     anim: 6
+                    // });
+                }
+            });
+
+            var arr = [
+                [
+                    { title: '虹桥面塑' },
+                    { title: '独具匠心' },
+                    { title: '传统礼仪' },
+                ],
+                [
+                    // ========
+                    { super: '虹桥面塑', title: '课程简介' },
+                    { super: '虹桥面塑', title: '教材' },
+                    { super: '虹桥面塑', title: '作品展示' },
+                    // ========
+                    { super: '独具匠心', title: '学员作品展示' },
+                    // ========
+                    { super: '传统礼仪', title: '课程内容' },
+                    { super: '传统礼仪', title: '教材' },
+                    { super: '传统礼仪', title: '安排' },
+                    { super: '传统礼仪', title: '视频' },
+                ]
+            ];
+            linkage(arr, form, ['{$paper.pages_title}', '{$paper.class_title}']);
+
+
+        });
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

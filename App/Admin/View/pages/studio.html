@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>【{$pages.pages_title}】的页面设计</title>
+    <include file="App/Admin/View/component/impot.comp.html" />
+    <link href="__ADIST__/pages/studio.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            padding: 15px;
+            padding-top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="page-header">
+        <h1>
+            <small>【{$pages.pages_title}】的页面设计</small>
+        </h1>
+    </div>
+    <ol class="breadcrumb">
+        <li>
+            <a href="__MODULE__/Index/index">图文详情管理</a>
+        </li>
+        <li>
+            <a href="__MODULE__/Index/index">页面管理</a>
+        </li>
+        <li class="active">【{$pages.pages_title}】的页面设计</li>
+    </ol>
+
+    <ol id='app'>
+        <li v-for='(item,index) in items' :key='item.id'>{{item.id}}：{{item.title}}</li>
+    </ol>
+
+    <div id="studio">
+
+        <div class="studio-tool">
+            <ul id="tool">
+                <li data-type='h'>
+                    <i class="fa fa-fw fa-header"></i>
+                    <span>标题</span>
+                </li>
+                <li data-type='leftImg'>
+                    <i class="fa fa-fw fa-list"></i>
+                    <span>左图右文</span>
+                </li>
+                <li data-type='topImg'>
+                    <i class="fa fa-fw fa-image"></i>
+                    <span>上图下文</span>
+                </li>
+                <li data-type='video'>
+                    <i class="fa fa-fw fa-video-camera"></i>
+                    <span>视频</span>
+                </li>
+            </ul>
+        </div>
+        <div class="studio-view" id="view">
+        </div>
+
+    </div>
+
+    <script src="__ADIST__/pages/studio.js"></script>
+    <script>
+
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    { id: 1, title: 'a', sort: 1 },
+                    { id: 2, title: 'b', sort: 2 },
+                    { id: 3, title: 'c', sort: 3 },
+                ]
+            },
+            methods: {
+                sort: function () {
+
+                    var arr = this.items;
+                    this.items = [];
+                    var a;
+                    for (var i = 0; i < arr.length; i++) {
+
+                        for (var j = 0; j < arr.length; j++) {
+
+                            if (arr[i].sort > arr[j].sort) {
+                                a = arr[i];
+                                arr[i] = arr[j];
+                                arr[j] = a;
+                            }
+
+                        }
+
+                    }
+                    this.items = arr;
+                }
+            }
+        });
+        app.sort();
+
+        $(function () {
+
+            //==========================================
+            //jqui
+            $("#view").sortable({
+                placeholder: "placeholder", //占位符
+                items: ".item", //谁能动
+                // handle: ".topic-menu-num,.topic-title", //拖拽句柄
+                revert: 200,
+                opacity: 0.9,
+                start: function (event, ui) {
+                    //开始
+                    ui.item.css('transform', 'rotateZ(-3deg)');
+
+                },
+                stop: function (event, ui) {
+
+                    ui.item.removeAttr('style');
+                },
+
+            });
+            $("#view").disableSelection();
+
+
+            $(document).on('click', '#tool li', function (event) {
+                var $this = $(this);
+                var type = $this.attr('data-type');
+
+                var $item = $('<div/>').addClass('item');
+                $item.html(el[type]());
+                $("#view").append($item);
+
+            });
+
+        });
+
+
+        var el = {
+            h: function () {
+
+                var $div = $('<div/>').addClass('s-head');
+                $div.append('<span>标题</span>');
+
+                return $div;
+            },
+            leftImg: function () {
+                var $div = $('<div/>').addClass('s-left-img');
+
+                $div.append('<img class="left-img" src="__ASSETS__/img/1.jpg" alt="">');
+                $div.append('<div class="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>');
+                // $div.append('<div class="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit </div>');
+
+                return $div;
+            },
+            topImg: function () {
+                var $div = $('<div/>').addClass('s-top-img');
+                $div.append('<img class="top-img" src="__ASSETS__/img/1.jpg" alt="">');
+                $div.append('<div class="top-text">Lorem ipsum dolor sit amet consectetur adipisicing elit </div>');
+
+
+                return $div;
+            },
+            video: function () {
+
+                return '<h1>video</h1>';
+            }
+        }
+
+        var $item = $('<div/>').addClass('item');
+        $item.append(el['h']());
+        $item.append(el['leftImg']());
+        $item.append(el['topImg']());
+        $("#view").append($item);
+
+    </script>
+
+
+</body>
+
+</html>

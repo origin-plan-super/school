@@ -1,0 +1,85 @@
+/*首先去掉框架中的各种padding*/
+
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+
+/*去掉框架中的body中的行高*/
+
+body {
+	line-height: 1.0;
+}
+
+.sign-all {
+	margin-bottom: 6px;
+}
+
+
+/*左边的标题*/
+
+.sign-list-4 {
+	height: 40px;
+	background: #dddddd;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+}
+
+
+/*右边的内容*/
+
+.sign-list-8 {
+	height: 40px;
+	background: #efefef;
+	line-height: 40px;
+	padding-left: 20px;
+	font-size: 14px;
+}
+
+.sign-list-4-introduce {
+	height: 80px;
+	background: #dddddd;
+	text-align: center;
+	line-height: 80px;
+	font-size: 14px;
+}
+
+.sign-list-8-introduce {
+	height: 80px;
+	background: #efefef;
+	line-height: 18px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	font-size: 14px;
+	overflow: auto;
+}
+
+
+/*报名按钮的样式*/
+.a-sing{
+	margin-top: 30px;
+}
+
+/*顶部大图*/
+.information-top img{
+	width: 100%;
+}
+/*改变button按钮的颜色*/
+.a-sing{
+	background:  #a64233;
+	border: 1px solid #a64233;
+}

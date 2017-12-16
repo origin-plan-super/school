@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{$paper.paper_title}</title>
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
+    <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!--顶部的大图开始-->
+        <div class="row">
+            <div class="col-xs-12 det-12">
+                <div class="p-0 m-0 goods-list" data-am-widget="paragraph" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+                    <img src="__ASSETS__/img/1.jpg" />
+                </div>
+            </div>
+        </div>
+        <!--顶部的大图结束-->
+        <div class="row" style="padding:10px" data-am-widget="paragraph" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+            <!--作品的详情开始-->
+            <!--每一个作品下边都有这个人的名字和时间 还有文字的详情-->
+            {$paper.content|htmlspecialchars_decode}
+            <!--作品的详情结束-->
+        </div>
+    </div>
+
+
+
+    <script src="__VENDOR__/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__HDIST__/stuDet/js/stuDet.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

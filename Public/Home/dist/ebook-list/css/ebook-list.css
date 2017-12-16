@@ -1,0 +1,14 @@
+/*去掉button的样式*/
+.dis-button {
+	background: transparent;
+	border: 0px solid transparent;
+	color: #a64233;
+}
+/*聚焦点击的时候去掉外发光*/
+.dis-button:focus{
+	outline-color:transparent;
+}
+/*把bootstrap中的padding去掉*/
+.col-xs-10 {
+	padding-right: 0;
+}

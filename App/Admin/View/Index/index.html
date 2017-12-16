@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>__APPNAME__管理系统</title>
+    <include file="App/Admin/View/component/importComponent.html" />
+    <link href="__ADIST__/index/index.css" rel="stylesheet" type="text/css">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="o-nav">
+        <div class="o-nav-left">
+
+            <div class="o-nav-item">
+                <a href="javascript:;" data-src='Index/home'>
+                    <i class="fa fa-home fa-fw"></i>
+                    首页
+                </a>
+
+            </div>
+            <div class="o-nav-item">
+                <a href="javascript:;">
+                    <i class="fa fa-mortar-board fa-fw"></i>
+                    课程页面
+                </a>
+                <div class="o-nav-item-s">
+                    <ul>
+                        <li>
+                            <a href='{:U("home/index/index")}' target="_blank">
+                                <i class="fa fa-mortar-board fa-fw"></i>
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a href='{:U("home/build/build")}' target="_blank">
+                                <i class="fa fa-mortar-board fa-fw"></i>
+                                楼宇
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="o-nav-item">
+                <a href="javascript:;">
+                    <i class="fa fa-book fa-fw"></i>
+                    学习大厅
+                </a>
+                <div class="o-nav-item-s">
+                    <ul>
+                        <li>
+                            <a href='{:U("home/book/showList","type=1")}' target="_blank">
+                                <i class="fa fa-book fa-fw"></i>
+                                看书坊
+                            </a>
+                        </li>
+                        <li>
+                            <a href='{:U("home/book/showList","type=2")}' target="_blank">
+                                <i class="fa fa-volume-down fa-fw"></i>
+                                听书吧
+                            </a>
+                        </li>
+                        <li>
+                            <a href='{:U("home/book/showList","type=3")}' target="_blank">
+                                <i class="fa fa-youtube-play fa-fw"></i>
+                                微课堂
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="o-nav-item">
+                <a href="javascript:;">
+                    <i class="fa fa-file-text fa-fw"></i>
+                    好学虹桥
+                </a>
+                <div class="o-nav-item-s">
+                    <ul>
+                        <li>
+                            <a href='{:U("home/paper/panel")}' target="_blank">
+                                <!-- <i class="fa fa-bell fa-fw"></i> -->
+                                虹桥面塑
+                            </a>
+                        </li>
+                        <li>
+                            <a href='{:U("home/paper/tradition")}' target="_blank">
+                                <!-- <i class="fa fa-bell fa-fw"></i> -->
+                                传统礼仪
+                            </a>
+                        </li>
+                        <li>
+                            <a href='{:U("home/paper/originality")}' target="_blank">
+                                <!-- <i class="fa fa-bell fa-fw"></i> -->
+                                独具匠心
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="o-nav-right">
+            <div class="o-nav-item">
+                <a href="javascript:;" data-src=' '>
+                    <!-- <i class="fa fa-home"></i> -->
+                    <img src="__ROOT__/{$Think.session.admin_head_img}" alt="">{$Think.session.admin_name}
+                    <span class="spot spot-danger"></span>
+                </a>
+                <div class="o-nav-item-s">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-bell fa-fw"></i>
+                                消息
+                                <span class="spot spot-danger"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" data-src='Config/user '>
+                                <i class="fa fa-cog fa-fw"></i>
+                                个人设置
+                            </a>
+                        </li>
+                        <li class="line"></li>
+                        <li>
+                            <a href="__MODULE__/Login/sinOut">
+                                <i class="fa fa-sign-out fa-fw"></i>
+                                退出登录
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="o-nav-list">
+
+        <div class="o-nav-item">
+            <a href="" class="o-nav-logo">
+                <!-- <i class="fa fa-home"></i> -->
+                __APPNAME__
+            </a>
+
+        </div>
+
+        <div class="o-nav-item">
+            <a href="" class="">
+                <i class="fa fa-mortar-board fa-fw"></i>
+                科目管理
+            </a>
+            <div class="o-nav-list-s">
+                <ul>
+                    <li>
+                        <a href="javascript:;" data-src='school/showList/school_id/1 '>
+                            <i class="fa fa-mortar-board fa-fw"></i>
+                            总校
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='school/showList/school_id/2 '>
+                            <i class="fa fa-mortar-board fa-fw"></i>
+                            分校
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='school/showList/school_id/3 '>
+                            <i class="fa fa-mortar-board fa-fw"></i>
+                            楼宇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="o-nav-item">
+            <a href="" class="">
+                <i class="fa fa-id-card fa-fw"></i>
+                师资管理
+            </a>
+            <div class="o-nav-list-s">
+                <ul>
+                    <li>
+                        <a href="javascript:;" data-src='teacher/showList '>
+                            <i class="fa fa-id-card fa-fw"></i>
+                            师资列表
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="o-nav-item">
+            <a href="" class="">
+                <i class="fa fa-book fa-fw"></i>
+                电子书管理
+            </a>
+            <div class="o-nav-list-s">
+
+                <ul>
+                    <li>
+                        <a href="javascript:;" data-src='Book/bookClass '>
+                            <i class="fa fa-tags fa-fw"></i>
+                            电子书分类列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='Book/showList '>
+                            <i class="fa fa-book fa-fw"></i>
+                            电子书列表
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="o-nav-item">
+            <a href="" class="">
+                <i class="fa fa-file-text fa-fw"></i>
+                图文详情管理
+            </a>
+            <div class="o-nav-list-s">
+
+                <ul>
+                    <li>
+                        <a href="__MODULE__/Paper/add" target="_black" ddata-src='Paper/add '>
+                            <i class="fa fa-plus fa-fw"></i>
+                            发布文章
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-src='Paper/showList '>
+                            <i class="fa fa-file-text fa-fw"></i>
+                            文章列表
+                        </a>
+                    </li>
+
+                    <!-- <li>
+                        <a href="javascript:;" data-src='Pages/showList '>
+                            <i class="fa fa-desktop fa-fw"></i>
+                            页面管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='info/showList/pages_id/1 '>
+                            <i class="fa fa-file-text fa-fw"></i>
+                            <span id="pages1">{$pages1}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='info/showList/pages_id/2 '>
+                            <i class="fa fa-file-text fa-fw"></i>
+                            <span id="pages2">{$pages2}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='info/showList/pages_id/3 '>
+                            <i class="fa fa-file-text fa-fw"></i>
+                            <span id="pages3">{$pages3}</span>
+                        </a>
+                    </li> -->
+                </ul>
+
+            </div>
+        </div>
+
+
+
+        <div class="o-nav-item">
+            <a href="" class="">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                报名预约管理
+            </a>
+            <div class="o-nav-list-s">
+                <ul>
+                    <li>
+                        <a href="javascript:;" data-src='Order/showList '>
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                            报名列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src='Firm/showList '>
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            企业预约
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="o-nav-item" id="vo">
+            <a href="javascript:;">
+                <i class="fa fa-cogs fa-fw"></i>
+                系统设置
+            </a>
+            <div class="o-nav-list-s">
+                <ul>
+                    <li>
+                        <a href="javascript:;" data-src='Config/showList '>
+                            <i class="fa fa-id-card"></i>
+                            管理员管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src=' '>
+                            <i class="fa fa-pie-chart"></i>
+                            统计
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-src=' '>
+                            <i class="fa fa-info-circle"></i>
+                            关于
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="footer">
+            <a href="">上海 © 信久网络</a>
+        </div>
+    </div>
+
+    <div class="o-iframe-box">
+        <iframe id="iframe" name="iframe" src="" frameborder="0"></iframe>
+    </div>
+
+
+    <script src="__ADIST__/index/index.js"></script>
+    <script>
+
+
+        srcEvent.config.url = "__MODULE__";
+        srcEvent.init();
+        window['a '] = 1;
+
+    </script>
+
+</body>
+
+</html>

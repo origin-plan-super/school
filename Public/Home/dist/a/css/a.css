@@ -1,0 +1,358 @@
+/*看书坊  全局样式*/
+
+
+/*改变body的背景颜色*/
+
+body {
+	background-color: #fcf4e7;
+}
+
+
+/*顶部的大图设定宽度100%*/
+
+.a-opacity {
+	width: 100%;
+}
+
+
+/*去掉下边选项卡的外边距*/
+
+[data-am-widget='tabs'] {
+	margin: 0;
+}
+
+
+/*去掉active的效果 active的时候字体的颜色改变 背景颜色 去掉a标签的样式*/
+
+.am-tabs-default .am-tabs-nav>.am-active a {
+	background-color: #a64233;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
+/*改变选项卡里边的颜色 字体默认的颜色*/
+
+.am-tabs-default .am-tabs-nav a {
+	line-height: 30px;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+
+/*定制上边选项卡的颜色  三个*/
+
+
+/*去掉下边的内容的border*/
+
+.am-tabs-bd {
+	border: 0 solid #ddd;
+}
+
+
+/*改变bootstrap中2.6.3.9的内边距 都变为0*/
+
+.col-xs-1,
+.col-xs-2,
+.col-xs-6,
+.col-xs-3,
+.col-xs-9 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+
+/*定义列表的高度*/
+
+.a-list3 {
+	height: 100px;
+	background: white;
+	padding: 5px 8px;
+	border-top-left-radius: 5%;
+	border-bottom-left-radius: 5%;
+	/*line-height: 100px;*/
+}
+
+
+/*3下边的图片的宽高100%*/
+
+.a-list3 img {
+	/*width: 100%;
+	height: 100%;*/
+	width: 60px;
+	height: 90px;
+}
+
+
+/*9栅格的内边距改变*/
+
+
+/*空格下边是让字体超出变成省略号*/
+
+.a-list9 {
+	height: 100px;
+	background: white;
+	padding: 8px 5px;
+	border-top-right-radius: 5%;
+	border-bottom-right-radius: 5%;
+	word-wrap: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+/*把标题字体改变并且加粗  下边每一个选项的 右侧第一行字*/
+
+.a-title {
+	font-weight: bold;
+	font-size: 15px;
+	display: block;
+	padding-bottom: 5px;
+	/* ========== */
+	/* = 换行 = */
+	/* ========== */
+	white-space: normal;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	/*word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;*/
+}
+
+
+/*改变row的border-radius*/
+
+.a-all {
+	margin-bottom: 10px;
+}
+
+
+/*改变编著和名字的字体大小*/
+
+.a-name {
+	/* ========== */
+	/* = 换行 = */
+	/* ========== */
+	/*white-space: normal;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;*/
+}
+
+.a-info {
+	font-size: 15px;
+	margin-right: 5px;
+}
+
+.a-top {
+	position: relative;
+}
+
+
+/*a-sousuo是指的带input的这一行*/
+
+.a-sousuo {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	bottom: 20px;
+}
+
+.a-sousuo div {
+	height: 30px;
+}
+
+
+/*a-top是顶部所有的内容*/
+
+.a-top input {
+	height: 30px;
+	right: 0px;
+	font-size: 10px;
+}
+
+.a-top span {
+	line-height: 30px;
+	font-size: 20px;
+	color: #a64233;
+}
+
+
+/*全局去掉a标签的样式*/
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover,
+a:focus {
+	color: #000000;
+}
+
+
+/*改变搜索框的颜色*/
+
+.am-form-warning .am-form-field {
+	border-color: #a64233 !important;
+}
+
+
+/*虹桥面塑  传统礼仪  独具匠心 中的样式 开始       三个页面用到*/
+
+
+/*设置所有图片的宽度100%*/
+
+img {
+	width: 100%;
+}
+
+
+/*顶部的大图下边的标题的设置*/
+
+.hongqiao-title {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	margin-bottom: 10px;
+	color: #a64233;
+}
+
+
+/*顶部的标题的样式添加一个下划线*/
+
+.hongqiao-title span {
+	font-size: 20px;
+	border-bottom: 1px solid #a64233;
+	padding: 10px 10px;
+	font-weight: bold;
+}
+
+
+/*教材列表的样式*/
+
+.book-list {
+	padding: 5px;
+	font-size: 14px;
+}
+
+video {
+	width: 100%;
+	height: 240px;
+}
+
+
+/*新定义的栅格左右列表*/
+
+.a-xs-4 {
+	height: 100px;
+	/*background: red;*/
+	text-align: center;
+}
+
+.a-xs-4 img {
+	width: 80px;
+	height: 100px;
+}
+
+.a-xs-8 {
+	height: 100px;
+	overflow: auto;
+	font-size: 14px;
+	/*background: gray;*/
+}
+
+.a-hongqiao-all {
+	margin-bottom: 10px;
+}
+/*虹桥面塑  传统礼仪  独具匠心 中的样式 结束*/
+
+
+
+
+/*各种详情页的css开始*/
+
+.det-12{
+	padding: 0px;
+	margin-bottom: 10px;
+}
+.stuDet-name{
+	font-weight: bold;
+	font-size: 18px;
+}
+.book-name{
+	font-weight: bold;
+	font-size: 18px;
+}
+/*各种详情页的css结束*/
+
+
+/*收不到的样式*/
+/*图标外边的div*/
+.a-empty-icon{
+	width: 100px;
+	height: 100px;
+	background: #eeeeee;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	color: #FFFFFF;	
+	font-size: 45px;
+	display: inline-block;
+}
+.a-empty-title{
+	font-size: 14px;
+	color: #979797;
+	margin-top: 20px;
+}
+.a-empty{
+	display: none;	
+}
+.a-empty.active{
+	display: block;	
+}
+.a-empty-body{
+		background: transparent;
+	text-align: center;
+	padding: 30px 0;
+}
+
+
+/*返回顶部*/
+/*.gotop{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #222222;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	color: #FFFFFF;
+	font-size: 25px;
+	display: none;
+	z-index: 999;
+	opacity: 0.7;
+}*/
+.gotop{
+	width: 30px;
+	height: 30px;
+	line-height: 40px;
+	text-align: center;
+	background: #222222;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	color: #FFFFFF;
+	font-size: 30px;
+	display: none;
+	z-index: 999;
+	opacity: 0.7;
+	font-family: "细体";
+}

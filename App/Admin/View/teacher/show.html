@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <include file="App/Admin/View/component/importComponent.html" />
+    <link href="__ADIST__/ctos/ctos.css" rel="stylesheet" type="text/css">
+    <title>【{$teacher.teacher_name}】的老师信息</title>
+    <style>
+        body {
+            padding: 15px;
+            padding-top: 0;
+            background-color: #f9f9f9;
+        }
+
+        .o-panel {
+            box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        #teacher_head_img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="o-panel">
+        <div class="o-panel-head">
+            <div class="o-panel-title">
+                【{$teacher.teacher_name}】的老师信息
+            </div>
+        </div>
+        <div class="o-panel-body">
+
+
+            <!-- 
+teacher_id
+teacher_head
+
+             -->
+
+
+
+
+            <form class="layui-form">
+
+                <div class="form-group">
+                    <label>老师姓名</label>
+                    <input type="text" value="{$teacher.teacher_name}" autocomplete="off" class="o-form-control" name="teacher_name" placeholder="老师姓名">
+                </div>
+
+                <div class="form-group">
+                    <label>老师学历</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teacher_level}" autocomplete="off" class="o-form-control" name="teacher_level"
+                        placeholder="老师学历">
+                </div>
+
+                <div class="form-group">
+                    <label>毕业院校</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teacher_home}" autocomplete="off" class="o-form-control" name="teacher_home"
+                        placeholder="毕业院校">
+                </div>
+
+                <div class="form-group">
+                    <label>毕业专业</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teacher_major}" autocomplete="off" class="o-form-control" name="teacher_major"
+                        placeholder="毕业专业">
+                </div>
+
+
+                <div class="form-group">
+                    <label>授课方向</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teachar_direction}" autocomplete="off" class="o-form-control" name="teachar_direction"
+                        placeholder="授课方向">
+                </div>
+
+
+                <div class="form-group">
+                    <label>资格证书</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teacher_certificate}" autocomplete="off" class="o-form-control"
+                        name="teacher_certificate" placeholder="资格证书">
+                </div>
+                <!--  -->
+                <div class="form-group">
+                    <label>老师头像</label>
+                    <button type='button' class="layui-btn layui-black" id="upload_head">
+                        <i class="layui-icon">&#xe67c;</i>
+                        上传老师头像（最大8M）
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label> </label>
+                    <img src="__ROOT__/{$teacher.teacher_head}" alt="请上传图片" id="teacher_head_img">
+                    <input type="hidden" name="teacher_head" value='{$teacher.teacher_head}' id="teacher_head">
+                </div>
+
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-default o-btn" lay-submit lay-filter="save">保存</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="o-panel-footer">
+        </div>
+    </div>
+
+    <script>
+
+        layui.use(['form', 'upload'], function () {
+            var form = layui.form;
+            var upload = layui.upload;
+
+            form.on('submit(save)', function (data) {
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                // console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+
+
+                (function () {
+
+                    var url = '__MODULE__/use/saveField';
+                    var obj = {
+                        table: 'teacher',
+                        id: '{$teacher.teacher_id}',
+                        save: data.field
+                    };
+                    var fun = function (res) {
+                        w(res);
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            layer.msg('接口错误！', {
+                                amin: 6
+                            });
+                            return
+                        }
+
+                        if (res.res >= 0) {
+                            layer.msg('保存成功~');
+
+                        } else {
+                            layer.msg('保存失败~', {
+                                amin: 6
+                            });
+                        }
+
+                    };
+                    $.post(url, obj, fun);
+
+                }());
+
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+
+            //执行实例-上传头像
+            var uploadInst = upload.render({
+                elem: '#upload_head' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                , accept: 'file' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    src: '/teacher/img/',
+                    del_src: '{$teacher.teacher_head}'
+                }
+                , drag: true
+                , done: function (res) {
+                    //上传完毕回调
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+                        $('#teacher_head_img').attr('src', '__ROOT__/' + res.data.src)
+                        $('#teacher_head').val(res.data.src);
+                    }
+                }
+                , error: function (res) {
+                    //请求异常回调
+                    layer.msg('上传文件时出错！', {
+                        anim: 6
+                    });
+                }
+            });
+
+        });
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

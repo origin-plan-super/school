@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{$school.school_title}科目管理</title>
+    <include file="App/Admin/View/component/importComponent.html" />
+    <style>
+        body {
+            padding: 15px;
+            padding-top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- {$school.school_title}科目管理 -->
+
+    <div class="page-header">
+        <h1>
+            <small>{$school.school_title}科目管理</small>
+        </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>
+            科目管理
+        </li>
+        <li class="active">
+            {$school.school_title}科目管理
+        </li>
+        <!-- <li class="active">【{$exam.exam_title}】的课程管理</li> -->
+    </ol>
+
+    <div class="layui-row layui-form">
+        <div class="layui-col-md12">
+
+
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-sm layui-black " data-tips='3' data-color='#666' title='新增{$school.school_title}目' id="add">
+                    <i class="layui-icon">&#xe654;</i>
+                </button>
+                <button class="layui-btn layui-btn-sm layui-black" id="removeAll" data-tips='3' data-color='rgb(253, 51, 51)' title='批量删除'>
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+            <!--  -->
+            <div class="" style="float:right">
+
+                <input type="checkbox" id="openNew" title="新页面打开课程管理" lay-skin="primary" lay-filter="openNew">
+
+                <div class="layui-inline">
+                    <input class="layui-input layui-input-sm" id="key" placeholder="搜索" autocomplete="off">
+                </div>
+                <button class="layui-btn layui-black layui-btn-sm" id="reload" data-type="reload">
+                    <i class="layui-icon">&#xe615;</i>
+                    搜索
+                </button>
+            </div>
+            <!--  -->
+
+        </div>
+    </div>
+
+
+    <div class="form-black">
+        <table id="table" lay-filter="table_filter"></table>
+    </div>
+
+    <script type="text/html" id="barTool">
+
+        <a  class="layui-btn layui-btn-xs layui-black" lay-event="branch-exam" data-tips='4' title='管理课程'>
+            <i class="layui-icon">&#xe614;</i>
+        </a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" data-tips='2' data-color='rgb(253, 51, 51)' title='删除'>
+            <i class="layui-icon">&#xe640;</i>
+        </a>
+    
+    </script>
+
+    <script type="text/html" id="checkboxTpl">
+        <input type="checkbox" name="lock" value="{{d.exam_id}}" title="推荐" lay-filter="is_up" {{ d.is_up == 1 ? 'checked' : '' }}>
+      </script>
+
+    <script>
+        var tableIns;
+        var table;
+
+        if (localStorage.open_is_new == 'true') {
+            $('#openNew').attr('checked', 'checked');
+        }
+
+        layui.use(['table', 'form'], function () {
+            table = layui.table
+                , form = layui.form;
+            //第一个实例
+            tableIns = table.render({
+                id: 'table'
+                // , skin: 'line'
+                , elem: '#table'
+                // , even: true //开启隔行背景
+                , elem: '#table'
+                , url: '__MODULE__/Use/getListWhere' //数据接口
+                , where: {
+                    table: 'exam',
+                    order: 'exam_title asc,add_time desc',
+                    where: {
+                        school_id: '{$school_id}'
+                    }
+                }
+                , response: {
+                    statusCode: 1 //成功的状态码，默认：0
+                }
+                , page: true //开启分页
+                , limit: localStorage.limit == null ? 30 : localStorage.limit
+                // , limits: [5, 10]
+                , cols: [[ //表头s
+                    { type: 'checkbox', width: 50, fixed: 'lfet' }
+                    , { field: 'exam_id', title: 'id', width: 100 }
+                    , { field: 'exam_title', title: '科目名', width: 200, edit: 'text' }
+                    , { field: 'add_time', title: '添加时间', width: 200, sort: true }
+                    , { field: 'edit_time', title: '最新修改时间', width: 200, sort: true }
+                    , { fixed: 'right', width: 200, align: 'center', title: '操作', toolbar: '#barTool' } //这里的toolbar值是模板元素的选择器
+
+                ]]
+            });
+
+
+            //监听工具条
+            table.on('tool(table_filter)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+                if (layEvent === 'del') { //删除
+
+                    layer.confirm('真的删除此条数据吗？', function (index) {
+                        //删除对应行（tr）的DOM结构，并更新缓存
+                        layer.close(index);
+                        //向服务端发送删除指令
+
+                        var delObj = {
+                            table: 'exam',
+                            id: data.exam_id,
+                            link_del: [{
+                                table: 'subject'
+                            }]
+                        };
+
+                        del(delObj, function () {
+                            obj.del();
+                        })
+
+                    });
+                }
+
+                if (layEvent === 'branch-exam') {
+                    //管理科目
+                    // http://127.0.0.1:12138/school/index.php/Admin/exam/showList/exam_id/e3b88f5d51e47e1aeaa1b100dd7b6000
+
+
+                    if ($('#openNew').is(':checked')) {
+                        window.open('__MODULE__/exam/showList/exam_id/' + data.exam_id);
+                    } else {
+                        window.location.href = '__MODULE__/exam/showList/exam_id/' + data.exam_id;
+                    }
+
+
+                }
+
+            });
+
+            form.on('checkbox(openNew)', function (data) {
+
+                if (data.elem.checked) {
+                    localStorage.open_is_new = 'true';
+                } else {
+                    localStorage.removeItem('open_is_new');
+                }
+
+            });
+
+
+
+            /**
+             * 监听单元格编辑
+            */
+            table.on('edit(table_filter)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+                console.log(obj.value); //得到修改后的值
+                console.log(obj.field); //当前编辑的字段名
+                console.log(obj.data); //所在行的所有相关数据  
+
+
+                var save = {
+                    table: 'exam',
+                    id: obj.data.exam_id,
+                    save: {}
+                };
+                save['save'][obj.field] = obj.value;
+                saveInfo(save);
+
+            });
+        });
+
+        /**
+        数据搜索
+        */
+        $(document).on('click', '#reload', function () {
+
+            var key = $('#key').val();
+            var key_where = 'exam_id|exam_title';
+            //执行重载
+            tableIns.reload({
+                page: {
+                    curr: 1 //重新从第 1 页s开始
+                }
+                , where: {
+                    table: 'exam',
+                    key: key,
+                    key_where: key_where
+                }
+                , done: function (res, curr, count) {
+                    //如果是异步请求数据方式，res即为你接口返回的信息。
+                    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                    console.log(res);
+
+                    //得到当前页码
+                    console.log(curr);
+
+                    //得到数据总量
+                    console.log(count);
+                }
+            });
+
+        });
+
+        $('#add').on('click', function () {
+
+            //新增{$school.school_title}科目
+
+            layer.prompt({
+                formType: 2,
+                title: '添加{$school.school_title}科目，换行可添加多个。',
+                area: ['600px', '350px'] //自定义文本域宽高
+            }, function (value, index, elem) {
+
+                var load = layer.load(2);
+
+                var arr = strToArr(value, '\n', function (i, arr, element) {
+
+                    var item = {};
+                    item.exam_title = element;
+                    item.school_id = '{$school_id}';
+                    return item;
+
+                });
+
+                (function () {
+
+                    var url = '__MODULE__/Use/addAll';
+                    var add = {
+                        table: 'exam',
+                        add: arr,
+
+                    };
+                    var fun = function (res) {
+
+                        layer.close(load);
+                        layer.close(index);
+
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            layer.msg('异步接口出错！', {
+                                anim: 6
+                            });
+                            return
+                        }
+
+                        if (res.res > 0) {
+
+                            layer.msg('添加成功~');
+                            tableIns.reload();
+
+                        } else {
+                            layer.msg('添加失败：' + res.msg);
+                        }
+
+                    };
+                    $.post(url, add, fun);
+                }());
+
+
+            });
+            //新增{$school.school_title}科目结束
+        });
+
+        /**
+         * 批量删除
+         */
+        $(document).on('click', '#removeAll', function () {
+            // w('开始批量删除');
+            var o = table.checkStatus('table');
+            if (o.data.length <= 0) {
+                return;
+            }
+
+            layer.confirm('确定删除这些数据？', function (index) {
+
+                var id = [];
+                for (var i = 0; i < o.data.length; i++) {
+                    id[i] = o.data[i].exam_id;
+                }
+
+                var obj = {
+                    table: 'exam',
+                    id: id,
+                    link_del: [{
+                        table: 'subject'
+                    }]
+                };
+
+                delAll(obj, function (params) {
+                    tableIns.reload();
+                });
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

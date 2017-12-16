@@ -1,0 +1,10 @@
+.audio-item{
+	display: none;
+}
+.yes{
+	display: block;
+}
+
+.no{
+	display: none;
+}

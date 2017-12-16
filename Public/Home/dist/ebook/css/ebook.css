@@ -1,0 +1,385 @@
+body {
+    padding-bottom: 100px;
+}
+
+
+/*设置顶部的外边距*/
+
+.detail-all {
+    margin: 10px 0;
+}
+
+
+/*设置row的底边的外边距*/
+
+.detail-row {
+    margin-bottom: 10px;
+}
+
+
+/*设置左上角的图片*/
+
+.detail-top {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.detail-top img {
+    width: 70px;
+    height: 100px;
+    border: 1px solid #a64233;
+    border-radius: 3%;
+}
+
+
+/*右侧信息*/
+
+.detail-9 {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.a-title {
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    padding-bottom: 5px;
+    /* ========== */
+    /* = 换行 = */
+    /* ========== */
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.a-name {
+    font-size: 14px;
+    padding-top: 5px;
+    /*word-wrap: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;*/
+}
+
+
+/*更改bootstrap的样式 选中标签页的切换*/
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #FFFFFF;
+    background-color: #abd596;
+    border: none;
+    height: 35px;
+    border-radius: 4px 4px 0 0;
+    outline: none;
+}
+
+.nav-tabs>li>a {
+    border-radius: 4px 4px 4px 4px;
+    background: #a0a0a0;
+    color: #FFFFFF;
+    border: none;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 5px 10px;
+    border: none;
+}
+
+.nav>li {
+    margin-right: 3px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+
+/*下边对应的样式改动*/
+
+.tab-content>.active {
+    background: #abd596;
+}
+
+
+/*出版信息里边的padding去掉*/
+
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/*设置出版信息里边的左边和右边栏目的样式*/
+
+.detail-3 {
+    text-align: left;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.detail-12 {
+    border-top: 1px solid #a64233;
+    ;
+}
+
+.detail-content {
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+
+/*设置第一个内边距*/
+
+.detail-one-list {
+    padding: 5px 10px;
+}
+
+
+/*内容目录部分*/
+
+.content {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.detail-12 {
+    background: #FFFFFF;
+}
+
+.detail-12 ul {
+    padding: 0 10px;
+    margin: 0;
+}
+
+
+/*有这个title-head   class名的当表头使用*/
+
+.li-item.title-head {
+    /*padding: 5px 2px;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 10px;
+    border-bottom: 1px solid transparent;
+}
+
+
+/*设置图标的大小*/
+
+.li-item i {
+    font-size: 1px;
+    line-height: 20px;
+}
+
+
+/*设置所有li的样式*/
+
+.detail-12 ul li {
+    list-style: none;
+    font-size: 14px;
+    padding: 10px 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* ========== */
+
+
+/* = 工具类 = */
+
+
+/* ========== */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/*1.概述的样式   标题*/
+
+.detail-title {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.icon-right {
+    font-size: 14px;
+}
+
+
+/*改变模态框的背景颜色*/
+
+.modal-content {
+    background-color: #393A3E;
+}
+
+.close {
+    color: white;
+    opacity: 1;
+}
+
+.modal-title {
+    color: #FFFFFF;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+
+/*去掉白线*/
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+
+/*加号变黑*/
+
+.pdf-prev,
+.pdf-next,
+.pdf-zoomout,
+.pdf-zoomin {
+    color: #3d3d3d;
+}
+
+
+/*改变音频的属性*/
+
+audio {
+    /*display: block;*/
+    vertical-align: baseline;
+    width: 100%;
+}
+
+.modal-dialog {
+    width: 0;
+    margin: 0 auto;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0;
+}
+
+.modal.fade.bs-example-modal-lg {
+    padding-right: 0px;
+}
+
+
+/*改变模态框的高度*/
+
+.modal-content {
+    height: 100%;
+}
+
+.modal-dialog.modal-lg {
+    height: 100%;
+}
+
+
+/*去掉模态框的圆角*/
+
+.modal-content {
+    border-radius: 0px;
+}
+
+
+/*显示*/
+
+
+/*隐藏*/
+
+.audio-display audio {
+    display: none;
+}
+
+.audio-display.active audio {
+    display: block;
+}
+
+
+/*切换选项卡后的颜色变化   开始*/
+
+
+/*首先把框架中的active的时候背景颜色去掉  改成透明*/
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: transparent;
+    background-color: transparent;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    background-color: transparent;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background-color: transparent;
+}
+
+
+/*然后设置固定的背景颜色*/
+
+#profile {
+    background: #a0a0a0;
+}
+
+#ebook-title-2 {
+    background: #a0a0a0;
+    color: #FFFFFF;
+}
+
+#ebook-title-1 {
+    background: #abd596;
+    color: #000000;
+}
+
+
+/*改变下边选中的额样式----------添加圆角*/
+
+#home {
+    border-radius: 0 5px 5px 5px;
+}
+
+#profile {
+    border-radius: 5px;
+}
+
+
+/*切换选项卡后的颜色变化   结束*/
+
+
+/*改变图标的颜色*/
+
+.fa {
+    color: #4285f4;
+}

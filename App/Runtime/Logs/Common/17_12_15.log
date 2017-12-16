@@ -1,0 +1,922 @@
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/vendor/bootstrap/css/bootstrap.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000501s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000609s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/vendor/icon/iconfont.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+ERR: 无法加载模块:Vendor
+
+or
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/css/ebook-list.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/js/amazeui.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000941s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/assets/img/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/assets/img/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000707s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001369s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/assets/img/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001379s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/assets/img/14.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/assets/img/16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000514s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:26+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/css/amazeui.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/vendor/icon/iconfont.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000766s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/css/ebook-list.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:27+08:00 ] 127.0.0.1 /school/index.php/vendor/bootstrap/css/bootstrap.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000864s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/css/amazeui.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/vendor/bootstrap/css/bootstrap.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000854s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000668s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/vendor/icon/iconfont.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/css/ebook-list.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/js/amazeui.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000636s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000436s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/12.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000937s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/assets/img/14.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:29+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/icon/iconfont.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000553s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000583s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/css/ebook-list.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001011s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/css/amazeui.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/jquery/jquery.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/bootstrap/css/bootstrap.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000894s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/js/amazeui.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000580s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000725s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000548s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000793s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001356s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001403s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/12.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000519s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/dist/ebook-list/js/ebook-list.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007131s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:31+08:00 ] 127.0.0.1 /school/index.php/assets/img/14.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000691s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000729s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000605s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000857s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/12.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000618s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000811s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T17:11:57+08:00 ] 127.0.0.1 /school/index.php/assets/img/14.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000556s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/view.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000528s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/viewer.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000508s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/demo.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000541s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.compatibility.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000713s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchSwipe.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000667s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000650s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchPDF.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000488s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/jquery/jquery.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000608s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.panzoom.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.mousewheel.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000528s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/js/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/css/pdf.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000794s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/compatibility.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/default_preferences.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/preferences.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+ERR: 无法加载模块:Vendor
+
+r
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/l10n.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000546s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/view_history.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/page_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000501s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/text_layer_builder.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_outline_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001196s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_attachments_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_find_bar.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_find_controller.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000435s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_history.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/secondary_toolbar.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/thumbnail_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/presentation_mode.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000514s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/hand_tool.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000513s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/overlay_manager.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000502s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_properties.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/grab_to_pan.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/hm.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/viewer.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000429s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_viewer.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.036153s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_rendering_queue.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006222s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/debugger.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001630s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/password_prompt.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000553s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.compatibility.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000553s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchSwipe.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchPDF.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.panzoom.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.mousewheel.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/js/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/compatibility.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000358s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/l10n.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000311s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000449s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/ui_utils.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/default_preferences.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000395s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/preferences.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000337s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/download_manager.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/view_history.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000311s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_rendering_queue.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000509s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/page_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/text_layer_builder.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_viewer.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/thumbnail_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:57+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_outline_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_attachments_view.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000371s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_find_bar.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000431s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_find_controller.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000369s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/pdf_history.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/secondary_toolbar.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/presentation_mode.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000356s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/grab_to_pan.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/hand_tool.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000366s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/overlay_manager.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000406s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/password_prompt.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/document_properties.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/debugger.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000523s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/hm.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000767s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:04:58+08:00 ] 127.0.0.1 /school/index.php/vendor/QPDF/viewer.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001575s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/css/pdf.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/font-awesome/css/font-awesome.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000560s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/jquery/jquery.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000631s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000875s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.panzoom.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000713s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchSwipe.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001337s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchPDF.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005807s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/js/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003697s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.mousewheel.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000973s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.compatibility.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000664s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchSwipe.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.touchPDF.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000620s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.panzoom.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000387s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/vendor/pdf/jquery.mousewheel.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-15T18:05:12+08:00 ] 127.0.0.1 /school/index.php/dist/pdf/js/pdf.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+ERR: 无法加载模块:Dist
+

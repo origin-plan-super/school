@@ -1,0 +1,140 @@
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/vendor/bootstrap/css/bootstrap.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000562s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/build/css/build.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/a/css/a.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000598s ]
+ERR: 无法加载模块:Dist
+
+��块:Vendor
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/js/amazeui.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000565s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/build/js/build.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000425s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/17.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/4.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000507s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/vendor/jquery/jquery.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000526s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/15.jpeg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/12.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/vendor/amazeui/js/amazeui.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000629s ]
+ERR: 无法加载模块:Vendor
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001002s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/20.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000444s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/21.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/a/js/a.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+ERR: 无法加载模块:Dist
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/18.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/assets/img/14.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 无法加载模块:Assets
+
+[ 2017-12-12T19:50:25+08:00 ] 127.0.0.1 /school/index.php/dist/build/js/build.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+ERR: 无法加载模块:Dist
+

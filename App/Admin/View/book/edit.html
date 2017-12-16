@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <include file="App/Admin/View/component/impot.comp.html" />
+    <link href="__ADIST__/ctos/ctos.css" rel="stylesheet" type="text/css">
+    <link href="__ADIST__/book/book.css" rel="stylesheet" type="text/css">
+    <link href="__VENDOR__/summernote/summernote.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            padding: 15px;
+            padding-top: 0;
+            padding-bottom: 500px;
+        }
+
+        .o-panel {
+            box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        #book_head_img {
+            max-width: 200px;
+            border-radius: 7px;
+        }
+
+        .placeholder {
+            background-color: #ddd;
+            border: #666 dashed 3px;
+            margin: 10px 0;
+            height: 50px;
+            width: 100%;
+            display: block;
+        }
+    </style>
+
+    <title>【{$book.book_title}】的创作</title>
+</head>
+
+<body>
+    <!-- 写作 -->
+
+    <div class="page-header">
+        <h1 class='text-muted'>{$book.book_title}
+            <small>创作</small>
+        </h1>
+    </div>
+
+    <ol class="breadcrumb">
+        <li>
+            电子书管理
+        </li>
+        <li>
+            电子书列表
+        </li>
+        <li class="active">【{$book.book_title}】的创作</li>
+
+    </ol>
+
+
+    <div class="_box">
+
+        <div class="o-panel">
+            <div class="o-panel-head">
+                <div class="o-panel-title">
+                    发布文章
+                </div>
+            </div>
+            <div class="o-panel-body">
+
+                <form class="layui-form">
+                    <div class="form-group">
+                        <label>文章标题</label>
+                        <input type="text" value="{$book.book_title}" autocomplete="off" class="o-form-control" name="book_title" placeholder="文章标题">
+                    </div>
+                    <div class="form-group" id="is_head">
+                        <label>封面图</label>
+                        <button type='button' class="layui-btn layui-black" id="upload_head">
+                            <i class="layui-icon">&#xe67c;</i>
+                            上传封面图（最大8M）
+                        </button>
+                    </div>
+                    <div class="form-group" id="is_head">
+                        <label> </label>
+                        <img src="__ROOT__/{$book.book_head}" alt="请上传图片" id="book_head_img">
+                        <input type="hidden" name="book_head" value='{$book.book_head}' id="book_head">
+                    </div>
+
+                    <div class="form-group">
+                        <label>文章类型</label>
+                        <select name="book_type" lay-verify="" lay-filter='l1' id="l1">
+                            <option value="">选择文章类型</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>分类</label>
+                        <select name="book_class_id" lay-verify="">
+                            <volist name='book_class' id='vol' empty='没有分类数据'>
+
+                                <if condition='$book["book_class_id"] == $vol["book_class_id"]'>
+                                    <option value="{$vol.book_class_id}" selected>{$vol.book_class_title}</option>
+                                    <else/>
+                                    <option value="{$vol.book_class_id}">{$vol.book_class_title}</option>
+                                </if>
+
+                            </volist>
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>作者</label>
+                        <!-- <textarea cols="5" rows="5" class="o-form-control" name="book_author" placeholder="（在列表中显示）">{$book.book_author}</textarea> -->
+                        <div id="book_author" class='summernote'>{$book.book_author|htmlspecialchars_decode}</div>
+                    </div>
+                    <div class="form-group">
+                        <label>内容简介</label>
+                        <!-- <textarea cols="5" rows="5" class="o-form-control" name="book_author" placeholder="（在列表中显示）">{$book.book_author}</textarea> -->
+                        <div id="book_info" class='summernote'>{$book.book_info|htmlspecialchars_decode}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>出版信息</label>
+                        <!-- <textarea cols="5" rows="5" class="o-form-control" name="book_author" placeholder="（在列表中显示）">{$book.book_author}</textarea> -->
+                        <div id="book_info_2" class='summernote'>{$book.book_info_2|htmlspecialchars_decode}</div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="button" class="btn btn-default o-btn" lay-submit lay-filter="save">保存</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="o-panel-footer">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page-header">
+        <h1 class='text-muted'>{$book.book_title}
+            <small>章节列表</small>
+        </h1>
+    </div>
+    <div class="book-list">
+
+        <div class="o-panel">
+
+            <div class="o-panel-body">
+                <ul id='book_list'>
+
+                    <empty name='book.book_list'>
+                        <li class="book-item" data-item-type=''>
+
+                            <div class="book-item-body">
+
+                                <sapn class="book-item-title">章节</sapn>
+                                <sapn class="book-item-tool">
+                                    <i class='fa fa-header book-item-up' data-tips='3' data-color='#666' title='设置章节头'></i>
+                                    <i class='fa fa-edit book-item-edit' data-tips='3' data-color='#666' title='编辑'></i>
+                                    <i class='fa fa-plus book-item-add' data-tips='3' data-color='#666' title='新增章节'></i>
+                                    <i class='fa fa-arrows book-item-move' data-tips='3' data-color='#666' title='移动'></i>
+                                    <i class='fa fa-remove book-item-remove' data-tips='3' data-color='#E74C3C' title='删除章节'></i>
+                                </sapn>
+
+                            </div>
+
+                            <div class="book-item-footer">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+
+                                        <div class="form-group">
+                                            <label>章节标题</label>
+                                            <input type="text" value="章节" autocomplete="off" class="o-form-control edit-title" placeholder="文章标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>章节类型</label>
+                                            <label>
+                                                视频
+                                                <input type="radio" name="{$i}_item_type" value="video">
+                                            </label>
+                                            <label>
+                                                音频
+                                                <input type="radio" name="{$i}_item_type" value="audio">
+                                            </label>
+                                            <label>
+                                                pdf
+                                                <input type="radio" name="{$i}_item_type" value="pdf">
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <button type='button' class="layui-btn layui-black layui-btn-sm up-file up-video">
+                                                <i class="layui-icon">&#xe67c;</i>
+                                                上传视频
+                                            </button>
+
+                                            <button type='button' class="layui-btn layui-black layui-btn-sm up-file up-audio">
+                                                <i class="layui-icon">&#xe67c;</i>
+                                                上传音频
+                                            </button>
+
+                                            <button type='button' class="layui-btn layui-black layui-btn-sm up-file up-pdf">
+                                                <i class="layui-icon">&#xe67c;</i>
+                                                上传pdf
+                                            </button>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="hidden" class='file-src' value=''>
+
+                                            <div class="file-box">
+                                                <p>
+                                                    <video controls class="video">
+                                                        <source src="" />
+                                                    </video>
+                                                </p>
+                                                <p>
+                                                    <audio controls class="audio">
+                                                        <source src="" />
+                                                    </audio>
+                                                </p>
+                                                <p>
+                                                    <a class="pdf" href="" target="_blank" class="pdf-src">查看pdf</a>
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </li>
+                    </empty>
+
+
+                    <volist name='book.book_list' id='vol' empty='请继续添加章节'>
+
+                        <li class='book-item  <if condition="$vol.is_head == 1">book-head</if>' data-item-type='{$vol.type}'>
+
+                            <div class="book-item-body">
+
+                                <sapn class="book-item-title">{$vol.title}</sapn>
+                                <sapn class="book-item-tool">
+                                    <i class='fa fa-header book-item-up' data-tips='3' data-color='#666' title='设置章节头'></i>
+                                    <i class='fa fa-edit book-item-edit' data-tips='3' data-color='#666' title='编辑'></i>
+                                    <i class='fa fa-plus book-item-add' data-tips='3' data-color='#666' title='新增章节'></i>
+                                    <i class='fa fa-arrows book-item-move' data-tips='3' data-color='#666' title='移动'></i>
+                                    <i class='fa fa-remove book-item-remove' data-tips='3' data-color='#E74C3C' title='删除章节'></i>
+                                </sapn>
+
+                            </div>
+
+                            <div class="book-item-footer">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+
+                                        <div class="form-group">
+                                            <label>章节标题</label>
+                                            <input type="text" value="{$vol.title}" autocomplete="off" class="o-form-control edit-title" placeholder="文章标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>章节类型</label>
+                                            <label>
+                                                视频
+
+                                                <if condition='$vol.type == "video" '>
+                                                    <input type="radio" checked name="{$i}_item_type" value="video">
+                                                    <else/>
+                                                    <input type="radio" name="{$i}_item_type" value="video">
+                                                </if>
+
+                                            </label>
+                                            <label>
+                                                音频
+                                                <if condition='$vol.type == "audio"'>
+
+                                                    <input type="radio" checked name="{$i}_item_type" value="audio">
+                                                    <else/>
+                                                    <input type="radio" name="{$i}_item_type" value="audio">
+
+                                                </if>
+                                            </label>
+                                            <label>
+                                                pdf
+                                                <if condition='$vol.type == "pdf"'>
+
+                                                    <input type="radio" checked name="{$i}_item_type" value="pdf">
+                                                    <else/>
+                                                    <input type="radio" name="{$i}_item_type" value="pdf">
+
+                                                </if>
+                                            </label>
+
+
+
+                                        </div>
+                                        <div class="form-group">
+
+
+                                            <if condition='$vol.type == "video"'>
+
+                                                <button type='button' style="display: block" class="layui-btn layui-black layui-btn-sm up-file up-video">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传视频
+                                                </button>
+
+                                                <else/>
+
+                                                <button type='button' style="display: none" class="layui-btn layui-black layui-btn-sm up-file up-video">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传视频
+                                                </button>
+
+                                            </if>
+
+                                            <if condition='$vol.type == "audio"'>
+
+                                                <button type='button' style="display: block" class="layui-btn layui-black layui-btn-sm up-file up-audio">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传音频
+                                                </button>
+
+                                                <else/>
+
+                                                <button type='button' style="display: none" class="layui-btn layui-black layui-btn-sm up-file up-audio">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传音频
+                                                </button>
+
+                                            </if>
+
+
+
+                                            <if condition='$vol.type == "pdf"'>
+
+
+                                                <button type='button' style="display: block" class="layui-btn layui-black layui-btn-sm up-file up-pdf">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传pdf
+                                                </button>
+
+                                                <else/>
+
+                                                <button type='button' style="display: none" class="layui-btn layui-black layui-btn-sm up-file up-pdf">
+                                                    <i class="layui-icon">&#xe67c;</i>
+                                                    上传pdf
+                                                </button>
+
+
+
+                                            </if>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="hidden" class='file-src' value='{$vol.file_src}'>
+
+                                            <div class="file-box">
+
+                                                <p>
+
+                                                    <if condition='$vol.type == "video"'>
+                                                        <video controls class="video" src='__ROOT__/{$vol.file_src}' style="display: block">
+
+                                                        </video>
+                                                        <else/>
+                                                        <video controls class="video" style="display: none">
+                                                        </video>
+                                                    </if>
+
+
+                                                </p>
+                                                <p>
+
+                                                    <if condition='$vol.type == "audio"'>
+                                                        <audio controls class="audio" src='__ROOT__/{$vol.file_src}' style="display: block">
+
+                                                        </audio>
+                                                        <else/>
+                                                        <audio controls class="audio" style="display: none">
+                                                        </audio>
+                                                    </if>
+
+                                                </p>
+                                                <p>
+
+                                                    <if condition='$vol.type == "pdf"'>
+                                                        <a class="pdf" href="__ROOT__/{$vol.file_src}" style="display: block" target="_blank" class="pdf-src">查看pdf</a>
+                                                        <else/>
+                                                        <a class="pdf" href="__ROOT__/{$vol.file_src}" style="display: none" target="_blank" class="pdf-src">查看pdf</a>
+
+                                                    </if>
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </li>
+                    </volist>
+
+
+                    <!-- <hr> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="__ADIST__/linkage/linkage.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__ADIST__/book/book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/summernote/summernote.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/summernote/lang/summernote-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+
+
+
+        bookTool.init(function () {
+
+            // bookTool.sort();
+            // var list = bookTool.getList();
+            // w(list);
+
+        });
+
+
+        $(function () {
+            $('.summernote').summernote({
+                height: 300,
+                // tabsize: 2,
+                lang: 'zh-CN'
+            });
+        })
+
+
+
+        layui.use(['form', 'upload'], function () {
+            var form = layui.form;
+            upload = layui.upload;
+
+            form.on('submit(save)', function (data) {
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                // console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+
+
+                (function () {
+
+
+                    data.field.book_list = bookTool.getList();
+
+                    data.field.book_author = $('.summernote').eq(0).summernote('code')
+                    data.field.book_info = $('.summernote').eq(1).summernote('code')
+                    data.field.book_info_2 = $('.summernote').eq(2).summernote('code')
+
+                    var url = '__MODULE__/book/saveField';
+                    var obj = {
+                        table: 'book',
+                        id: "{$book.book_id}",
+                        save: data.field
+                    };
+                    var fun = function (res) {
+                        w(res);
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            layer.msg('接口错误！', {
+                                anim: 6
+                            });
+                            return;
+                        }
+
+                        if (res.res >= 0) {
+                            layer.msg('保存成功~');
+
+                        } else {
+                            layer.msg('保存失败~', {
+                                anim: 6
+                            });
+                        }
+
+                    };
+                    $.post(url, obj, fun);
+
+                }());
+
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+
+
+            // 
+
+            //执行实例-上传头像
+            var uploadInst = upload.render({
+                elem: '#upload_head' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                , accept: 'file' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    src: '/book/img/',
+                    del_src: '{$book.book_head}'
+                }
+                , drag: true
+                , done: function (res) {
+                    //上传完毕回调
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+                        $('#book_head_img').attr('src', '__ROOT__/' + res.data.src)
+                        $('#book_head').val(res.data.src);
+                    }
+                }
+                , error: function (res) {
+                    //请求异常回调
+                    layer.msg('上传文件时出错！', {
+                        anim: 6
+                    });
+                }
+            });
+
+            //执行实例-上传视频
+            var uploadInst = upload.render({
+                elem: '.up-file' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                , accept: 'file' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    // src: '/book/video/',
+                    // del_src: '{$book.video}'
+                }
+                , drag: true
+                , before: function () {
+
+                    var item = this.item;
+                    var $parents = $(item).parents('.book-item');
+                    var type = $parents.attr('data-item-type');
+
+                    this.data.src = '/book/' + type + '/';
+                    this.data.del_src = $parents.find('.file-src').val();
+                    w(this.data.del_src);
+
+                }
+                , done: function (res) {
+                    //上传完毕回调
+                    w(res);
+
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+                        var item = this.item;
+                        var $parents = $(item).parents('.book-item');
+                        var type = $parents.attr('data-item-type');
+                        $parents.find('.file-src').val(res.data.src);
+
+                        $parents.find('.video,.audio,.pdf').css('display', 'none');
+
+                        if (type != 'pdf') {
+
+
+                            $parents.find('.' + type).attr('src', '__ROOT__/' + res.data.src);
+                            $parents.find('.' + type).css('display', 'block');
+
+
+                        } else {
+                            $parents.find('.pdf').attr('href', '__ROOT__/' + res.data.src);
+                            $parents.find('.pdf').show();
+                        }
+
+                    }
+                }
+                , error: function (res) {
+                    //请求异常回调
+                    layer.msg('上传文件时出错！', {
+                        anim: 6
+                    });
+                }
+            });
+
+            var arr = [
+                { id: 1, title: 'pdf' },
+                { id: 2, title: '音频' },
+                { id: 3, title: '视频' },
+            ];
+
+
+            for (var i = 0; i < arr.length; i++) {
+                var item = arr[i];
+
+                var selected = '{$book.book_type}' == item.id ? 'selected' : '';
+                $('#l1').append('<option value="' + item.id + '"' + selected + '>' + item.title + '</option>');
+
+            }
+            form.render('select'); //刷新select选择框渲染
+
+            // linkage(arr, form, ['{$book.pages_title}', '{$book.book_type}']);
+
+
+        });
+
+
+
+        //jqueryUI
+
+        //==========================================
+        //jqui
+        $("#book_list").sortable({
+            placeholder: "placeholder", //占位符
+            items: ".book-item", //谁能动
+            handle: ".book-item-move", //拖拽句柄
+            revert: 250,
+            opacity: 0.9,
+            start: function (event, ui) {
+                //开始
+                ui.item.css('transform', 'rotateZ(-3deg)');
+
+            },
+            stop: function (event, ui) {
+                ui.item.removeAttr('style');
+
+                bookTool.sort();
+                // prompt.show({
+                //     text: '放置成功~',
+                // });
+
+            },
+
+        });
+        $("#book_list").disableSelection();
+
+
+
+    </script>
+
+</body>
+
+</html>
