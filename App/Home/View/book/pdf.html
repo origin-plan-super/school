@@ -396,16 +396,16 @@
 
 
 		//			点击顶部右侧的图标返回上一页
-		$(document).on("click", ".fa-times", function () {
+		$(document).on("touchend", ".fa-times", function () {
 			window.history.go(-1);
 			//	window.history.back();
 		})
 		//			当点击pdf文件的时候让导航栏的z-index变高
-		$(".pdfViewer").on("click", ".page", function () {
-			$(".toolbar").css("z-index", "9999");
-			$(".pdf-top").css("z-index", "9999");
-		})
-		$(".pdfViewer").on("touch", ".page", function () {
+		// $(".pdfViewer").on("click", ".page", function () {
+		// 	$(".toolbar").css("z-index", "9999");
+		// 	$(".pdf-top").css("z-index", "9999");
+		// })
+		$(".pdfViewer").on("touchend", ".page", function () {
 			$(".toolbar").css("z-index", "9999");
 			$(".pdf-top").css("z-index", "9999");
 		})
