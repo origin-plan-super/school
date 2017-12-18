@@ -105,7 +105,6 @@ class BookController extends CommonController{
         $book['book_list']=json_decode($book['book_list'],true);
         $this->assign('book',$book);
         
-        
         $this->display();
     }
     public function pdf(){

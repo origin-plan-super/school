@@ -99,7 +99,7 @@
 								<!--1.title-head 这个类名是显示第一个标题的样式 左边右边padding减小-->
 								<!--2.pdf-display 这个类是用来点击x跳转pdf页面的类名-->
 
-								<volist name='book.book_list' id='vol' empty='此电子书没有内容！'>
+								<volist name='book["book_list"]' id='vol' empty='此电子书没有内容！'>
 
 									<if condition="$vol.type == 'audio'">
 										<li class='li-item audio-display <if condition="$vol.is_head == 1">title-head</if>' data-src="__ROOT__/{$vol.file_src}">
