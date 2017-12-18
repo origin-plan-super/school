@@ -157,7 +157,6 @@
 					</video>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!--模态框结束-->
@@ -168,7 +167,7 @@
 	<script type="text/javascript">
 		$(function () {
 			//			pdf
-			$(document).on("click", ".pdf-display", function () {
+			$(document).on("touchend", ".pdf-display", function () {
 				var src = $(this).attr('data-src');
 				var title = $(this).find('span').text();
 				localStorage.pdf_url = src;
@@ -176,9 +175,10 @@
 
 
 				window.location.href = "__CONTROLLER__/pdf";
-			})
+			});
+
 			//			视频
-			$(document).on("click", ".video-display", function () {
+			$(document).on("touchend", ".video-display", function () {
 
 				var src = $(this).attr('data-src');
 
@@ -201,7 +201,7 @@
 			})
 
 			//			音频
-			$(document).on("click", ".audio-display", function () {
+			$(document).on("touchend", ".audio-display", function () {
 
 				var src = $(this).attr('data-src');
 
