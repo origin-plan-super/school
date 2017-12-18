@@ -7,7 +7,7 @@
 	<meta name="google" content="notranslate">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>电子书</title>
+	<title>{$book.book_title}</title>
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
@@ -27,6 +27,10 @@
 		.modal-content {
 			border: none;
 		}
+
+		.fa-play {}
+
+		.fa-pause {}
 	</style>
 </head>
 
@@ -103,9 +107,10 @@
 
 									<if condition="$vol.type == 'audio'">
 										<li class='li-item audio-display <if condition="$vol.is_head == 1">title-head</if>' data-src="__ROOT__/{$vol.file_src}">
-											<span>{$vol.title}</span>
-
-											<i class="fa fa-play fr"></i>
+											<div class="li-item-head">
+												<span>{$vol.title}</span>
+												<i class="fa fa-play fr"></i>
+											</div>
 											<audio controls class="audio-item"></audio>
 										</li>
 
@@ -114,8 +119,10 @@
 									<if condition="$vol.type == 'video'">
 
 										<li class='li-item video-display <if condition="$vol.is_head == 1">title-head</if>' data-src="__ROOT__/{$vol.file_src}">
+
 											<span>{$vol.title}</span>
 											<i class="fa fa-play fr"></i>
+
 										</li>
 
 									</if>
@@ -124,6 +131,7 @@
 										<li class='li-item <if condition="$vol.is_head == 1">title-head</if> pdf-display' data-src="__ROOT__/{$vol.file_src}">
 											<span>{$vol.title}</span>
 											<i class="fa fa-play fr"></i>
+
 										</li>
 
 									</if>
@@ -172,9 +180,8 @@
 				var title = $(this).find('span').text();
 				localStorage.pdf_url = src;
 				localStorage.pdf_title = title;
-
-
 				window.location.href = "__CONTROLLER__/pdf";
+
 			});
 
 			//			视频
@@ -201,11 +208,12 @@
 			})
 
 			//			音频
-			$(document).on("touchend", ".audio-display", function () {
+			$(document).on("touchend", ".audio-display .li-item-head", function () {
+				var $this = $(this);
+				var parent = $this.parent();
 
-				var src = $(this).attr('data-src');
-
-				var _src = $(this).find("audio").attr('src');
+				var src = parent.attr('data-src');
+				var _src = parent.find("audio").attr('src');
 
 
 				$("audio").each(function (index) {
@@ -214,22 +222,22 @@
 
 
 				if (_src == "" || _src == null) {
-					$(this).find("audio").attr('src', src);
+					parent.find("audio").attr('src', src);
 				}
 
 
-				$(this).siblings().removeClass("active");
-				$(this).toggleClass("active");
+				parent.siblings().removeClass("active");
+				parent.toggleClass("active");
 
 
 				//控制暂停 播放的符号
-				$(this).siblings().find(".fa").addClass("fa-play");
-				$(this).siblings().find(".fa").removeClass("fa-pause");
-				$(this).find("i").toggleClass("fa-play");
-				$(this).find("i").toggleClass("fa-pause");
+				parent.siblings().find(".fa").addClass("fa-play");
+				parent.siblings().find(".fa").removeClass("fa-pause");
+				parent.find("i").toggleClass("fa-play");
+				parent.find("i").toggleClass("fa-pause");
 
 
-			})
+			});
 
 		})
 
