@@ -70,10 +70,10 @@
 
 
     <script type="text/html" id="bar1">
-
+<!-- 
         <a class="layui-btn layui-btn-xs layui-black" lay-event="carousel" data-tips='4' title='管理企业预约'>
             <i class="layui-icon">&#xe614;</i>
-        </a>
+        </a> -->
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" data-tips='2' data-color='rgb(253, 51, 51)' title='删除'>
             <i class="layui-icon">&#xe640;</i>
         </a>
@@ -119,7 +119,7 @@
                     , { field: 'subject_title', title: '课程名', width: 100 }
                     // , { field: 'add_time', title: '添加时间', width: 200, sort: true }
                     // , { field: 'edit_time', title: '最新修改时间', width: 200, sort: true }
-                    , { fixed: 'right', width: 200, align: 'center', title: '操作', toolbar: '#bar1' } //这里的toolbar值是模板元素的选择器
+                    , { fixed: 'right', width: 100, align: 'center', title: '操作', toolbar: '#bar1' } //这里的toolbar值是模板元素的选择器
 
                 ]]
             });
