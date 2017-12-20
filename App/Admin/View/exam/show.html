@@ -36,14 +36,15 @@
             <form class="layui-form">
                 <div class="form-group">
                     <label>报名课程</label>
-                    <input type="text" value="{$subject.subject_title}" autocomplete="off" class="o-form-control" name="subject_title" placeholder="昵称">
+                    <input type="text" lay-verify='required' value="{$subject.subject_title}" autocomplete="off" class="o-form-control" name="subject_title"
+                        placeholder="昵称">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>授课老师</label>
                     <input type="text" lay-verify='required' value="{$subject.teacher}" autocomplete="off" class="o-form-control" name="teacher"
                         placeholder="授课老师">
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <label>上课时间</label>
@@ -63,14 +64,14 @@
                         placeholder="教学安排">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>教师简介</label>
                     <textarea cols="30" rows="10" class="o-form-control" name="teacher_info" placeholder="教师简介">{$subject.teacher_info}</textarea>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <label>课程简述</label>
-                    <textarea cols="30" rows="10" class="o-form-control" name="subject_info" placeholder="课程简述">{$subject.subject_info}</textarea>
+                    <textarea cols="30" rows="10" lay-verify='required' class="o-form-control" name="subject_info" placeholder="课程简述">{$subject.subject_info}</textarea>
                 </div>
 
 
