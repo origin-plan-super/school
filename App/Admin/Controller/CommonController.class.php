@@ -21,7 +21,10 @@ class CommonController extends Controller {
     //ThinkPHP提供的构造方法
     public function _initialize() {
         
-        if (empty(session('admin_id'))) {
+        
+        $admin_id=session('admin_id');
+        
+        if (empty($admin_id)) {
             $url=U('Login/login');
             echo "<script>top.location.href='$url'</script>";
             exit ;
