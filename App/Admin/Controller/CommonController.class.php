@@ -23,8 +23,8 @@ class CommonController extends Controller {
         
         
         $admin_id=session('admin_id');
-        
-        if (empty($admin_id)) {
+        $is=  empty($admin_id);
+        if ($is) {
             $url=U('Login/login');
             echo "<script>top.location.href='$url'</script>";
             exit ;
