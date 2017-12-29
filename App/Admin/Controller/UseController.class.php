@@ -247,7 +247,7 @@ class UseController extends CommonController {
             //
         }else{
             
-            $count= $model->count();
+            $count= $model->order($order)->where($where)->count();
             $res['count']=$count;
             $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
             $res['sql']=$model->_sql();

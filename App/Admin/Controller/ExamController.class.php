@@ -75,9 +75,89 @@ class ExamController extends CommonController{
     }
     
     
-    //空操作
-    public function _empty(){
+    /**
+    * 带条件的查询
+    */
+    public function getListWhere(){
+        
+        $get = I('get.');
+        $table = strtolower($get['table']);
+        //创建模型
+        $model = M($table);
+        
+        //定制分页-start
+        $page=$get['page'];
+        $limit=$get['limit'];
+        
+        $page=($page-1)* $limit;
+        //定制分页-end
+        
+        $where=$get['where']?$get['where']:[];
+        $order=$get['order']?$get['order']:'add_time desc';
+        
+        if(!empty($get['key'])){
+            
+            $key=$get['key'];
+            
+            $key_where= $get['key_where'] ? $get['key_where']: $table.'_id';
+            
+            $where[$key_where] = array(
+            'like',
+            "%".$key."%",
+            'OR'
+            );
+            
+            
+            $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
+            $res['sql']=$model->_sql();
+            
+            
+            $res['count']=$model->where($where)->count();
+        }else{
+            
+            $count= $model->order($order)->where($where)->count();
+            $res['count']=$count;
+            $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
+            $res['sql']=$model->_sql();
+            
+        }
+        
+        
+        //转换时间戳
+        $result=   toTime($result);
+        //统计数量
+        $model=M('order');
+        foreach ($result as $key => $value) {
+            $subject_id=$value['subject_id'];
+            $num=$value['num'];
+            $where=[];
+            $where['subject_id']=$subject_id;
+            $count = $model->where($where)->count();
+            $sub=$num-$count;
+            if($sub<=0){
+                $sub="<span class='layui-badge'>已满员</span>";
+            }
+            $result[$key]['sub']=$sub;
+        }
+        
+        
+        
+        if(!IS_AJAX){
+            dump($result);
+            die;
+        }
+        if($result){
+            $res['res']=$res['count'];
+            $res['code']=1;
+            $res['data']= $result;
+            $res['msg']= $result;
+        }else{
+            $res['code']=-1;
+            $res['msg']='没有数据！';
+        }
+        
+        echo json_encode($res);
+        
         
     }
-    
 }

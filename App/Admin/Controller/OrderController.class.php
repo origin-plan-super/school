@@ -70,6 +70,7 @@ class OrderController extends CommonController{
         //转换时间戳
         $result=   toTime($result);
         
+        
         //找到课程信息
         $subject=M('subject');
         $exam=M('exam');
@@ -77,23 +78,28 @@ class OrderController extends CommonController{
         
         foreach ($result as $key => $value) {
             
+            
             $where=[];
             $where['subject_id']=$value['subject_id'];
-            
             $subject_info = $subject->where($where)->find();
+            if($subject_info){
+                $result[$key] = array_merge($result[$key],$subject_info);
+            }
             
             //找exam
             $where=[];
             $where['exam_id']=$subject_info['exam_id'];
             $exam_info = $exam->where($where)->find();
-            
-            
+            if($exam_info){
+                $result[$key] = array_merge($result[$key],$exam_info);
+            }
             //找school
             $where=[];
             $where['school_id']=$exam_info['school_id'];
             $school_info = $school->where($where)->find();
-            // $school_info['school_title']='<span class="label label-danger">'.$school_info['school_title'].'</span>';
-            $result[$key] = array_merge($result[$key],$subject_info,$exam_info,$school_info);
+            if($school_info){
+                $result[$key] = array_merge($result[$key],$school_info);
+            }
             
         }
         
