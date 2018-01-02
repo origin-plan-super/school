@@ -128,12 +128,9 @@ class ExamController extends CommonController{
         //统计数量
         $model=M('order');
         foreach ($result as $key => $value) {
+            
             $subject_id=$value['subject_id'];
-            $num=$value['num'];
-            $where=[];
-            $where['subject_id']=$subject_id;
-            $count = $model->where($where)->count();
-            $sub=$num-$count;
+            $sub = updatePeople($subject_id);
             if($sub<=0){
                 $sub="<span class='layui-badge'>已满员</span>";
             }

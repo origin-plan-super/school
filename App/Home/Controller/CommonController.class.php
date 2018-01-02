@@ -22,6 +22,7 @@ class CommonController extends Controller {
     public function _initialize() {
         // session('user_id','13914896237');
         
+        
         //判断cookie的账户密码能用不
         $user_id= cookie('user_id');
         $user_pwd= cookie('user_pwd');
@@ -38,7 +39,6 @@ class CommonController extends Controller {
             //密码不正确，清空一下缓存
             session(null);
         }
-        
         
         if (empty(session('user_id'))) {
             $url=U('Login/login');

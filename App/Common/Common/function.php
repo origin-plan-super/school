@@ -224,3 +224,30 @@ function set_mkdir($src) {
         }
     }
 }
+
+
+//更新人数
+function updatePeople($subject_id){
+    //取出课程数据>_<
+    $model= M('subject');
+    $where=[];
+    $where['subject_id']=$subject_id;
+    $subject=$model->where($where)->find();
+    $sub=$subject['sub'];
+    // //取出课程数据>end<
+    
+    // //取出订单数据>_<
+    // $order=M('order');//订单模型
+    // $num=$subject['num'];//课程设置的人员数量
+    // $count = $order->where($where)->count();//计算订单中报名的数量
+    // $sub=$num-$count;//相减
+    // //取出订单数据>end<
+    
+    // //记录剩余人数>_<
+    // // $save=[];
+    // // $save['sub']=$sub;
+    // // M('subject')->where($where)->save($save);
+    // //记录剩余人数>end<
+    return $sub;
+    
+}

@@ -37,12 +37,25 @@ class SubjectController extends CommonController{
             $this->assign('type',I('type'));
         }
         
-        $model=M('order');
-        $count=$model->where($where)->count();
-        $isbm=$subject['num']>$count;
+        //人数判断
+        $sub = updatePeople($subject_id);
+        $isbm=$sub>0;
         $this->assign('isbm',$isbm);
-        $this->display();
         
+        //人数判断end
+        
+        
+        
+        //当前用户是否已经报名判断
+        $user_id=session('user_id');
+        $model=M('order');
+        $where=[];
+        $where['user_id']=$user_id;
+        $where['subject_id']=$subject_id;
+        $use=  $model->where($where)->find();
+        //未报名就是true，已报名就是false
+        $this->assign('use',$use===null);
+        $this->display();
         
     }
     
@@ -52,6 +65,8 @@ class SubjectController extends CommonController{
     */
     public function enlist($subject_id){
         
+        //已报名判断;
+        
         
         //满员判断
         $model=M('subject');
@@ -59,10 +74,7 @@ class SubjectController extends CommonController{
         $where['subject_id']=$subject_id;
         $subject=$model->where($where)->find();
         
-        $model=M('order');
-        $count=$model->where($where)->count();
-        $isbm=$subject['num']>$count;
-        if(!$isbm){
+        if($subject['sub']<=0){
             //满员
             $url=U('subject/subject','subject_id='.$subject_id);
             echo "<script>top.location.href='$url'</script>";
@@ -109,6 +121,12 @@ class SubjectController extends CommonController{
                 $result=$model->add($add);
                 
                 if($result){
+                    //成功后需要修改剩余人数
+                    $model=M('subject');
+                    $where=[];
+                    $where['subject_id']=$subject_id;
+                    $model->where($where)->setDec('sub'); // 剩余人数-1
+                    
                     $this->success('报名成功！',U('Subject/subject','subject_id='.$add['subject_id']),2);
                 }
                 
@@ -117,7 +135,6 @@ class SubjectController extends CommonController{
         }else{
             $_repeat_code=  setRepeat();
             $this->assign('_repeat_code',$_repeat_code);
-            
             $this->display();
         }
     }

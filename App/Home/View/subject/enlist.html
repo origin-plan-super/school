@@ -37,6 +37,7 @@
 
 				<input type="hidden" name="type" value='{$Think.get.type}'>
 				<input type="hidden" name="subject_id" value='{$Think.get.subject_id}'>
+				<input type="hidden" name="user_id" value='{$Think.session.user_id}'>
 				<input type="hidden" name="_repeat_code" value='{$_repeat_code}'>
 
 				<div class="row sign-all">
@@ -79,6 +80,7 @@
 			<!-- 学生报名 -->
 			<form id="a-form" class="layui-form" action="" method="post">
 				<input type="hidden" name="subject_id" value='{$Think.get.subject_id}'>
+				<input type="hidden" name="user_id" value='{$Think.session.user_id}'>
 				<input type="hidden" name="_repeat_code" value='{$_repeat_code}'>
 
 				<div class="row sign-all">
@@ -87,7 +89,7 @@
 					</div>
 					<div class="col-xs-8 sign-list-8">
 						<!-- 必填 -->
-						<input type="text" lay-verify='required' name="user_name" placeholder="请输入姓名">
+						<input type="text" lay-verify='required' value="{$Think.session.user_name}" name="user_name" placeholder="请输入姓名">
 					</div>
 				</div>
 				<div class="row sign-all">
@@ -130,10 +132,18 @@
 					</div>
 					<div class="col-xs-8 sign-list-8">
 						<!-- 必填 -->
-						<input type="text" lay-verify='required' name='user_phone' placeholder="请输入手机号">
+						<input type="text" lay-verify='required' name='user_phone' value="{$Think.session.user_phone}" placeholder="请输入手机号">
 					</div>
 				</div>
-				<button type="submit" disabled='disabled' lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+				<if condition='$Think.session.admin_id == "root"'>
+
+					<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">（管理模式）暂未到报名时间！</button>
+					<else/>
+					<button type="submit" disabled='disabled' lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+
+				</if>
+				<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+				
 				<!--  -->
 			</form>
 		</if>
