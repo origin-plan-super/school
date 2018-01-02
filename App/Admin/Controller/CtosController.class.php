@@ -170,6 +170,7 @@ class CtosController extends Controller{
     
     public function ctos(){
         
+        die;
         ec('执行所有密码加密处理……');
         
         $model=M('user');
