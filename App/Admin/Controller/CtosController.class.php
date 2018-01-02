@@ -33,7 +33,6 @@ class CtosController extends Controller{
     //主
     public function index(){
         
-        
         $this->display();
         
     }
@@ -167,6 +166,33 @@ class CtosController extends Controller{
             }
             
         }
+    }
+    
+    public function ctos(){
+        
+        ec('执行所有密码加密处理……');
+        
+        $model=M('user');
+        
+        $result=    $model->select();
+        dump($result);
+        
+        foreach ($result as $key => $value) {
+            
+            $pwd=$value['user_pwd'];
+            $id=$value['user_id'];
+            $pwd=md5($pwd.__KEY__);
+            $where=[];
+            $where['user_id']=$id;
+            $save=[];
+            $save['user_pwd']=$pwd;
+            $model->where($where)->save($save);
+            
+        }
+        $result=    $model->select();
+        dump($result);
+        ec('执行完毕！');
+        
     }
     
     

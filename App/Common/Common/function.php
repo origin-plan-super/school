@@ -251,3 +251,6 @@ function updatePeople($subject_id){
     return $sub;
     
 }
+function ec($str){
+    echo "<div style='font-size:14px;padding:10px 0;'>$str<div>";
+}
