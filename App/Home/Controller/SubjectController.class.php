@@ -40,9 +40,7 @@ class SubjectController extends CommonController{
         $model=M('order');
         $count=$model->where($where)->count();
         $isbm=$subject['num']>$count;
-        
         $this->assign('isbm',$isbm);
-        
         $this->display();
         
         
@@ -54,10 +52,24 @@ class SubjectController extends CommonController{
     */
     public function enlist($subject_id){
         
+        
+        //满员判断
+        $model=M('subject');
+        $where=[];
+        $where['subject_id']=$subject_id;
+        $subject=$model->where($where)->find();
+        
+        $model=M('order');
+        $count=$model->where($where)->count();
+        $isbm=$subject['num']>$count;
+        if(!$isbm){
+            //满员
+            $url=U('subject/subject','subject_id='.$subject_id);
+            echo "<script>top.location.href='$url'</script>";
+            die;
+        }
+        
         if(IS_POST){
-            
-            
-            
             if(!isRepeat()){
                 //重复提交
                 $url=U('Index/index');
@@ -103,8 +115,6 @@ class SubjectController extends CommonController{
             }
             
         }else{
-            
-            
             $_repeat_code=  setRepeat();
             $this->assign('_repeat_code',$_repeat_code);
             

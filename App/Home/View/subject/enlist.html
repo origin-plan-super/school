@@ -133,7 +133,8 @@
 						<input type="text" lay-verify='required' name='user_phone' placeholder="请输入手机号">
 					</div>
 				</div>
-				<button type="submit" lay-submit disabled='disabled' lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+				<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+				<!-- disabled='disabled' -->
 			</form>
 		</if>
 
@@ -149,7 +150,6 @@
 		layui.use('form', function () {
 			var form = layui.form;
 			form.on('submit(*)', function (data) {
-
 			});
 
 		});
