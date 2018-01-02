@@ -21,6 +21,7 @@ class LoginController extends Controller{
     //ThinkPHP提供的构造方法
     public function _initialize() {
         
+        
         $app_name = M('config')->getField('app_name');
         C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
     }
@@ -41,9 +42,15 @@ class LoginController extends Controller{
             $where['user_id']=$user_id;
             $user=$model->where($where)->find();
             
+            $user_pwd = md5($post['user_pwd'].__KEY__);
+            
+            
             if($user['user_pwd']===$user_pwd){
                 //登录成功
                 session('user_id',$user_id);
+                cookie('user_id',$user_id,157788000);  //设置cookie
+                cookie('user_pwd',$user_pwd,157788000);  //设置cookie
+                
                 $url=U('Index/index');
                 $res['res']=1;
                 $res['msg']=$url;
@@ -82,7 +89,7 @@ class LoginController extends Controller{
                 $add['user_id']=$post['user_phone'];
                 $add['user_phone']=$post['user_phone'];
                 $add['user_name']=$post['user_name'];
-                $add['user_pwd']=$post['user_pwd'];
+                $add['user_pwd']=md5($post['user_pwd'].__KEY__);
                 $add['add_time']=time();
                 $add['edit_time']=time();
                 //=========sql区
