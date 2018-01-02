@@ -1,68 +1,81 @@
 /*去掉框架中的轮播图中的左箭头*/
+
 .am-slider-default .am-direction-nav a:before {
-	content: none;
+    content: none;
 }
+
+
 /*去掉框架中的轮播图中的右箭头*/
+
 .am-slider-default .am-direction-nav a.am-next:before {
     content: none;
 }
+
+
 /*轮播图下边的小圆点隐藏*/
+
 .am-slider-default .am-control-nav {
     display: none;
 }
+
+
 /*把button中的字体改小*/
-.col-xs-4 button{
-	font-size: 15px;
+
+.col-xs-4 button {
+    /* font-size: 15px; */
 }
 
+
 /*标题的样式*/
-.exam-title{
-	width: 100%;
-	height: 35px;
-	line-height: 35px;
-	text-align: left;
-	padding: 0px 10px;
-	background: #dddddd;
-	margin-bottom: 20px;
+
+.exam-title {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: left;
+    padding: 0px 10px;
+    background: #dddddd;
+    margin-bottom: 20px;
+    font-size: 18px;
 }
+
+
 /*改变button按钮的颜色*/
 
 
-
-
-
-
 /*把index.css的内容拿过来 开始*/
+
+
 /*改变框架中的轮播图的小圆点的位置*/
 
 .am-slider-default .am-control-nav {
-	bottom: 10px;
+    bottom: 10px;
 }
 
 
 /*改变选中的选项卡的样式*/
 
 .am-tabs-d2 .am-tabs-nav>.am-active {
-	text-decoration: none;
-	position: relative;
-	background-color: #fff;
-	border-bottom: 2px solid #828282;
-	color: #a64233;
+    text-decoration: none;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 2px solid #828282;
+    color: #a64233;
 }
 
 
 /*改变未选中的选项卡的背景颜色*/
 
 .am-tabs-d2 .am-tabs-nav li {
-	background: #d5d6db;
+    background: #d5d6db;
 }
 
 
 /*未选中的选项卡的样式*/
 
 .am-tabs-d2 .am-tabs-nav a {
-	text-decoration: none;
-	color: #a64233;
+    text-decoration: none;
+    color: #a64233;
 }
 
 
@@ -70,48 +83,47 @@
 
 .am-btn-warning:hover,
 .am-btn-warning:focus {
-	background-color: transparent;
+    background-color: transparent;
 }
+
 .am-btn-warning {
     color: #fff;
-     background-color: transparent; 
+    background-color: transparent;
     border-color: #F37B1D;
 }
-
-
 
 .am-btn-warning:hover,
 .am-btn-warning:focus,
 .am-btn-warning:active,
 .am-btn-warning.am-active,
 .am-dropdown.am-active .am-btn-warning.am-dropdown-toggle {
-	color: #000000;
-	border-color: #a64233;
+    color: #000000;
+    border-color: #a64233;
 }
 
 
 /*改变选中a标签的样式*/
 
 .am-tabs-d2 .am-tabs-nav>.am-active a {
-	line-height: 40px;
-	color: #a64233;
-	text-decoration: none;
+    line-height: 40px;
+    color: #a64233;
+    text-decoration: none;
 }
 
 
 /*改变三角形的样式*/
 
 .am-tabs-d2 .am-tabs-nav>.am-active:after {
-	position: absolute;
-	width: 0;
-	height: 0;
-	bottom: 0px;
-	left: 50%;
-	margin-left: -5px;
-	border: 6px rgba(0, 0, 0, 0) solid;
-	content: "";
-	z-index: 1;
-	border-bottom-color: #828282;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -5px;
+    border: 6px rgba(0, 0, 0, 0) solid;
+    content: "";
+    z-index: 1;
+    border-bottom-color: #828282;
 }
 
 
@@ -122,64 +134,64 @@
 
 .am-btn:focus,
 .am-btn:active:focus {
-	outline: thin dotted;
-	outline: 0px auto -webkit-focus-ring-color;
-	outline-offset: 0;
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0;
 }
 
 
 /*去掉下边卡片的边框*/
 
 .am-tabs-bd {
-	border: 1px solid transparent;
+    border: 1px solid transparent;
 }
 
 
 /*改变下边图片的透明度*/
 
 .a-opacity {
-	opacity: 0.4;
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
+    opacity: 0.4;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
 
 
 /*改变框架中的button的样式*/
 
 .am-btn {
-	width: 90px;
-	margin-bottom: 20px;
-	padding: 0.5em 0;
-	background-image: url(../../../assets/img/13.jpg);
-	color: #000000;
-	/*background-position: center center;*/
-	font-size: 18px;
+    width: 90px;
+    margin-bottom: 20px;
+    padding: 0.5em 0;
+    background-image: url(../../../assets/img/13.jpg);
+    color: #000000;
+    /*background-position: center center;*/
+    font-size: 18px;
 }
 
 
 /*去掉bootstrap的栅格中的padding*/
 
 .col-xs-4 {
-	padding-right: 0;
-	padding-left: 0;
-	text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
 }
 
 
 /*更改两个标签页的字体*/
 
 .a-font {
-	font-weight: bold;
-	font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
 }
-
-
 
 .am-btn-warning {
-	/*color: #fff;*/
-	/*background-color: #a64233;*/
-	border-color: #a64233;
-	/*opacity: 0.8;*/
+    /*color: #fff;*/
+    /*background-color: #a64233;*/
+    border-color: #a64233;
+    /*opacity: 0.8;*/
 }
+
+
 /*把index.css的内容拿过来  结束*/
