@@ -54,6 +54,19 @@
         </li>
     </ol>
 
+
+
+    <form class="layui-form" action="">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">报名：</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="" title="报名" checked>
+            </div>
+        </div>
+        <!-- aCGPhMr8sMVP -->
+    </form>
+
     <div class="container-fluid">
         <div class="row" id="eApp">
 
@@ -70,6 +83,24 @@
 
 
     <script src="__VENDOR__/qrious/qrious.js"></script>
+
+
+    <script>
+        //Demo
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+    </script>
+
+
+
+
     <script>
 
         var list = [
@@ -90,7 +121,8 @@
         var eApp = new Vue({
             el: '#eApp',
             data: {
-                items: list
+                // items: list
+                items: []
             },
             methods: {
                 e: function (index) {
@@ -137,7 +169,7 @@
                 }
             }
         });
-        eApp.update();
+        // eApp.update();
 
 
 

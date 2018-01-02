@@ -18,10 +18,7 @@ namespace Home\Controller;
 use Think\Controller;
 class PaperController extends CommonController{
     
-    //构造函数
-    public function _initialize(){
-        
-    }
+    
     //主
     public function originality(){
         

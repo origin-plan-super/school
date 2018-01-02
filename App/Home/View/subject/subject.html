@@ -10,6 +10,12 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/examInfo/css/examInfo.css" />
+	<style>
+		a[disabled='disabled'] {
+			background-color: #777 !important;
+			border: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -87,7 +93,11 @@
 				<span id="sign-time">{$subject.subject_info}</span>
 			</div>
 		</div>
-		<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" class="am-btn am-btn-primary am-btn-block a-sing">立即报名</a>
+		<if condition='$isbm'>
+			<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" class="am-btn am-btn-primary am-btn-block a-sing">立即报名</a>
+			<else/>
+			<a href="#" class="am-btn am-btn-primary am-btn-block a-sing" disabled='disabled'>已满员</a>
+		</if>
 
 	</div>
 

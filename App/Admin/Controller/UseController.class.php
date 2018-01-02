@@ -234,23 +234,15 @@ class UseController extends CommonController {
             
             
             $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
-            $res['sql']=$model->_sql();
-            
-            // dump($where);
-            // dump($result);
-            // echo($model->_sql());
-            // die;
             
             
             $res['count']=$model->where($where)->count();
             
-            //
         }else{
             
             $count= $model->order($order)->where($where)->count();
             $res['count']=$count;
             $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
-            $res['sql']=$model->_sql();
             
         }
         

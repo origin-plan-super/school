@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/layui/css/layui.css" />
+
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .input-item {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+        }
+
+        .input-item-submit {
+            display: block;
+            width: 100%;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #cccccc;
+            text-align: center;
+        }
+
+        .form {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--顶部大图开始-->
+    <div class="hongqiao-top">
+        <img src="__ASSETS__/img/1.jpg" />
+    </div>
+    <!--顶部大图结束-->
+    <!-- 登录 -->
+
+    <form class="form layui-form">
+
+        <h3>__APPNAME__</h3>
+        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_id' class="input-item" placeholder="请输入账户（手机号）">
+        <input type="text" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item" placeholder="请输入密码">
+        <button lay-submit class="input-item-submit" lay-filter='*'>登录</button>
+
+    </form>
+    <!-- 登录end -->
+
+    <!--作品展示结束-->
+    <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //各种基于事件的操作，下面会有进一步介绍
+            form.on('submit(*)', function (data) {
+                var obj = data.field;
+                var fun = function (res) {
+                    try {
+                        res = JSON.parse(res);
+                    } catch (error) {
+                        //转换错误
+                        return
+
+                    }
+                    if (res.res >= 1) {
+
+                        layer.msg('登录成功！正在为您跳转！');
+
+                        setTimeout(function () {
+                            window.location.href = res.msg;
+                        }, 500);
+
+                        return;
+                    } else {
+                        layer.msg('密码错误！', {
+                            anim: 6
+                        });
+                    }
+
+
+                };
+                $.post('__CONTROLLER__/login', obj, fun);
+
+                return false;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

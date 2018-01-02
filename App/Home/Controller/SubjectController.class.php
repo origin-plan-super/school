@@ -37,6 +37,11 @@ class SubjectController extends CommonController{
             $this->assign('type',I('type'));
         }
         
+        $model=M('order');
+        $count=$model->where($where)->count();
+        $isbm=$subject['num']>$count;
+        
+        $this->assign('isbm',$isbm);
         
         $this->display();
         
@@ -95,10 +100,7 @@ class SubjectController extends CommonController{
                     $this->success('报名成功！',U('Subject/subject','subject_id='.$add['subject_id']),2);
                 }
                 
-                
             }
-            
-            
             
         }else{
             

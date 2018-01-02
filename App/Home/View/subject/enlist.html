@@ -10,6 +10,15 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/enlist/css/enlist.css" />
+	<style>
+		button[disabled="disabled"] {
+			background-color: #ddd !important;
+			color: #000;
+			border: none;
+			font-weight: 400;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -124,7 +133,7 @@
 						<input type="text" lay-verify='required' name='user_phone' placeholder="请输入手机号">
 					</div>
 				</div>
-				<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">提交信息</button>
+				<button type="submit" lay-submit disabled='disabled' lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
 			</form>
 		</if>
 
