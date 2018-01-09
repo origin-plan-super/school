@@ -20,7 +20,6 @@ class CommonController extends Controller {
     
     //ThinkPHP提供的构造方法
     public function _initialize() {
-        // session('user_id','13914896237');
         
         
         //判断cookie的账户密码能用不
@@ -34,6 +33,7 @@ class CommonController extends Controller {
         
         if($user['user_pwd']===$user_pwd){
             //密码正确，就不重新登录了
+            
             session('user_id',$user_id);
         }else{
             //密码不正确，清空一下缓存
