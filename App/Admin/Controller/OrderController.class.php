@@ -59,11 +59,13 @@ class OrderController extends CommonController{
             
         }else{
             
-            $count= $model->count();
-            $res['count']=$count;
+            
             $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
             $res['sql']=$model->_sql();
             
+            
+            $count= $model->order($order)->where($where)->count();
+            $res['count']=$count;
         }
         
         
@@ -93,6 +95,7 @@ class OrderController extends CommonController{
             if($exam_info){
                 $result[$key] = array_merge($result[$key],$exam_info);
             }
+            
             //找school
             $where=[];
             $where['school_id']=$exam_info['school_id'];
@@ -102,14 +105,27 @@ class OrderController extends CommonController{
             }
             
         }
+        //筛选学校
+        
+        $school_id=I('school_id');
+        
+        $arr=[];
         
         
+        foreach ($result as $key => $value) {
+            
+            if($value['school_id']==$school_id){
+                $arr[] = $value;
+            }
+            
+        }
         
-        if($result){
+  
+        if($arr){
             $res['res']=$res['count'];
             $res['code']=1;
-            $res['data']= $result;
-            $res['msg']= $result;
+            $res['data']= $arr;
+            $res['msg']= $arr;
         }else{
             $res['code']=-1;
             $res['msg']='没有数据！';
@@ -117,12 +133,22 @@ class OrderController extends CommonController{
         echo json_encode($res);
         
         
-        
-        
     }
     
     
     public function showList(){
+        
+        $school_id=  I('school_id');
+        
+        
+        $model=M('school');
+        $where=[];
+        $where['school_id']=$school_id;
+        $school=$model->where($where)->find();
+        
+        $this->assign('school',$school);
+        
+        
         $this->display();
     }
     

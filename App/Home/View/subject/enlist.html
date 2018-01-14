@@ -139,7 +139,6 @@
 					</div>
 				</div>
 
-
 				<!-- <button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">（管理模式）暂未到报名时间！</button> -->
 				<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">立即报名</button>
 				<if condition='$Think.session.admin_id == "root"'>
@@ -162,6 +161,59 @@
 		layui.use('form', function () {
 			var form = layui.form;
 			form.on('submit(*)', function (data) {
+				var field = data.field;
+
+
+				$.post('', field, function (res) {
+
+
+					try {
+
+						res = JSON.parse(res);
+						console.log(res);
+
+						if (res.res > -3) {
+							//成功
+
+							layer.msg('报名失败~您已经报过名！');
+							setTimeout(function () {
+								window.location.href = res.url;
+							}, 500);
+						}
+
+
+						if (res.res > 0) {
+							//成功
+
+							layer.msg('报名成功~正在为您跳转！');
+							setTimeout(function () {
+								window.location.href = res.url;
+							}, 500);
+
+						}
+
+						if (res.res == -2) {
+							//满员
+							layer.msg('报名失败~已满员！');
+							setTimeout(function () {
+								window.location.href = res.url;
+							}, 500);
+						}
+
+
+						if (res.res > -1) {
+							//重复提交
+
+						}
+					} catch (error) {
+						console.error(error);
+					}
+
+
+				})
+
+
+				return false;
 			});
 
 		});

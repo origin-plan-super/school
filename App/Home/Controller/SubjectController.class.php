@@ -67,6 +67,17 @@ class SubjectController extends CommonController{
         
         //已报名判断;
         
+        //当前用户是否已经报名判断
+        $user_id=session('user_id');
+        $model=M('order');
+        $where=[];
+        $where['user_id']=$user_id;
+        $where['subject_id']=$subject_id;
+        $use=  $model->where($where)->find();
+        
+        
+        // ===============
+        
         
         //满员判断
         $model=M('subject');
@@ -74,24 +85,60 @@ class SubjectController extends CommonController{
         $where['subject_id']=$subject_id;
         $subject=$model->where($where)->find();
         
-        if($subject['sub']<=0){
-            //满员
-            $url=U('subject/subject','subject_id='.$subject_id);
-            echo "<script>top.location.href='$url'</script>";
-            die;
-        }
+        
         
         if(IS_POST){
+            //未报名就是true，已报名就是false
+            $is=($use===null);
+            if($is){
+                //还未报名
+                
+            }else{
+                
+                //已报名
+                $url=U('subject/subject','subject_id='.$subject_id);
+                $res['res']=-3;
+                $res['url']= $url;
+                echo json_encode($res);
+                die;
+            }
+            
+            
+            if($subject['sub']<=0){
+                //满员
+                $url=U('subject/subject','subject_id='.$subject_id);
+                
+                
+                $res['res']=-2;
+                $res['url']= $url;
+                //=========判断end=========
+                
+                //=========输出json=========
+                echo json_encode($res);
+                //=========输出json=========
+                
+                die;
+            }
+            
             if(!isRepeat()){
                 //重复提交
                 $url=U('Index/index');
-                echo "<script>top.location.href='$url'</script>";
+                
+                $res['res']=-1;
+                $res['url']= $url;
+                //=========判断end=========
+                
+                //=========输出json=========
+                echo json_encode($res);
+                //=========输出json=========
+                
                 exit;
             }
             
             
+            
             if(I('post.type')==3){
-                
+                //企业
                 $add=I('post.');
                 unset($add['type']);
                 
@@ -109,7 +156,7 @@ class SubjectController extends CommonController{
                 }
                 
             }else{
-                
+                //学生
                 //=========添加数据=========
                 $model=M('order');
                 //=========添加数据区
@@ -127,12 +174,42 @@ class SubjectController extends CommonController{
                     $where['subject_id']=$subject_id;
                     $model->where($where)->setDec('sub'); // 剩余人数-1
                     
-                    $this->success('报名成功！',U('Subject/subject','subject_id='.$add['subject_id']),2);
+                    //=========判断=========
+                    $res['res']=1;
+                    $res['url']=U('Subject/subject','subject_id='.$add['subject_id']);
+                    //=========判断end=========
+                    
+                    //=========输出json=========
+                    echo json_encode($res);
+                    //=========输出json=========
+                    
                 }
                 
             }
             
         }else{
+            
+            
+            //未报名就是true，已报名就是false
+            $is=($use===null);
+            if($is){
+                //还未报名
+                
+            }else{
+                //已报名
+                $url=U('subject/subject','subject_id='.$subject_id);
+                echo "<script>top.location.href='$url'</script>";
+                die;
+            }
+            
+            
+            
+            if($subject['sub']<=0){
+                //满员
+                $url=U('subject/subject','subject_id='.$subject_id);
+                echo "<script>top.location.href='$url'</script>";
+                die;
+            }
             $_repeat_code=  setRepeat();
             $this->assign('_repeat_code',$_repeat_code);
             $this->display();
