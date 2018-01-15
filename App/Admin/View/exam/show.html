@@ -73,7 +73,15 @@
                         <option value="">选择一个分类</option>
 
                         <volist name='exam' id="vol">
-                            <option value="{$vol.exam_id}">{$vol.exam_title}</option>
+
+                            <if condition=' $subject.exam_id ==  $vol.exam_id '>
+
+                                <option value="{$vol.exam_id}" selected>{$vol.exam_title}</option>
+                                <else/>
+                                <option value="{$vol.exam_id}">{$vol.exam_title}</option>
+
+                            </if>
+
                         </volist>
 
                     </select>
