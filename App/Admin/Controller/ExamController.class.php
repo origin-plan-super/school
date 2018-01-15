@@ -62,15 +62,30 @@ class ExamController extends CommonController{
         
         $get=I('get.');
         $subject_id=$get['subject_id'];
-        
-        
         $this->assign('subject_id',$subject_id);
         $model=M('subject');
         $where=[];
         $where['subject_id']=$subject_id;
         $subject=$model->where($where)->find();
         $this->assign('subject',$subject);
+        
+        
+        //获得分类
+        $model=M('exam');
+        
+        //判断是哪个学校的
+        $where=[];
+        $where['exam_id']=$subject['exam_id'];
+        $exam =  $model->where($where)->find();
+        
+        
+        //获得分类
+        $where=[];
+        $where['school_id']= $exam['school_id'];
+        $exam =  $model->where($where)->select();
+        $this->assign('exam',$exam);
         $this->display();
+        
         
     }
     

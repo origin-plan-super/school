@@ -232,10 +232,7 @@ class UseController extends CommonController {
             'OR'
             );
             
-            
             $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
-            
-            
             $res['count']=$model->where($where)->count();
             
         }else{
