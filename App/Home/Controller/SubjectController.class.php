@@ -48,13 +48,27 @@ class SubjectController extends CommonController{
         
         //当前用户是否已经报名判断
         $user_id=session('user_id');
+        
+        
+        
         $model=M('order');
         $where=[];
         $where['user_id']=$user_id;
         $where['subject_id']=$subject_id;
         $use=  $model->where($where)->find();
         //未报名就是true，已报名就是false
-        $this->assign('use',$use===null);
+        
+        if($use===null){
+            //未报名
+            $this->assign('use',true);
+            
+        }else{
+            //已报名
+            $this->assign('use',false);
+            
+        }
+        
+        
         $this->display();
         
     }

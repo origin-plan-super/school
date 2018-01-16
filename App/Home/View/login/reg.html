@@ -44,6 +44,14 @@
         h3 {
             margin: 10px;
         }
+
+        * {
+            font-size: 18px;
+        }
+
+        .text-lg {
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -58,10 +66,10 @@
     <form class="form layui-form">
 
         <h3>__APPNAME__</h3>
-        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_name' class="input-item" placeholder="请输入真实姓名">
-        <input type="text" value="" lay-verify='required' autocomplete="false" name="user_phone" class="input-item" placeholder="请输入真实电话">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item" placeholder="请输入密码">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd2" class="input-item" placeholder="请再次输入密码">
+        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_name' class="input-item text-lg" placeholder="请输入真实姓名">
+        <input type="text" value="" lay-verify='required' autocomplete="false" name="user_phone" class="input-item text-lg" placeholder="请输入真实电话">
+        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item text-lg" placeholder="请输入密码">
+        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd2" class="input-item text-lg" placeholder="请再次输入密码">
         <button lay-submit class="input-item-submit" lay-filter='*'>绑定</button>
 
     </form>

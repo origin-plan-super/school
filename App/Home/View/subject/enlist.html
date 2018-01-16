@@ -17,6 +17,10 @@
 			border: none;
 			font-weight: 400;
 		}
+
+		.text-lg {
+			font-size: 20px;
+		}
 	</style>
 
 </head>
@@ -120,15 +124,16 @@
 						<input type="text" lay-verify='required' name="user_age" placeholder="请输入年龄">
 					</div>
 				</div>
-				<div class="row sign-all">
+
+				<!-- <div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>邮箱</span>
 					</div>
 					<div class="col-xs-8 sign-list-8">
-						<!-- 选填 -->
 						<input type="email" name="user_mail" placeholder="请输入邮箱">
 					</div>
-				</div>
+				</div> -->
+
 				<div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>手机号</span>
@@ -158,8 +163,13 @@
 	<script src="__HDIST__/enlist/js/enlist.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 
+
 		layui.use('form', function () {
 			var form = layui.form;
+
+
+
+
 			form.on('submit(*)', function (data) {
 				var field = data.field;
 
@@ -168,9 +178,8 @@
 					try {
 
 						res = JSON.parse(res);
-						console.log(res);
 
-						if (res.res > -3) {
+						if (res.res == -3) {
 							//成功
 
 							layer.msg('报名失败~您已经报过名！');
@@ -180,13 +189,16 @@
 						}
 
 
-						if (res.res > 0) {
+						if (res.res == 1) {
 							//成功
 
-							layer.msg('报名成功~正在为您跳转！');
-							setTimeout(function () {
-								window.location.href = res.url;
-							}, 500);
+							layer.open({
+								title: '报名成功！',
+								content: '<span class="text-lg">报名成功！请在5个工作日内，携带身份证及学费到校办理入学手续。总校：吴中路810号201，分校：龙柏二村70号3楼教务处。</span>',
+								end: function () {
+									window.location.href = res.url;
+								}
+							});
 
 						}
 
@@ -199,7 +211,7 @@
 						}
 
 
-						if (res.res > -1) {
+						if (res.res == -1) {
 							//重复提交
 
 						}

@@ -93,19 +93,20 @@
 				<span id="sign-time">{$subject.subject_info}</span>
 			</div>
 		</div>
-		<if condition='$isbm'>
 
-			<if condition='$use'>
-				<!-- true就是未报名，可以继续报名 -->
+		<if condition='$use'>
+			<!-- true就是未报名，可以继续报名 -->
+
+			<if condition='$isbm'>
 				<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" class="am-btn am-btn-primary am-btn-block a-sing">去报名</a>
 				<else/>
-				<!-- false就是已报名，不能继续报名 -->
-				<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" disabled='disabled' class="am-btn am-btn-primary am-btn-block a-sing">您已报过名</a>
+				<a href="#" class="am-btn am-btn-primary am-btn-block a-sing" disabled='disabled'>已满员</a>
 			</if>
 
 			<else/>
+			<!-- false就是已报名，不能继续报名 -->
+			<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" disabled='disabled' class="am-btn am-btn-primary am-btn-block a-sing">您已报过名</a>
 
-			<a href="#" class="am-btn am-btn-primary am-btn-block a-sing" disabled='disabled'>已满员</a>
 		</if>
 
 	</div>

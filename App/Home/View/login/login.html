@@ -46,7 +46,11 @@
         }
 
         * {
-            font-size: 18px
+            font-size: 25px;
+        }
+
+        .text-lg {
+            font-size: 20px;
         }
     </style>
 </head>
@@ -62,11 +66,11 @@
     <form class="form layui-form">
 
         <h3>__APPNAME__</h3>
-        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_id' class="input-item" placeholder="请输入账户（手机号）">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item" placeholder="请输入密码">
-        <button lay-submit class="input-item-submit" lay-filter='*'>登录</button>
+        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_id' class="input-item text-lg" placeholder="请输入账户（手机号）">
+        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item text-lg" placeholder="请输入密码">
+        <button lay-submit class="input-item-submit text-lg" lay-filter='*'>登录</button>
         <p style="margin-top:20px;">
-            <a href="__CONTROLLER__/reg">去注册></a>
+            <a href="__CONTROLLER__/reg" style="font-size:25px;color:#f00">去注册></a>
         </p>
 
     </form>
