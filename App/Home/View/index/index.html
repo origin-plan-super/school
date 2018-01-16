@@ -15,6 +15,10 @@
 
 			background-image: url(__ASSETS__/img/13.jpg);
 		}
+
+		.col-xs-6 {
+			padding: 10px;
+		}
 	</style>
 </head>
 
@@ -25,6 +29,8 @@
 			<ul class="am-slides">
 				<li>
 					<img src="__ASSETS__/img/1.jpg">
+					<h1 style="text-align: center;position: absolute;bottom:10px;width:100%">报名时间：1月22日9时-3月9日16时</h1>
+
 				</li>
 				<li>
 					<img src="__ASSETS__/img/2.jpg">
@@ -38,7 +44,6 @@
 			</ul>
 		</div>
 		<!--首页轮播结束-->
-
 		<!--选项卡开始-->
 		<div data-am-widget="tabs" class="am-tabs am-tabs-d2">
 			<ul class="am-tabs-nav am-cf">
@@ -55,9 +60,9 @@
 						<div class="row">
 
 							<volist name='master' id='vol' empty='没有相关数据'>
-								<div class="col-xs-4">
+								<div class="col-xs-6">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
-										<button type="button" class="am-btn am-btn-warning am-round">{$vol.exam_title}</button>
+										<button type="button" class="am-btn block am-btn-warning am-round">{$vol.exam_title}</button>
 									</a>
 								</div>
 							</volist>
@@ -71,9 +76,9 @@
 						<div class="row">
 
 							<volist name='branch' id='vol' empty='没有相关数据'>
-								<div class="col-xs-4">
+								<div class="col-xs-6">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
-										<button type="button" class="am-btn am-btn-warning am-round">{$vol.exam_title}</button>
+										<button type="button" class="am-btn block am-btn-warning am-round">{$vol.exam_title}</button>
 									</a>
 								</div>
 							</volist>

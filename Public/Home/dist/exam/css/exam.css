@@ -160,7 +160,7 @@
 /*改变框架中的button的样式*/
 
 .am-btn {
-    width: 90px;
+    width: 100%;
     margin-bottom: 20px;
     padding: 0.5em 0;
     background-image: url(../../../assets/img/13.jpg);
