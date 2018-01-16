@@ -15,10 +15,6 @@
 
 			background-image: url(__ASSETS__/img/13.jpg);
 		}
-
-		.col-xs-6 {
-			padding: 10px;
-		}
 	</style>
 </head>
 
@@ -60,7 +56,7 @@
 						<div class="row">
 
 							<volist name='master' id='vol' empty='没有相关数据'>
-								<div class="col-xs-6">
+								<div class="col-xs-4">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
 										<button type="button" class="am-btn block am-btn-warning am-round">{$vol.exam_title}</button>
 									</a>
@@ -76,7 +72,7 @@
 						<div class="row">
 
 							<volist name='branch' id='vol' empty='没有相关数据'>
-								<div class="col-xs-6">
+								<div class="col-xs-4">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
 										<button type="button" class="am-btn block am-btn-warning am-round">{$vol.exam_title}</button>
 									</a>
