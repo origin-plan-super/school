@@ -87,8 +87,13 @@
 
             //各种基于事件的操作，下面会有进一步介绍
             form.on('submit(*)', function (data) {
-
-
+                //中文验证
+                if (!chkstrlen(data.field.user_name)) {
+                    layer.msg('姓名只能输入中文！', {
+                        anim: 6
+                    });
+                    return false;
+                }
                 if (data.field.user_pwd !== data.field.user_pwd2) {
 
                     layer.msg('两次输入的密码不一致', {
@@ -136,6 +141,17 @@
                 return false;
             });
         });
+
+
+        function chkstrlen(str) {
+            //Unicode编码中的汉字范围
+            var reg = /^[\u2E80-\u9FFF]+$/;
+            if (reg.test(str)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     </script>
 
 </body>
