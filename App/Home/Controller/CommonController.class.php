@@ -26,6 +26,7 @@ class CommonController extends Controller {
         $user_id= cookie('user_id');
         $user_pwd= cookie('user_pwd');
         
+        
         $model=M('user');
         $where=[];
         $where['user_id']=$user_id;
@@ -39,6 +40,8 @@ class CommonController extends Controller {
             //密码不正确，清空一下缓存
             session(null);
         }
+        
+        
         
         if (empty(session('user_id'))) {
             $url=U('Login/login');
