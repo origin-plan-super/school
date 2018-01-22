@@ -191,7 +191,7 @@
         $(document).on('click', '#reload', function () {
 
             var key = $('#key').val();
-            var key_where = 'order_id|subject_id|user_name|user_sex|user_mail|user_phone';
+            var key_where = 'order_id|subject_id|user_name|user_phone';
             //执行重载
             tableIns.reload({
                 page: {
@@ -200,7 +200,9 @@
                 , where: {
                     table: 'order',
                     key: key,
-                    key_where: key_where
+                    key_where: key_where,
+                    school_id: '{$school.school_id}',
+
                 }
                 , done: function (res, curr, count) {
                     //如果是异步请求数据方式，res即为你接口返回的信息。

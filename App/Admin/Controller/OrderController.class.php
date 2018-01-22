@@ -53,21 +53,23 @@ class OrderController extends CommonController{
             'OR'
             );
             
-            $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
+            // $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
+            $result= $model->order($order)->where($where)->select();
             // $res['sql']=$model->_sql();
-            $res['count']=$model->where($where)->count();
+            // $res['count']=$model->where($where)->count();
+            
             
         }else{
             
             
-            $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
-            $res['sql']=$model->_sql();
+            // $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
+            // $res['sql']=$model->_sql();
             
+            $result= $model->order($order)->where($where)->select();
             
-            $count= $model->order($order)->where($where)->count();
-            $res['count']=$count;
+            // $count= $model->order($order)->where($where)->count();
+            // $res['count']=$count;
         }
-        
         
         //转换时间戳
         $result=   toTime($result);
@@ -105,13 +107,11 @@ class OrderController extends CommonController{
             }
             
         }
+        
         //筛选学校
         
         $school_id=I('school_id');
-        
         $arr=[];
-        
-        
         foreach ($result as $key => $value) {
             
             if($value['school_id']==$school_id){
@@ -119,8 +119,10 @@ class OrderController extends CommonController{
             }
             
         }
+        $res['count']=count($arr);
+        //取区间
+        $arr=array_slice($arr ,$page,$limit);
         
-  
         if($arr){
             $res['res']=$res['count'];
             $res['code']=1;
