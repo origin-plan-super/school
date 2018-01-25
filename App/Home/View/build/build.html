@@ -23,18 +23,11 @@
 		<!--首页轮播开始-->
 		<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
 			<ul class="am-slides">
-				<li>
-					<img src="__ASSETS__/img/1.jpg">
-				</li>
-				<li>
-					<img src="__ASSETS__/img/2.jpg">
-				</li>
-				<li>
-					<img src="__ASSETS__/img/17.png">
-				</li>
-				<li>
-					<img src="__ASSETS__/img/4.jpg">
-				</li>
+				<volist name='carousel' id='vol'>
+					<li>
+						<img src="__ROOT__/{$vol.carousel_url}">
+					</li>
+				</volist>
 			</ul>
 		</div>
 		<!--首页轮播结束-->
