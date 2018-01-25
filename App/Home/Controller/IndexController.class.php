@@ -31,19 +31,10 @@ class IndexController extends CommonController {
         $where['school_id']=2;
         $branch=$model->where($where)->select();
         
-        //找轮播图
-        $model=M('carousel');
-        $carousel=$model->order('sort asc')->select();
-        $this->assign('carousel',$carousel);
-        
-        
         
         
         $this->assign('master',$master);
         $this->assign('branch',$branch);
-        
-        
-        
         
         
         $this -> display();
