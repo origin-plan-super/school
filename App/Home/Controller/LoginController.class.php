@@ -23,6 +23,11 @@ class LoginController extends Controller{
         
         $app_name = M('config')->getField('app_name');
         C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
+        
+        //找轮播图
+        $model=M('carousel');
+        $carousel=$model->order('sort asc')->select();
+        $this->assign('carousel',$carousel);
     }
     
     //主

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
     <link rel="stylesheet" type="text/css" href="__VENDOR__/layui/css/layui.css" />
 
@@ -57,15 +58,21 @@
 
 <body>
     <!--顶部大图开始-->
-    <div class="hongqiao-top">
-        <img src="__ASSETS__/img/1.jpg" />
+    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+        <ul class="am-slides">
+            <volist name='carousel' id='vol'>
+                <li>
+                    <img src="__ROOT__/{$vol.carousel_url}">
+                </li>
+            </volist>
+        </ul>
     </div>
     <!--顶部大图结束-->
     <!-- 登录 -->
 
     <form class="form layui-form">
 
-        <h1>__APPNAME__</h1>
+        <h1 style="font-size:25px">__APPNAME__</h1>
         <input type="text" value="" lay-verify='required' autocomplete="false" name='user_name' class="input-item text-lg" placeholder="请输入真实姓名">
         <input type="text" value="" lay-verify='required|phone' autocomplete="false" name="user_phone" class="input-item text-lg"
             placeholder="请输入真实电话">

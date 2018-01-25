@@ -13,9 +13,15 @@
 </head>
 
 <body>
-	<!--顶部大图开始-->
-	<div class="hongqiao-top">
-		<img src="__ASSETS__/img/1.jpg" />
+	<!--首页轮播开始-->
+	<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+		<ul class="am-slides">
+			<volist name='carousel' id='vol'>
+				<li>
+					<img src="__ROOT__/{$vol.carousel_url}">
+				</li>
+			</volist>
+		</ul>
 	</div>
 	<!--顶部大图结束-->
 
