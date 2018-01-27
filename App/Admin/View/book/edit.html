@@ -79,7 +79,7 @@
                         <label>封面图</label>
                         <button type='button' class="layui-btn layui-black" id="upload_head">
                             <i class="layui-icon">&#xe67c;</i>
-                            上传封面图 
+                            上传封面图
                         </button>
                     </div>
                     <div class="form-group" id="is_head">
@@ -558,17 +558,18 @@
 
                     this.data.src = '/book/' + type + '/';
                     this.data.del_src = $parents.find('.file-src').val();
-                    w(this.data.del_src);
+                    layer.load(2);
 
                 }
                 , done: function (res) {
                     //上传完毕回调
                     w(res);
-
+                    layer.closeAll('loading');
                     this.data.del_src = res.data.src;
 
                     if (res.code == 0) {
                         //成功
+                        layer.msg('上传成功！');
                         var item = this.item;
                         var $parents = $(item).parents('.book-item');
                         var type = $parents.attr('data-item-type');
@@ -588,10 +589,13 @@
                             $parents.find('.pdf').show();
                         }
 
+                    } else {
+                        layer.msg('上传失败！');
                     }
                 }
                 , error: function (res) {
                     //请求异常回调
+                    layer.closeAll('loading');
                     layer.msg('上传文件时出错！', {
                         anim: 6
                     });
