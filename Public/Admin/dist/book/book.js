@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 function test(params) {
+
     var item = $('.book-item').clone().removeClass('hide');
 
 
@@ -66,7 +67,16 @@ var bookTool = (function () {
 
                 $new.find('.edit-title').val('章节标题');
                 $new.find('.book-item-title').text('章节标题');
+                $new.find('video').attr('src', '');
+                $new.find('audio').attr('src', '');
+                $new.find('.pdf').attr('href', '');
                 $parent.after($new);
+                // video
+                // 
+                setLoad($new.find('.up-file'));
+
+                console.log('添加');
+
 
             });
 

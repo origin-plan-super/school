@@ -430,7 +430,7 @@
 
     <script>
 
-
+        var upload;
 
         bookTool.init(function () {
 
@@ -449,98 +449,14 @@
             });
         })
 
+        function setLoad(el) {
 
-
-        layui.use(['form', 'upload'], function () {
-            var form = layui.form;
-            upload = layui.upload;
-
-            form.on('submit(save)', function (data) {
-                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
-                // console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
-
-
-                (function () {
-
-
-                    data.field.book_list = bookTool.getList();
-
-                    data.field.book_author = $('.summernote').eq(0).summernote('code')
-                    data.field.book_info = $('.summernote').eq(1).summernote('code')
-                    data.field.book_info_2 = $('.summernote').eq(2).summernote('code')
-
-                    var url = '__MODULE__/book/saveField';
-                    var obj = {
-                        table: 'book',
-                        id: "{$book.book_id}",
-                        save: data.field
-                    };
-                    var fun = function (res) {
-                        w(res);
-                        try {
-                            res = JSON.parse(res);
-                        } catch (error) {
-                            //转换错误
-                            layer.msg('接口错误！', {
-                                anim: 6
-                            });
-                            return;
-                        }
-
-                        if (res.res >= 0) {
-                            layer.msg('保存成功~');
-
-                        } else {
-                            layer.msg('保存失败~', {
-                                anim: 6
-                            });
-                        }
-
-                    };
-                    $.post(url, obj, fun);
-
-                }());
-
-                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-            });
-
-
-            // 
-
-            //执行实例-上传头像
-            var uploadInst = upload.render({
-                elem: '#upload_head' //绑定元素
-                , url: '__MODULE__/Use/upFile' //上传接口
-                , accept: 'file' //允许上传的文件类型
-                // , exts: 'csv'
-                // , auto: false
-                , data: {
-                    src: '/book/img/',
-                    del_src: '{$book.book_head}'
-                }
-                , drag: true
-                , done: function (res) {
-                    //上传完毕回调
-                    this.data.del_src = res.data.src;
-
-                    if (res.code == 0) {
-                        //成功
-                        $('#book_head_img').attr('src', '__ROOT__/' + res.data.src)
-                        $('#book_head').val(res.data.src);
-                    }
-                }
-                , error: function (res) {
-                    //请求异常回调
-                    layer.msg('上传文件时出错！', {
-                        anim: 6
-                    });
-                }
-            });
+            var elem = el ? el : '.up-file';
+            console.log(elem);
 
             //执行实例-上传视频
             var uploadInst = upload.render({
-                elem: '.up-file' //绑定元素
+                elem: elem //绑定元素
                 , url: '__MODULE__/Use/upFile' //上传接口
                 , accept: 'file' //允许上传的文件类型
                 // , exts: 'csv'
@@ -601,6 +517,97 @@
                     });
                 }
             });
+
+
+        }
+
+        layui.use(['form', 'upload'], function () {
+            var form = layui.form;
+            upload = layui.upload;
+
+            form.on('submit(save)', function (data) {
+                // console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+                // console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+                // console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+
+
+                (function () {
+
+
+                    data.field.book_list = bookTool.getList();
+
+                    data.field.book_author = $('.summernote').eq(0).summernote('code')
+                    data.field.book_info = $('.summernote').eq(1).summernote('code')
+                    data.field.book_info_2 = $('.summernote').eq(2).summernote('code')
+
+                    var url = '__MODULE__/book/saveField';
+                    var obj = {
+                        table: 'book',
+                        id: "{$book.book_id}",
+                        save: data.field
+                    };
+                    var fun = function (res) {
+                        w(res);
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            layer.msg('接口错误！', {
+                                anim: 6
+                            });
+                            return;
+                        }
+
+                        if (res.res >= 0) {
+                            layer.msg('保存成功~');
+
+                        } else {
+                            layer.msg('保存失败~', {
+                                anim: 6
+                            });
+                        }
+
+                    };
+                    $.post(url, obj, fun);
+
+                }());
+
+                return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+
+
+            // 
+            setLoad();
+            //执行实例-上传头像
+            var uploadInst = upload.render({
+                elem: '#upload_head' //绑定元素
+                , url: '__MODULE__/Use/upFile' //上传接口
+                , accept: 'file' //允许上传的文件类型
+                // , exts: 'csv'
+                // , auto: false
+                , data: {
+                    src: '/book/img/',
+                    del_src: '{$book.book_head}'
+                }
+                , drag: true
+                , done: function (res) {
+                    //上传完毕回调
+                    this.data.del_src = res.data.src;
+
+                    if (res.code == 0) {
+                        //成功
+                        $('#book_head_img').attr('src', '__ROOT__/' + res.data.src)
+                        $('#book_head').val(res.data.src);
+                    }
+                }
+                , error: function (res) {
+                    //请求异常回调
+                    layer.msg('上传文件时出错！', {
+                        anim: 6
+                    });
+                }
+            });
+
 
             var arr = [
                 { id: 1, title: 'pdf' },
