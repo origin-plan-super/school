@@ -24,16 +24,15 @@ class BuildController extends CommonController {
         $model=M('exam');
         $where=[];
         $where['school_id']=3;
-        $exam=$model->where($where)->select();
+        $exam=$model->where($where)->order('sort desc')->select();
         $this->assign('exam',$exam);
         
-        
         $model=M('teacher');
-        $teacher=$model->select();
+        $teacher=$model->order('sort desc')->select();
         $this->assign('teacher',$teacher);
         
-        
         $this -> display();
+        
     }
     
     

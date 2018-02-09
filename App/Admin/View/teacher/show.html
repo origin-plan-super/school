@@ -57,42 +57,44 @@ teacher_head
                 </div>
 
                 <div class="form-group">
-                    <label>老师学历</label>
+                    <label>主要经历</label>
                     <input type="text" lay-verify='required' value="{$teacher.teacher_level}" autocomplete="off" class="o-form-control" name="teacher_level"
-                        placeholder="老师学历">
+                        placeholder="主要经历">
+                </div>
+
+
+                <div class="form-group">
+                    <label>授课领域</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teachar_direction}" autocomplete="off" class="o-form-control" name="teachar_direction"
+                        placeholder="授课领域">
                 </div>
 
                 <div class="form-group">
+                    <label>讲课主题</label>
+                    <input type="text" lay-verify='required' value="{$teacher.teacher_major}" autocomplete="off" class="o-form-control" name="teacher_major"
+                        placeholder="讲课主题">
+                </div>
+
+
+
+                <!-- <div class="form-group">
                     <label>毕业院校</label>
                     <input type="text" lay-verify='required' value="{$teacher.teacher_home}" autocomplete="off" class="o-form-control" name="teacher_home"
                         placeholder="毕业院校">
-                </div>
+                </div> -->
 
-                <div class="form-group">
-                    <label>毕业专业</label>
-                    <input type="text" lay-verify='required' value="{$teacher.teacher_major}" autocomplete="off" class="o-form-control" name="teacher_major"
-                        placeholder="毕业专业">
-                </div>
-
-
-                <div class="form-group">
-                    <label>授课方向</label>
-                    <input type="text" lay-verify='required' value="{$teacher.teachar_direction}" autocomplete="off" class="o-form-control" name="teachar_direction"
-                        placeholder="授课方向">
-                </div>
-
-
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>资格证书</label>
                     <input type="text" lay-verify='required' value="{$teacher.teacher_certificate}" autocomplete="off" class="o-form-control"
                         name="teacher_certificate" placeholder="资格证书">
-                </div>
+                </div> -->
+
                 <!--  -->
                 <div class="form-group">
                     <label>老师头像</label>
                     <button type='button' class="layui-btn layui-black" id="upload_head">
                         <i class="layui-icon">&#xe67c;</i>
-                        上传老师头像 
+                        上传老师头像
                     </button>
                 </div>
                 <div class="form-group">

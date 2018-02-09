@@ -22,14 +22,14 @@ class IndexController extends CommonController {
         $model=M('exam');
         $where=[];
         $where['school_id']=1;
-        $master=$model->where($where)->select();
+        $master=$model->where($where)->order('sort desc')->select();
         
         
         //取分校科目
         $model=M('exam');
         $where=[];
         $where['school_id']=2;
-        $branch=$model->where($where)->select();
+        $branch=$model->where($where)->order('sort desc')->select();
         
         
         

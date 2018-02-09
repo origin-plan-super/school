@@ -75,16 +75,15 @@ class BookController extends CommonController{
         }
         
         
-        
         $model=M('book');
         $where['book_class_id']=$book_class[0]['book_class_id'];
-        $book[0]=$model->where($where)->select();
+        $book[0]=$model->where($where)->order('sort desc')->select();
         
         $where['book_class_id']=$book_class[1]['book_class_id'];
-        $book[1]=$model->where($where)->select();
+        $book[1]=$model->where($where)->order('sort desc')->select();
         
         $where['book_class_id']=$book_class[2]['book_class_id'];
-        $book[2]=$model->where($where)->select();
+        $book[2]=$model->where($where)->order('sort desc')->select();
         
         
         $this->assign('book',$book);
