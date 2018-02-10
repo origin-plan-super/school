@@ -15,6 +15,12 @@
 		.user-head {
 			background-image: url(__ASSETS__/img/17.png);
 		}
+
+		.list {
+			background: #efefef;
+			padding: 20px;
+			font-size: 15px;
+		}
 	</style>
 </head>
 
@@ -43,17 +49,18 @@
 			<div class="col-xs-4 sign-list-4">
 				<span>主要经历</span>
 			</div>
-			<div class="col-xs-8 sign-list-8">
+			<div class="col-xs-8 list">
 				<span>{$teacher.teacher_level}</span>
 			</div>
 		</div>
+
 		<!--授课老师结束-->
 
 		<div class="row sign-all">
 			<div class="col-xs-4 sign-list-4">
 				<span>授课领域</span>
 			</div>
-			<div class="col-xs-8 sign-list-8">
+			<div class="col-xs-8 list">
 				<span>{$teacher.teachar_direction}</span>
 			</div>
 		</div>
@@ -73,7 +80,7 @@
 			<div class="col-xs-4 sign-list-4">
 				<span>讲课主题</span>
 			</div>
-			<div class="col-xs-8 sign-list-8">
+			<div class="col-xs-8 list">
 				<span>{$teacher.teacher_major}</span>
 			</div>
 		</div>
