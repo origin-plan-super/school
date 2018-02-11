@@ -15,6 +15,14 @@
 
 			background-image: url(__ASSETS__/img/13.jpg);
 		}
+
+		.now {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			max-width: 100%;
+			display: block;
+			overflow: hidden;
+		}
 	</style>
 </head>
 
@@ -69,7 +77,7 @@
 										<img src="__ROOT__/{$vol.teacher_head}" />
 										<div class="information-all">
 											<span class="build-teacherName information">{$vol.teacher_name}</span>
-											<span class="build-process information">{$vol.teacher_major}</span>
+											<span class="build-process information now">{$vol.teacher_major}</span>
 										</div>
 									</div>
 								</a>
