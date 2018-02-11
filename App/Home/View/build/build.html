@@ -16,12 +16,21 @@
 			background-image: url(__ASSETS__/img/13.jpg);
 		}
 
+
+		.head-img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+		}
+
 		.now {
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			max-width: 100%;
-			display: block;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
 			overflow: hidden;
+			height: 50px;
+			line-height: 1.5;
+
 		}
 	</style>
 </head>
@@ -69,20 +78,23 @@
 				</div>
 				<div data-tab-panel-1 class="am-tab-panel ">
 					<div class="container index-container">
-						<div class="row">
-							<volist name='teacher' id='vol' empty='没有老师信息'>
+						<volist name='teacher' id='vol' empty='没有老师信息'>
+							<div class="row">
 
 								<a href="__MODULE__/teacher/show/teacher_id/{$vol.teacher_id}">
+
 									<div class="col-xs-4">
-										<img src="__ROOT__/{$vol.teacher_head}" />
-										<div class="information-all">
-											<span class="build-teacherName information">{$vol.teacher_name}</span>
-											<span class="build-process information now">{$vol.teacher_major}</span>
-										</div>
+										<img src="__ROOT__/{$vol.teacher_head}" class="head-img" />
 									</div>
+
+									<div class="col-xs-8">
+										<div class="build-teacherName information">{$vol.teacher_name}</div>
+										<div class="now">{$vol.teacher_major}</div>
+									</div>
+
 								</a>
-							</volist>
-						</div>
+							</div>
+						</volist>
 
 					</div>
 				</div>
