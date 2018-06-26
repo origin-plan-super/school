@@ -89,6 +89,15 @@
     <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
     <script>
+
+        function checkNumber(theObj) {
+            var reg = /^[0-9]+.?[0-9]*$/;
+            if (reg.test(theObj)) {
+                return true;
+            }
+            return false;
+        }
+
         layui.use('form', function () {
             var form = layui.form;
 
@@ -101,6 +110,15 @@
                     });
                     return false;
                 }
+
+                // 验证手机号
+                if (!checkNumber(data.field.user_phone)) {
+                    layer.msg('手机号仅能输入数字！', {
+                        anim: 6
+                    });
+                    return false;
+                }
+
                 if (data.field.user_pwd !== data.field.user_pwd2) {
 
                     layer.msg('两次输入的密码不一致', {
