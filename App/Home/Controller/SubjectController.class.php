@@ -1,233 +1,235 @@
 <?php
+
 /**
-* +----------------------------------------------------------------------
-* 创建日期：2017年12月12日
-* 最新修改时间：2017年12月12日
-* +----------------------------------------------------------------------
-* https：//github.com/ALNY-AC
-* +----------------------------------------------------------------------
-* 微信：AJS0314
-* +----------------------------------------------------------------------
-* QQ:1173197065
-* +----------------------------------------------------------------------
-* #####课程控制器#####
-* @author 代码狮
-*
-*/
+ * +----------------------------------------------------------------------
+ * 创建日期：2017年12月12日
+ * 最新修改时间：2017年12月12日
+ * +----------------------------------------------------------------------
+ * https：//github.com/ALNY-AC
+ * +----------------------------------------------------------------------
+ * 微信：AJS0314
+ * +----------------------------------------------------------------------
+ * QQ:1173197065
+ * +----------------------------------------------------------------------
+ * #####课程控制器#####
+ * @author 代码狮
+ *
+ */
 namespace Home\Controller;
+
 use Think\Controller;
-class SubjectController extends CommonController{
-    
+
+class SubjectController extends CommonController
+{
+
     /**
-    * 显示课程信息
-    */
-    public function subject(){
-        
-        $subject_id=I('get.subject_id');
+     * 显示课程信息
+     */
+    public function subject()
+    {
+
+        $subject_id = I('get.subject_id');
         
         
         //取相关科目的课程列表
-        $model=M('subject');
-        $where=[];
-        $where['subject_id']=$subject_id;
-        $subject=$model->where($where)->find();
-        
-        $this->assign('subject',$subject);
-        if(I('type')){
-            $this->assign('type',I('type'));
+        $model = M('subject');
+        $where = [];
+        $where['subject_id'] = $subject_id;
+        $subject = $model->where($where)->find();
+
+        $this->assign('subject', $subject);
+        if (I('type')) {
+            $this->assign('type', I('type'));
         }
         
         //人数判断
         $sub = updatePeople($subject_id);
-        $isbm=$sub>0;
-        $this->assign('isbm',$isbm);
+        $isbm = $sub > 0;
+        $this->assign('isbm', $isbm);
         
         //人数判断end
         
-        
-        
         //当前用户是否已经报名判断
-        $user_id=session('user_id');
-        
-        
-        
-        $model=M('order');
-        $where=[];
-        $where['user_id']=$user_id;
-        $where['subject_id']=$subject_id;
-        $use=  $model->where($where)->find();
+        $user_id = session('user_id');
+
+
+
+        $model = M('order');
+        $where = [];
+        $where['user_id'] = $user_id;
+        $where['subject_id'] = $subject_id;
+        $use = $model->where($where)->find();
         //未报名就是true，已报名就是false
-        
-        if($use===null){
+
+        if ($use === null) {
             //未报名
-            $this->assign('use',true);
-            
-        }else{
+            $this->assign('use', true);
+        } else {
             //已报名
-            $this->assign('use',false);
-            
+            $this->assign('use', false);
         }
-        
-        
+
+
         $this->display();
-        
+
     }
-    
-    
+
+
     /**
-    * 报名
-    */
-    public function enlist($subject_id){
+     * 报名
+     */
+    public function enlist($subject_id)
+    {
         
         //已报名判断;
         
         //当前用户是否已经报名判断
-        $user_id=session('user_id');
-        $model=M('order');
-        $where=[];
-        $where['user_id']=$user_id;
-        $where['subject_id']=$subject_id;
-        $use=  $model->where($where)->find();
+        $user_id = session('user_id');
+        $model = M('order');
+        $where = [];
+        $where['user_id'] = $user_id;
+        $where['subject_id'] = $subject_id;
+        $use = $model->where($where)->find();
         
         
         // ===============
         
         
         //满员判断
-        $model=M('subject');
-        $where=[];
-        $where['subject_id']=$subject_id;
-        $subject=$model->where($where)->find();
-        
-        
-        
-        if(IS_POST){
+        $model = M('subject');
+        $where = [];
+        $where['subject_id'] = $subject_id;
+        $subject = $model->where($where)->find();
+
+
+
+        if (IS_POST) {
             //未报名就是true，已报名就是false
-            $is=($use===null);
-            if($is){
+            $is = ($use === null);
+            if ($is) {
                 //还未报名
-                
-            }else{
+
+            } else {
                 
                 //已报名
-                $url=U('subject/subject','subject_id='.$subject_id);
-                $res['res']=-3;
-                $res['url']= $url;
+                $url = U('subject/subject', 'subject_id=' . $subject_id);
+                $res['res'] = -3;
+                $res['url'] = $url;
                 echo json_encode($res);
                 die;
             }
-            
-            
-            if($subject['sub']<=0){
+
+
+            if ($subject['sub'] <= 0) {
                 //满员
-                $url=U('subject/subject','subject_id='.$subject_id);
-                
-                
-                $res['res']=-2;
-                $res['url']= $url;
+                $url = U('subject/subject', 'subject_id=' . $subject_id);
+
+
+                $res['res'] = -2;
+                $res['url'] = $url;
                 //=========判断end=========
                 
                 //=========输出json=========
                 echo json_encode($res);
                 //=========输出json=========
-                
+
                 die;
             }
-            
-            if(!isRepeat()){
+
+            if (!isRepeat()) {
                 //重复提交
-                $url=U('Index/index');
-                
-                $res['res']=-1;
-                $res['url']= $url;
+                $url = U('Index/index');
+
+                $res['res'] = -1;
+                $res['url'] = $url;
                 //=========判断end=========
                 
                 //=========输出json=========
                 echo json_encode($res);
                 //=========输出json=========
-                
+
                 exit;
             }
-            
-            
-            
-            if(I('post.type')==3){
+
+
+
+            if (I('post.type') == 3) {
                 //企业
-                $add=I('post.');
+                $add = I('post.');
                 unset($add['type']);
                 
                 
                 //=========添加数据=========
-                $model=M('firm');
+                $model = M('firm');
                 //=========添加数据区
-                $add['firm_id']= date('YmdHis').rand(10000,99999);   //生成订单号（预约号）
-                $add['add_time']=time();
-                $add['edit_time']=time();
+                $add['firm_id'] = date('YmdHis') . rand(10000, 99999);   //生成订单号（预约号）
+                $add['add_time'] = time();
+                $add['edit_time'] = time();
                 //=========sql区
-                $result=$model->add($add);
-                if($result){
-                    $this->success('报名成功！',U('build/build','type=3'),2);
+                $result = $model->add($add);
+                if ($result) {
+                    $this->success('报名成功！', U('build/build', 'type=3'), 2);
                 }
-                
-            }else{
+
+            } else {
                 //学生
                 //=========添加数据=========
-                $model=M('order');
+                $model = M('order');
                 //=========添加数据区
-                $add=I('post.');
-                $add['order_id']= date('YmdHis').rand(10000,99999);   //生成订单号（报名号）
-                $add['add_time']=time();//添加时间
-                $add['edit_time']=time();//修改时间
+                $add = I('post.');
+                $add['order_id'] = date('YmdHis') . rand(10000, 99999);   //生成订单号（报名号）
+                $add['add_time'] = time();//添加时间
+                $add['edit_time'] = time();//修改时间
                 //=========sql区
-                $result=$model->add($add);
-                
-                if($result){
+                $result = $model->add($add);
+
+                if ($result) {
                     //成功后需要修改剩余人数
-                    $model=M('subject');
-                    $where=[];
-                    $where['subject_id']=$subject_id;
+                    $model = M('subject');
+                    $where = [];
+                    $where['subject_id'] = $subject_id;
                     $model->where($where)->setDec('sub'); // 剩余人数-1
                     
                     //=========判断=========
-                    $res['res']=1;
-                    $res['url']=U('Subject/subject','subject_id='.$add['subject_id']);
+                    $res['res'] = 1;
+                    $res['url'] = U('Subject/subject', 'subject_id=' . $add['subject_id']);
                     //=========判断end=========
                     
                     //=========输出json=========
                     echo json_encode($res);
                     //=========输出json=========
-                    
+
                 }
-                
+
             }
-            
-        }else{
+
+        } else {
             
             
             //未报名就是true，已报名就是false
-            $is=($use===null);
-            if($is){
+            $is = ($use === null);
+            if ($is) {
                 //还未报名
-                
-            }else{
+
+            } else {
                 //已报名
-                $url=U('subject/subject','subject_id='.$subject_id);
+                $url = U('subject/subject', 'subject_id=' . $subject_id);
                 echo "<script>top.location.href='$url'</script>";
                 die;
             }
-            
-            
-            
-            if($subject['sub']<=0){
+
+
+
+            if ($subject['sub'] <= 0) {
                 //满员
-                $url=U('subject/subject','subject_id='.$subject_id);
+                $url = U('subject/subject', 'subject_id=' . $subject_id);
                 echo "<script>top.location.href='$url'</script>";
                 die;
             }
-            $_repeat_code=  setRepeat();
-            $this->assign('_repeat_code',$_repeat_code);
+            $_repeat_code = setRepeat();
+            $this->assign('_repeat_code', $_repeat_code);
             $this->display();
         }
     }
-    
+
 }

@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
-    <link rel="stylesheet" type="text/css" href="__VENDOR__/layui/css/layui.css" />
-
+    <!-- 必须导入  -->
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.4.11/index.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.4.11/locale/zh-CN.min.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.4.11/theme-chalk/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.4/lib/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.4/lib/vant.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+    <link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.min.css" rel="stylesheet">
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -24,6 +30,7 @@
             font-size: 16px;
             padding: 10px;
             border: none;
+            border-radius: 5px;
         }
 
         .input-item-submit {
@@ -53,42 +60,138 @@
         .text-lg {
             font-size: 20px;
         }
+        .reg-login{
+            border-radius: 15px;
+            font-size: 20px;
+            background-color: #fdc12f;
+            color: #fff;
+        }
     </style>
 </head>
 
 <body>
-    <!--顶部大图开始-->
-    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
-        <ul class="am-slides">
-            <volist name='carousel' id='vol'>
-                <li>
-                    <img src="__ROOT__/{$vol.carousel_url}">
-                </li>
-            </volist>
-        </ul>
+    <div id="App">
+
+        <!--顶部大图开始-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <volist name='carousel' id='vol'>
+                    <div class="swiper-slide">
+                        <img src="__ROOT__/school/{$vol.carousel_url}">
+                    </div>
+                </volist>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!--顶部大图结束-->
+        <!-- 登录 -->
+
+        <div class="form">
+
+            <h1 style="font-size:25px">__APPNAME__</h1>
+            <input v-model='formData.user_name' class="input-item text-lg" placeholder="请输入真实姓名" type="text">
+            <input v-model="formData.user_phone" class="input-item text-lg" placeholder="请输入真实电话" type="text">
+            <input v-model="formData.user_pwd" class="input-item text-lg" placeholder="请输入密码" type="password">
+            <input v-model="formData.user_pwd2" class="input-item text-lg" placeholder="请再次输入密码" type="password">
+            <button class="input-item-submit text-lg reg-login" @click="submit">绑定</button>
+
+        </div>
     </div>
-    <!--顶部大图结束-->
-    <!-- 登录 -->
 
-    <form class="form layui-form">
-
-        <h1 style="font-size:25px">__APPNAME__</h1>
-        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_name' class="input-item text-lg" placeholder="请输入真实姓名">
-        <input type="text" value="" lay-verify='required|phone' autocomplete="false" name="user_phone" class="input-item text-lg"
-            placeholder="请输入真实电话">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item text-lg" placeholder="请输入密码">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd2" class="input-item text-lg" placeholder="请再次输入密码">
-        <button lay-submit class="input-item-submit text-lg" lay-filter='*'>绑定</button>
-
-    </form>
     <!-- 登录end -->
 
     <!--作品展示结束-->
     <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="__VENDOR__/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
     <script>
+
+        var app = new Vue({
+            el: "#App",
+            data: {
+                formData: {
+                    user_name: '',
+                    user_phone: '',
+                    user_pwd: '',
+                    user_pwd2: '',
+                }
+            },
+            mounted() {
+                this.$nextTick(() => {
+                    var mySwiper = new Swiper('.swiper-container', {
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                        },
+                        // 如果需要分页器
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                    })
+                });
+            },
+            methods: {
+                submit() {
+
+                    if (!this.formData.user_name) {
+                        this.$toast('请输入真实姓名！');
+
+                        return;
+                    } else {
+                        if (!chkstrlen(this.formData.user_name)) {
+                            this.$toast('姓名只能输入中文！');
+                            return;
+                        }
+                    }
+                    if (!this.formData.user_phone) {
+                        this.$toast('请输入真实手机！');
+                        return;
+                    } else {
+                        if (!checkNumber(this.formData.user_phone)) {
+                            this.$toast('手机号仅能输入数字！');
+                            return false;
+                        }
+                    }
+                    if (!this.formData.user_pwd) {
+                        this.$toast('请输入密码！');
+                        return;
+                    }
+                    if (!this.formData.user_pwd2) {
+                        this.$toast('请输入再次输入密码！');
+                        return;
+                    }
+
+
+                    if (this.formData.user_pwd != this.formData.user_pwd2) {
+                        this.$toast('两次输入的密码不一致！');
+                        return;
+                    }
+
+
+                    $.post('__CONTROLLER__/reg', this.formData, (res) => {
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            return
+                        }
+                        if (res.res == 0) {
+                            this.$toast('手机号已经绑定！请重新输入或登录');
+                            return;
+                        }
+                        if (res.res > 0) {
+                            this.$toast('绑定成功，正在为您跳转');
+                            setTimeout(function () {
+                                window.location.href = res.msg;
+                            }, 500);
+                        } else {
+                            this.$toast('注册失败！请重试');
+                        }
+                    });
+
+
+
+                }
+            }
+        });
 
         function checkNumber(theObj) {
             var reg = /^[0-9]+.?[0-9]*$/;
@@ -97,77 +200,6 @@
             }
             return false;
         }
-
-        layui.use('form', function () {
-            var form = layui.form;
-
-            //各种基于事件的操作，下面会有进一步介绍
-            form.on('submit(*)', function (data) {
-                //中文验证
-                if (!chkstrlen(data.field.user_name)) {
-                    layer.msg('姓名只能输入中文！', {
-                        anim: 6
-                    });
-                    return false;
-                }
-
-                // 验证手机号
-                if (!checkNumber(data.field.user_phone)) {
-                    layer.msg('手机号仅能输入数字！', {
-                        anim: 6
-                    });
-                    return false;
-                }
-
-                if (data.field.user_pwd !== data.field.user_pwd2) {
-
-                    layer.msg('两次输入的密码不一致', {
-                        anim: 6
-                    });
-
-                    return false;
-                }
-
-                var obj = data.field;
-                var fun = function (res) {
-
-
-                    try {
-                        res = JSON.parse(res);
-                    } catch (error) {
-                        //转换错误
-                        return
-
-                    }
-
-                    if (res.res == 0) {
-
-                        layer.msg('手机号已经绑定！请重新输入或登录', {
-                            anim: 6
-                        });
-
-                        return;
-                    }
-
-                    if (res.res > 0) {
-                        layer.msg('绑定成功，正在为您跳转');
-                        setTimeout(function () {
-                            window.location.href = res.msg;
-                        }, 500);
-                    } else {
-                        layer.msg('注册失败！请重试', {
-                            anim: 6
-                        });
-                    }
-
-                };
-                $.post('__CONTROLLER__/reg', obj, fun);
-
-                return false;
-            });
-        });
-
-
         function chkstrlen(str) {
             //Unicode编码中的汉字范围
             var reg = /^[\u2E80-\u9FFF]+$/;

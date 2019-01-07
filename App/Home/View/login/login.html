@@ -5,16 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
-    <link rel="stylesheet" type="text/css" href="__VENDOR__/layui/css/layui.css" />
+    <!-- 必须导入  -->
     <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/index.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/locale/zh-CN.min.js"></script>
     <link href="https://cdn.bootcss.com/element-ui/2.4.11/theme-chalk/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.4/lib/index.css">
     <script src="https://cdn.jsdelivr.net/npm/vant@1.4/lib/vant.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+    <link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.min.css" rel="stylesheet">
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -82,27 +83,35 @@
             margin-top: 20px;
             font-size: 20px;
         }
+        .swiper-pagination-bullet-active{
+            background-color: #0e90d2;
+        }
+        .swiper-pagination{
+            position: relative;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div id="App">
-        <!--顶部大图开始-->
-        <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
-            <ul class="am-slides">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
                 <volist name='carousel' id='vol'>
-                    <li>
-                        <img src="__ROOT__/{$vol.carousel_url}">
-                    </li>
+                    <div class="swiper-slide">
+                        <img src="__ROOT__/school/{$vol.carousel_url}">
+                    </div>
                 </volist>
-            </ul>
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
+
         <!--顶部大图结束-->
         <!-- 登录 -->
 
         <div class="form">
 
-            <h1 style="font-size:25px">__APPNAME__</h1>
+            <h1 style="font-size:25px;margin:20px 0;">__APPNAME__</h1>
             <input style="margin-bottom:20px" type="text" v-model="user_id" class="input-item text-lg" placeholder="请输入账户（手机号）">
             <input style="margin-bottom:30px" type="password" v-model="user_pwd" class="input-item text-lg" placeholder="请输入密码">
             <button class="input-item-submit text-lg login-btn" @click="submit">登 录</button>
@@ -125,29 +134,37 @@
 
     <!--作品展示结束-->
     <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
-    <script src="__VENDOR__/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
     <script>
+
         var app = new Vue({
             el: "#App",
             data: {
-                msg: 'asd',
                 user_id: '',
                 user_pwd: '',
+            },
+            mounted() {
+                this.$nextTick(() => {
+                    var mySwiper = new Swiper('.swiper-container', {
+                        loop: true, // 循环模式选项
+                        autoplay: {
+                            delay: 3000,//1秒切换一次
+                        },
+                        // 如果需要分页器
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                    })
+                });
             },
             methods: {
                 submit() {
                     if (!this.user_id) {
-                        layer.msg('请输入账户！', {
-                            anim: 6
-                        });
+                        this.$toast('请输入账户！');
                         return;
                     }
                     if (!this.user_pwd) {
-                        layer.msg('请输入密码！', {
-                            anim: 6
-                        });
+                        this.$toast('请输入密码！');
                         return;
                     }
                     $.post('__CONTROLLER__/login', {
@@ -161,20 +178,21 @@
                             return
                         }
                         if (res.res >= 1) {
-                            layer.msg('登录成功！正在为您跳转！');
+                            this.$toast('登录成功！正在为您跳转！');
                             setTimeout(function () {
                                 window.location.href = res.msg;
                             }, 500);
                             return;
                         } else {
-                            layer.msg('密码错误！', {
-                                anim: 6
-                            });
+                            this.$toast('密码错误！');
                         }
                     });
                 }
             }
         });
+
+
+
     </script>
 
 </body>

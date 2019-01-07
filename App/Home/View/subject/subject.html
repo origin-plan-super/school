@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/examInfo/css/examInfo.css" />
+	<script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+
 	<style>
 		a[disabled='disabled'] {
 			background-color: #777 !important;
@@ -28,59 +30,61 @@
 			</volist>
 		</ul>
 	</div>
-	<div class="container-fluid">
-		<!--报名课程开始-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4">
-				<span>报名课程</span>
-			</div>
-			<div class="col-xs-8 sign-list-8">
-				<span id="sign-curriculum">{$subject.subject_title}</span>
-			</div>
-		</div>
-		<!--报名课程结束-->
-		<!--授课老师开始-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4">
-				<span>授课老师</span>
-			</div>
-			<div class="col-xs-8 sign-list-8">
-				<span id="sign-teacher">{$subject.teacher}</span>
-			</div>
-		</div>
-		<!--授课老师结束-->
-		<!--上课时间开始-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4">
-				<span>上课时间</span>
-			</div>
-			<div class="col-xs-8 sign-list-8">
-				<span id="sign-time">{$subject.date}</span>
-			</div>
-		</div>
-		<!--上课时间结束-->
-		<!--上课地点开始-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4">
-				<span>上课地点</span>
-			</div>
-			<div class="col-xs-8 sign-list-8">
-				<span id="sign-time">{$subject.location}</span>
-			</div>
-		</div>
-		<!--上课地点结束-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4">
-				<span>学费</span>
-			</div>
-			<div class="col-xs-8 sign-list-8">
-				<span id="sign-time">{$subject.money}</span>
-			</div>
-		</div>
+	<div id="app">
 
-		<!--教学安排结束-->
-		<!--老师简介开始、-->
-		<!-- <div class="row sign-all">
+		<div class="container-fluid">
+			<!--报名课程开始-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4">
+					<span>报名课程</span>
+				</div>
+				<div class="col-xs-8 sign-list-8">
+					<span id="sign-curriculum">{$subject.subject_title}</span>
+				</div>
+			</div>
+			<!--报名课程结束-->
+			<!--授课老师开始-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4">
+					<span>授课老师</span>
+				</div>
+				<div class="col-xs-8 sign-list-8">
+					<span id="sign-teacher">{$subject.teacher}</span>
+				</div>
+			</div>
+			<!--授课老师结束-->
+			<!--上课时间开始-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4">
+					<span>上课时间</span>
+				</div>
+				<div class="col-xs-8 sign-list-8">
+					<span id="sign-time">{$subject.date}</span>
+				</div>
+			</div>
+			<!--上课时间结束-->
+			<!--上课地点开始-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4">
+					<span>上课地点</span>
+				</div>
+				<div class="col-xs-8 sign-list-8">
+					<span id="sign-time">{$subject.location}</span>
+				</div>
+			</div>
+			<!--上课地点结束-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4">
+					<span>学费</span>
+				</div>
+				<div class="col-xs-8 sign-list-8">
+					<span id="sign-time">{$subject.money}</span>
+				</div>
+			</div>
+
+			<!--教学安排结束-->
+			<!--老师简介开始、-->
+			<!-- <div class="row sign-all">
 			<div class="col-xs-4 sign-list-4-introduce">
 				<span>教师简介</span>
 			</div>
@@ -88,35 +92,31 @@
 				<span id="sign-time">{$subject.teacher_info}</span>
 			</div>
 		</div> -->
-		<!--老师简介结束-->
+			<!--老师简介结束-->
 
-		<!--课程简述开始-->
-		<div class="row sign-all">
-			<div class="col-xs-4 sign-list-4-introduce">
-				<span>课程简述</span>
+			<!--课程简述开始-->
+			<div class="row sign-all">
+				<div class="col-xs-4 sign-list-4-introduce">
+					<span>课程简述</span>
+				</div>
+				<div class="col-xs-8 sign-list-8-introduce">
+					<span id="sign-time">{$subject.subject_info}</span>
+				</div>
 			</div>
-			<div class="col-xs-8 sign-list-8-introduce">
-				<span id="sign-time">{$subject.subject_info}</span>
+
+			<button v-cloak v-if="!LisOpen" type="button" disabled class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
+
+			<div v-cloak v-if="LisOpen">
+				<div v-if="Luse">
+					<a v-if="Lisbm" href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" class="am-btn am-btn-primary am-btn-block a-sing">去报名</a>
+					<a href="javascript:;" v-else class="am-btn am-btn-primary am-btn-block a-sing" disabled='disabled'>已满员</a>
+				</div>
+				<div v-else>
+					<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" disabled='disabled' class="am-btn am-btn-primary am-btn-block a-sing">您已报过名</a>
+				</div>
 			</div>
+
 		</div>
-
-		<!-- <button type="button" disabled class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button> -->
-
-		<if condition='$use'>
-			<!-- true就是未报名，可以继续报名 -->
-
-			<if condition='$isbm'>
-				<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" class="am-btn am-btn-primary am-btn-block a-sing">去报名</a>
-				<else />
-				<a href="#" class="am-btn am-btn-primary am-btn-block a-sing" disabled='disabled'>已满员</a>
-			</if>
-
-			<else />
-			<!-- false就是已报名，不能继续报名 -->
-			<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" disabled='disabled' class="am-btn am-btn-primary am-btn-block a-sing">您已报过名</a>
-
-		</if>
-
 	</div>
 
 
@@ -124,8 +124,23 @@
 	<script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__HDIST__/examInfo/js/examInfo.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+
 	<script type="text/javascript">
 		//			页面跳转
+
+
+		new Vue({
+			el: '#app',
+			data: {
+				Luse: eval('{$use}'),
+				Lisbm: eval('{$isbm}'),
+				LisOpen: eval('{$isOpen}'),
+			}
+		});
+
 		$(document).on("click", ".a-sing", function () {
 			window.location.href = "../enlist/enlist.html"
 		})
