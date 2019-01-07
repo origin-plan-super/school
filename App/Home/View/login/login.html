@@ -9,7 +9,12 @@
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
     <link rel="stylesheet" type="text/css" href="__VENDOR__/layui/css/layui.css" />
-
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.4.11/index.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/2.4.11/locale/zh-CN.min.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.4.11/theme-chalk/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.4/lib/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vant@1.4/lib/vant.min.js"></script>
     <style>
         * {
             -webkit-box-sizing: border-box;
@@ -25,6 +30,7 @@
             font-size: 16px;
             padding: 10px;
             border: none;
+            border-radius: 5px;
         }
 
         .input-item-submit {
@@ -47,53 +53,75 @@
             margin: 10px;
         }
 
-        * {
-            font-size: 25px;
-        }
 
         .text-lg {
             font-size: 20px;
         }
+        
 
         .pwd-info {
-            text-align: center;
+            color: #4A4F70;
             font-size: 20px;
-            color: #f00;
-            padding: 10px 10px;
-            border: solid 2px #f00;
+            margin-top: 30px;;
+        }
+
+        .login-btn{
+            border-radius: 15px;
+            font-size: 20px;
+            background-color: #fdc12f;
+            color: #fff;
+        }
+        .reg-btn{
+            border-radius: 15px;
+            font-size: 20px;
+            color: #fff;
+        }
+        .login-info{
+            text-align: center;
+            color: rgb(230, 76, 81);
+            margin-top: 20px;
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
-    <!--顶部大图开始-->
-    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
-        <ul class="am-slides">
-            <volist name='carousel' id='vol'>
-                <li>
-                    <img src="__ROOT__/{$vol.carousel_url}">
-                </li>
-            </volist>
-        </ul>
-    </div>
-    <!--顶部大图结束-->
-    <!-- 登录 -->
-
-    <form class="form layui-form">
-
-        <h1 style="font-size:25px">__APPNAME__</h1>
-        <input type="text" value="" lay-verify='required' autocomplete="false" name='user_id' class="input-item text-lg" placeholder="请输入账户（手机号）">
-        <input type="password" value="" lay-verify='required' autocomplete="false" name="user_pwd" class="input-item text-lg" placeholder="请输入密码">
-        <button lay-submit class="input-item-submit text-lg" lay-filter='*'>登录</button>
-        <p style="margin-top:20px;">
-            <a href="__CONTROLLER__/reg" style="font-size:25px;color:#f00">去注册></a>
-        </p>
-        <div class="pwd-info">
-            <span>登录密码0000即可登录</span>
+    <div id="App">
+        <!--顶部大图开始-->
+        <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+            <ul class="am-slides">
+                <volist name='carousel' id='vol'>
+                    <li>
+                        <img src="__ROOT__/{$vol.carousel_url}">
+                    </li>
+                </volist>
+            </ul>
         </div>
+        <!--顶部大图结束-->
+        <!-- 登录 -->
 
-    </form>
-    <!-- 登录end -->
+        <div class="form">
+
+            <h1 style="font-size:25px">__APPNAME__</h1>
+            <input style="margin-bottom:20px" type="text" v-model="user_id" class="input-item text-lg" placeholder="请输入账户（手机号）">
+            <input style="margin-bottom:30px" type="password" v-model="user_pwd" class="input-item text-lg" placeholder="请输入密码">
+            <button class="input-item-submit text-lg login-btn" @click="submit">登 录</button>
+            <p style="margin-top:15px;">
+                <a href="__CONTROLLER__/reg">
+                    <button class="input-item-submit text-lg reg-btn">注 册</button>
+                </a>
+            </p>
+            <div class="pwd-info">
+                <span>如果忘记密码输入0000即可登录</span>
+            </div>
+            <div class="login-info">
+                <div>1月14日9：00</div>
+                <div>报名开启，敬请期待</div>
+            </div>
+
+        </div>
+        <!-- 登录end -->
+    </div>
 
     <!--作品展示结束-->
     <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
@@ -101,41 +129,51 @@
     <script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
     <script>
-        layui.use('form', function () {
-            var form = layui.form;
-
-            //各种基于事件的操作，下面会有进一步介绍
-            form.on('submit(*)', function (data) {
-                var obj = data.field;
-                var fun = function (res) {
-                    try {
-                        res = JSON.parse(res);
-                    } catch (error) {
-                        //转换错误
-                        return
-
-                    }
-                    if (res.res >= 1) {
-
-                        layer.msg('登录成功！正在为您跳转！');
-
-                        setTimeout(function () {
-                            window.location.href = res.msg;
-                        }, 500);
-
-                        return;
-                    } else {
-                        layer.msg('密码错误！', {
+        var app = new Vue({
+            el: "#App",
+            data: {
+                msg: 'asd',
+                user_id: '',
+                user_pwd: '',
+            },
+            methods: {
+                submit() {
+                    if (!this.user_id) {
+                        layer.msg('请输入账户！', {
                             anim: 6
                         });
+                        return;
                     }
-
-
-                };
-                $.post('__CONTROLLER__/login', obj, fun);
-
-                return false;
-            });
+                    if (!this.user_pwd) {
+                        layer.msg('请输入密码！', {
+                            anim: 6
+                        });
+                        return;
+                    }
+                    $.post('__CONTROLLER__/login', {
+                        user_id: this.user_id,
+                        user_pwd: this.user_pwd,
+                    }, (res) => {
+                        try {
+                            res = JSON.parse(res);
+                        } catch (error) {
+                            //转换错误
+                            return
+                        }
+                        if (res.res >= 1) {
+                            layer.msg('登录成功！正在为您跳转！');
+                            setTimeout(function () {
+                                window.location.href = res.msg;
+                            }, 500);
+                            return;
+                        } else {
+                            layer.msg('密码错误！', {
+                                anim: 6
+                            });
+                        }
+                    });
+                }
+            }
         });
     </script>
 
