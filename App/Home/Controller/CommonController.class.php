@@ -31,6 +31,7 @@ class CommonController extends Controller
         $user_id = cookie('user_id');
         $user_pwd = cookie('user_pwd');
 
+
         $model = M('user');
         $where = [];
         $where['user_id'] = $user_id;
@@ -39,6 +40,8 @@ class CommonController extends Controller
         if ($user['user_pwd'] === $user_pwd) {
             //密码正确，就不重新登录了
             session('user_id', $user_id);
+            session('user_name', $user['user_name']);
+            session('user_phone', $user['user_phone']);
         } else {
             //密码不正确，清空一下缓存
             session(null);
