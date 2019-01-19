@@ -22,6 +22,12 @@ use Think\Controller;
 class SubjectController extends CommonController
 {
 
+
+    public function getList()
+    {
+        echo 1;
+    }
+
     /**
      * 显示课程信息
      */
