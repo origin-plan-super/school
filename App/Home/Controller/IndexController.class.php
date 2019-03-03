@@ -14,31 +14,35 @@
 *
 */
 namespace Home\Controller;
+
 use Think\Controller;
-class IndexController extends CommonController {
-    public function index() {
-        
+
+class IndexController extends CommonController
+{
+    public function index()
+    {
+
         //取总校的科目
-        $model=M('exam');
-        $where=[];
-        $where['school_id']=1;
-        $master=$model->where($where)->order('sort desc')->select();
-        
-        
+        $model = M('exam');
+        $where = [];
+        $where['school_id'] = 1;
+        $where['is_show'] = 1;
+        $master = $model->where($where)->order('sort desc')->select();
+
+
         //取分校科目
-        $model=M('exam');
-        $where=[];
-        $where['school_id']=2;
-        $branch=$model->where($where)->order('sort desc')->select();
-        
-        
-        
-        $this->assign('master',$master);
-        $this->assign('branch',$branch);
-        
-        
-        $this -> display();
+        $model = M('exam');
+        $where = [];
+        $where['school_id'] = 2;
+        $where['is_show'] = 1;
+        $branch = $model->where($where)->order('sort desc')->select();
+
+
+
+        $this->assign('master', $master);
+        $this->assign('branch', $branch);
+
+
+        $this->display();
     }
-    
-    
 }
