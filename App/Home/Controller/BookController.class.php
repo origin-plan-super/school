@@ -89,7 +89,6 @@ class BookController extends CommonController
 
 
         $this->assign('book', $book);
-
         $this->display();
     }
 

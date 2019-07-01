@@ -21,22 +21,22 @@
 		.text-lg {
 			font-size: 20px;
 		}
-		.phone-input{
+
+		.phone-input {
 			/* display: inline-block; */
 		}
-		.info{
+
+		.info {
 			color: #4A4F70;
-            font-size: 20px;
+			font-size: 20px;
 			padding: 20px;
 			line-height: 1.5;
 			letter-spacing: 1px;
 		}
 	</style>
-
 </head>
 
 <body>
-
 	<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
 		<ul class="am-slides">
 			<volist name='carousel' id='vol'>
@@ -46,20 +46,14 @@
 			</volist>
 		</ul>
 	</div>
-
 	<div class="container-fluid">
-
-
 		<if condition='$Think.get.type == 3'>
 			<!-- 企业预约 -->
-
 			<form class="layui-form" id="a-form" action="" method="post">
-
 				<input type="hidden" name="type" value='{$Think.get.type}'>
 				<input type="hidden" name="subject_id" value='{$Think.get.subject_id}'>
 				<input type="hidden" name="user_id" value='{$Think.session.user_id}'>
 				<input type="hidden" name="_repeat_code" value='{$_repeat_code}'>
-
 				<div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>企业名称</span>
@@ -92,24 +86,22 @@
 						<input type="text" name="firm_phone" placeholder="请输入联系方式">
 					</div>
 				</div>
-
 				<button type="submit" class="am-btn am-btn-primary am-btn-block a-submit">提交信息</button>
 			</form>
-
 			<else />
 			<!-- 学生报名 -->
 			<form id="a-form" class="layui-form" action="" method="post">
 				<input type="hidden" name="subject_id" value='{$Think.get.subject_id}'>
 				<input type="hidden" name="user_id" value='{$Think.session.user_id}'>
 				<input type="hidden" name="_repeat_code" value='{$_repeat_code}'>
-
 				<div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>姓名</span>
 					</div>
 					<div class="col-xs-8 sign-list-8">
 						<!-- 必填 -->
-						<input type="text" lay-verify='required' value="{$Think.session.user_name}" name="user_name" placeholder="请输入姓名">
+						<input type="text" lay-verify='required' disabled value="{$Think.session.user_name}"
+							name="user_name" placeholder="请输入姓名">
 					</div>
 				</div>
 				<div class="row sign-all">
@@ -119,16 +111,11 @@
 					<div class="col-xs-8 sign-list-8">
 						<!-- 必填 -->
 						<div class="form-item">
-							<label>
-								男
-								<input type="radio" lay-verify='required' value="男" name="user_sex">
+							<label> 男 <input type="radio" lay-verify='required' value="男" name="user_sex">
 							</label>
-							<label>
-								女
-								<input type="radio" lay-verify='required' value="女" name="user_sex">
+							<label> 女 <input type="radio" lay-verify='required' value="女" name="user_sex">
 							</label>
 						</div>
-
 					</div>
 				</div>
 				<div class="row sign-all">
@@ -140,7 +127,6 @@
 						<input type="text" name="user_age" placeholder="请输入年龄">
 					</div>
 				</div>
-
 				<!-- <div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>邮箱</span>
@@ -149,31 +135,25 @@
 						<input type="email" name="user_mail" placeholder="请输入邮箱">
 					</div>
 				</div> -->
-
 				<div class="row sign-all">
 					<div class="col-xs-4 sign-list-4">
 						<span>手机号</span>
 					</div>
 					<div class="col-xs-8 sign-list-8">
 						<!-- 必填 -->
-						<input type="text" class="phone-input" lay-verify='required|phone' name='user_phone' value="{$Think.session.user_phone}"
-						 placeholder="请输入手机号">
+						<input type="text" class="phone-input" lay-verify='required|phone' name='user_phone'
+							value="{$Think.session.user_phone}" placeholder="请输入手机号">
 					</div>
 				</div>
-
 				<!-- <button type="button" disabled class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button> -->
-				<button type="submit" lay-submit lay-filter='*' class="am-btn am-btn-primary am-btn-block a-submit">立即报名</button>
-				
+				<button type="submit" lay-submit lay-filter='*'
+					class="am-btn am-btn-primary am-btn-block a-submit">立即报名</button>
 				<if condition='$Think.session.admin_id == "root"'>
 					<else />
 				</if>
-
-			
 				<!--  -->
 			</form>
 		</if>
-
-
 	</div>
 	<script src="__VENDOR__/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
@@ -194,6 +174,10 @@
 
 
 				$.post('', field, function (res) {
+					// res = JSON.parse(res);
+					// console.warn(res);
+					// return;
+
 					try {
 
 						res = JSON.parse(res);
@@ -247,8 +231,6 @@
 
 		});
 	</script>
-
-
 </body>
 
 </html>

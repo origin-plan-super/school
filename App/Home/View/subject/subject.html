@@ -10,8 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/amazeui/css/amazeui.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/examInfo/css/examInfo.css" />
-	<script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
-
+	<script src="__VENDOR__/vue/vue.js"></script>
 	<style>
 		a[disabled='disabled'] {
 			background-color: #777 !important;
@@ -39,7 +38,6 @@
 		</ul>
 	</div>
 	<div id="app">
-
 		<div class="container-fluid">
 			<!--报名课程开始-->
 			<div class="row sign-all">
@@ -89,7 +87,6 @@
 					<span id="sign-time">{$subject.money}</span>
 				</div>
 			</div>
-
 			<!--教学安排结束-->
 			<!--老师简介开始、-->
 			<!-- <div class="row sign-all">
@@ -101,7 +98,6 @@
 			</div>
 		</div> -->
 			<!--老师简介结束-->
-
 			<!--课程简述开始-->
 			<div class="row sign-all">
 				<div class="col-xs-4 sign-list-4-introduce">
@@ -111,10 +107,8 @@
 					<span id="sign-time">{$subject.subject_info}</span>
 				</div>
 			</div>
-
 			<button v-cloak v-if="!LisOpen" type="button" disabled
 				class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
-
 			<div v-cloak v-if="LisOpen">
 				<div v-if="Luse">
 					<a v-if="Lisbm" href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}"
@@ -125,25 +119,17 @@
 				<div v-else>
 					<a href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}" disabled='disabled'
 						class="am-btn am-btn-primary am-btn-block a-sing">您已在相同类目报过名</a>
-					<div class="info">
-						请在5个工作日内，携带身份证及学费（现金）到校办理入学手续。
-						<div><b>总校：</b>吴中路810号201教务处</div>
+					<div class="info"> 请在5个工作日内，携带身份证及学费（现金）到校办理入学手续。 <div><b>总校：</b>吴中路810号201教务处</div>
 						<div><b>分校：</b>龙柏二村70号3楼教务处</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 	<script src="__VENDOR__/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__HDIST__/examInfo/js/examInfo.js" type="text/javascript" charset="utf-8"></script>
-
-
-
-
 	<script type="text/javascript">
 		//			页面跳转
 

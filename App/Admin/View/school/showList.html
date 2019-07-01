@@ -13,32 +13,22 @@
             padding-top: 0;
         }
     </style>
-
 </head>
 
 <body>
     <!-- {$school.school_title}科目管理 -->
-
     <div class="page-header">
         <h1>
             <small>{$school.school_title}科目管理</small>
         </h1>
     </div>
-
     <ol class="breadcrumb">
-        <li>
-            科目管理
-        </li>
-        <li class="active">
-            {$school.school_title}科目管理
-        </li>
+        <li> 科目管理 </li>
+        <li class="active"> {$school.school_title}科目管理 </li>
         <!-- <li class="active">【{$exam.exam_title}】的课程管理</li> -->
     </ol>
-
     <div class="layui-row layui-form">
         <div class="layui-col-md12">
-
-
             <div class="layui-btn-group">
                 <button class="layui-btn layui-btn-sm layui-black " data-tips='3' data-color='#666'
                     title='新增{$school.school_title}目' id="add">
@@ -51,27 +41,19 @@
             </div>
             <!--  -->
             <div class="" style="float:right">
-
                 <input type="checkbox" id="openNew" title="新页面打开课程管理" lay-skin="primary" lay-filter="openNew">
-
                 <div class="layui-inline">
                     <input class="layui-input layui-input-sm" id="key" placeholder="搜索" autocomplete="off">
                 </div>
                 <button class="layui-btn layui-black layui-btn-sm" id="reload" data-type="reload">
-                    <i class="layui-icon">&#xe615;</i>
-                    搜索
-                </button>
+                    <i class="layui-icon">&#xe615;</i> 搜索 </button>
             </div>
             <!--  -->
-
         </div>
     </div>
-
-
     <div class="form-black">
         <table id="table" lay-filter="table_filter"></table>
     </div>
-
     <script type="text/html" id="barTool">
 
         <input type="checkbox" name="is_show" value="{{d.exam_id}}"   lay-filter="is_show" lay-skin="switch"  {{ d.is_show == 1 ? 'checked' : '' }} lay-text="显示|隐藏">
@@ -84,11 +66,9 @@
         </a>
     
     </script>
-
     <script type="text/html" id="checkboxTpl">
         <input type="checkbox" name="lock" value="{{d.exam_id}}" title="推荐" lay-filter="is_up" {{ d.is_up == 1 ? 'checked' : '' }}>
       </script>
-
     <script>
         var tableIns;
         var table;

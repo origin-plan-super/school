@@ -15,6 +15,7 @@
  * @author 代码狮
  *
  */
+
 namespace Home\Controller;
 
 use Think\Controller;
@@ -134,6 +135,9 @@ class SubjectController extends CommonController
 
 
         if (IS_POST) {
+
+
+
             //未报名就是true，已报名就是false
             $is = ($use === null);
             if ($is) {
@@ -148,7 +152,6 @@ class SubjectController extends CommonController
                 echo json_encode($res);
                 die;
             }
-
 
             if ($subject['sub'] <= 0) {
                 //满员
@@ -198,6 +201,8 @@ class SubjectController extends CommonController
                 //=========sql区
                 $result = $model->add($add);
                 if ($result) {
+                    //报名成功
+
                     $this->success('报名成功！', U('build/build', 'type=3'), 2);
                 }
             } else {
@@ -209,10 +214,31 @@ class SubjectController extends CommonController
                 $add['order_id'] = date('YmdHis') . rand(10000, 99999);   //生成订单号（报名号）
                 $add['add_time'] = time(); //添加时间
                 $add['edit_time'] = time(); //修改时间
+
+                // 1 总校
+                // 2 分校
+                // 3 楼宇
+
+                $Exam = D('Exam');
+                $exam = $Exam->where('exam_id', $subject['exam_id'])->find();
+                $school_id = $exam['school_id'];
+                $school_name = $exam['school_id'] == 1 ? '虹桥镇老年学校' : '虹桥镇龙柏分校';
+                $location = $exam['school_id'] == 1 ? '吴中路810号201教务处' : '龙柏二村70号三楼教务处';
+
+                $duanxin = "$add[user_name] ，您已成功预报名 $school_name 学校 $subject[date] $subject[subject_title]。请在5个工作日内，携带本人身份证及课程现金学费到 $location 办理入学手续。";
+                // {1} ，您已成功预报名 {2} 学校 {3} {4}。请在5个工作日内，携带本人身份证及课程现金学费到 {5} 办理入学手续。
+                $codeArr = [$add['user_name'], $school_name, $subject['date'], $subject['subject_title'], $location];
+                // echo ($duanxin);
+                // 王小二（学员名字），您已成功预报名   (虹桥镇老年) 学校  (周二)   (8:30-10:00)   (民族舞210)   班级。请在5个工作日内，携带本人身份证及课程现金学费到 (吴中路810号201教务处)办理入学手续。
+                // {1}，您已成功预报名{2}学校{3}{4}{5}班级。请在5个工作日内，携带本人身份证及课程现金学费到{6}办理入学手续。
+
+                // die;
                 //=========sql区
                 $result = $model->add($add);
 
                 if ($result) {
+                    //报名成功
+                    send_sms($user_id, $codeArr);
                     //成功后需要修改剩余人数
                     $model = M('subject');
                     $where = [];
