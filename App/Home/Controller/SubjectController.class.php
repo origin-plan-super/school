@@ -180,7 +180,6 @@ class SubjectController extends CommonController
                 //=========输出json=========
                 echo json_encode($res);
                 //=========输出json=========
-
                 exit;
             }
 
@@ -220,7 +219,7 @@ class SubjectController extends CommonController
                 // 3 楼宇
 
                 $Exam = D('Exam');
-                $exam = $Exam->where('exam_id', $subject['exam_id'])->find();
+                $exam = $Exam->where(['exam_id' => $subject['exam_id']])->find();
                 $school_id = $exam['school_id'];
                 $school_name = $exam['school_id'] == 1 ? '虹桥镇老年学校' : '虹桥镇龙柏分校';
                 $location = $exam['school_id'] == 1 ? '吴中路810号201教务处' : '龙柏二村70号三楼教务处';

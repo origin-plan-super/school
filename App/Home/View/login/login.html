@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
     <!-- 必须导入  -->
-	<script src="__VENDOR__/vue/vue.js"></script>
+    <script src="__VENDOR__/vue/vue.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/index.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/locale/zh-CN.min.js"></script>
     <link href="https://cdn.bootcss.com/element-ui/2.4.11/theme-chalk/index.css" rel="stylesheet">
@@ -22,7 +23,6 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
-
 
         .input-item {
             display: block;
@@ -54,39 +54,42 @@
             margin: 10px;
         }
 
-
         .text-lg {
             font-size: 20px;
         }
-        
 
         .pwd-info {
             color: #4A4F70;
             font-size: 20px;
-            margin-top: 30px;;
+            margin-top: 30px;
+            ;
         }
 
-        .login-btn{
+        .login-btn {
             border-radius: 15px;
             font-size: 20px;
             background-color: #fdc12f;
             color: #fff;
         }
-        .reg-btn{
+
+        .reg-btn {
             border-radius: 15px;
             font-size: 20px;
             color: #fff;
         }
-        .login-info{
+
+        .login-info {
             text-align: center;
             color: rgb(230, 76, 81);
             margin-top: 20px;
             font-size: 20px;
         }
-        .swiper-pagination-bullet-active{
+
+        .swiper-pagination-bullet-active {
             background-color: #0e90d2;
         }
-        .swiper-pagination{
+
+        .swiper-pagination {
             position: relative;
             margin-top: 20px;
         }
@@ -105,15 +108,14 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
-
         <!--顶部大图结束-->
         <!-- 登录 -->
-
         <div class="form">
-
             <h1 style="font-size:25px;margin:20px 0;">__APPNAME__</h1>
-            <input style="margin-bottom:20px" type="text" v-model="user_id" class="input-item text-lg" placeholder="请输入账户（手机号）">
-            <input style="margin-bottom:30px" type="password" v-model="user_pwd" class="input-item text-lg" placeholder="请输入密码">
+            <input style="margin-bottom:20px" type="text" v-model="user_id" class="input-item text-lg"
+                placeholder="请输入账户（手机号）">
+            <input style="margin-bottom:30px" type="password" v-model="user_pwd" class="input-item text-lg"
+                placeholder="请输入密码">
             <button class="input-item-submit text-lg login-btn" @click="submit">登 录</button>
             <p style="margin-top:15px;">
                 <a href="__CONTROLLER__/reg">
@@ -124,14 +126,12 @@
                 <span>如果忘记密码输入0000即可登录</span>
             </div>
             <div class="login-info">
-                <div>1月14日9：00</div>
+                <div>8月5号上午9:00</div>
                 <div>报名开启，敬请期待</div>
             </div>
-
         </div>
         <!-- 登录end -->
     </div>
-
     <!--作品展示结束-->
     <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
@@ -194,7 +194,6 @@
 
 
     </script>
-
 </body>
 
 </html>

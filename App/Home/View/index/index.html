@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="__HDIST__/index/css/index.css" />
 	<style>
 		.am-btn {
-
 			background-image: url(__ASSETS__/img/13.jpg);
 		}
 
@@ -21,7 +20,6 @@
 		}
 
 		.tips {
-
 			position: fixed;
 			bottom: 50px;
 			font-size: 20px;
@@ -86,7 +84,6 @@
 				<div data-tab-panel-0 class="am-tab-panel am-active">
 					<div class="container index-container">
 						<div class="row">
-
 							<volist name='master' id='vol' empty='没有相关数据'>
 								<div class="col-xs-4">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
@@ -95,15 +92,12 @@
 									</a>
 								</div>
 							</volist>
-
 						</div>
 					</div>
 				</div>
 				<div data-tab-panel-1 class="am-tab-panel ">
 					<div class="container index-container">
-
 						<div class="row">
-
 							<volist name='branch' id='vol' empty='没有相关数据'>
 								<div class="col-xs-4">
 									<a href="__MODULE__/Exam/exam/exam_id/{$vol.exam_id}">
@@ -112,9 +106,7 @@
 									</a>
 								</div>
 							</volist>
-
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -123,14 +115,13 @@
 		<a href="__ASSETS__/img/zsjz.jpg">
 			<button type="button" class="am-btn block am-btn-warning am-round zsjz-btn">招生简章</button>
 		</a>
-
 		<!-- 暂未到报名时间 -->
-		<!-- <div class="tips">
-			<span class="tips-body">
-				7月16日9:00正式开启报名
+		<div class="time-box text-center" style="color:red;font-size:20px">
+			<span class="time-body">
+				<div>8月5号上午9:00</div>
+				<div>报名开启，敬请期待</div>
 			</span>
-		</div> -->
-
+		</div>
 	</div>
 	<script src="__VENDOR__/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="__VENDOR__/amazeui/js/amazeui.js" type="text/javascript" charset="utf-8"></script>

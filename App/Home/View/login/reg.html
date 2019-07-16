@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>注册</title>
     <link rel="stylesheet" type="text/css" href="__HDIST__/a/css/a.css" />
     <!-- 必须导入  -->
-	<script src="__VENDOR__/vue/vue.js"></script>
+    <script src="__VENDOR__/vue/vue.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/index.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.11/locale/zh-CN.min.js"></script>
     <link href="https://cdn.bootcss.com/element-ui/2.4.11/theme-chalk/index.css" rel="stylesheet">
@@ -60,7 +61,8 @@
         .text-lg {
             font-size: 20px;
         }
-        .reg-login{
+
+        .reg-login {
             border-radius: 15px;
             font-size: 20px;
             background-color: #fdc12f;
@@ -71,7 +73,6 @@
 
 <body>
     <div id="App">
-
         <!--顶部大图开始-->
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -85,21 +86,16 @@
         </div>
         <!--顶部大图结束-->
         <!-- 登录 -->
-
         <div class="form">
-
             <h1 style="font-size:25px">__APPNAME__</h1>
             <input v-model='formData.user_name' class="input-item text-lg" placeholder="请输入真实姓名" type="text">
             <input v-model="formData.user_phone" class="input-item text-lg" placeholder="请输入真实电话" type="text">
             <input v-model="formData.user_pwd" class="input-item text-lg" placeholder="请输入密码" type="password">
             <input v-model="formData.user_pwd2" class="input-item text-lg" placeholder="请再次输入密码" type="password">
             <button class="input-item-submit text-lg reg-login" @click="submit">绑定</button>
-
         </div>
     </div>
-
     <!-- 登录end -->
-
     <!--作品展示结束-->
     <script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script src="__HDIST__/a/js/a.js" type="text/javascript" charset="utf-8"></script>
@@ -150,6 +146,10 @@
                             this.$toast('手机号仅能输入数字！');
                             return false;
                         }
+                    }
+                    if (this.formData.user_phone.length != 11) {
+                        this.$toast('手机号长度必须11位！');
+                        return;
                     }
                     if (!this.formData.user_pwd) {
                         this.$toast('请输入密码！');
@@ -210,7 +210,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
