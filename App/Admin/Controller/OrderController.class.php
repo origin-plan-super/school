@@ -15,6 +15,7 @@
  * @author 代码狮
  *
  */
+
 namespace Admin\Controller;
 
 use Think\Controller;
@@ -40,7 +41,7 @@ class OrderController extends CommonController
          * 先从科目表找到用户输入的科目标题，然后 将id当做条件 筛选
          */
 
-        
+
         //定制分页-start
         $page = $get['page'];
         $limit = $get['limit'];
@@ -70,12 +71,15 @@ class OrderController extends CommonController
 
             $result = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
-                ->field('t1.*,t2.*,t3.*,t4.*')
+                ->field('t1.add_time as t1_add_time,t1.*,t2.*,t3.*,t4.*')
                 ->where("t1.subject_id = t2.subject_id AND t2.exam_id =  t3.exam_id AND t3.school_id = t4.school_id AND t4.school_id = " . $get['school_id'])
                 ->where($where)
                 ->order('t1.add_time desc')
                 ->limit(($page - 1) * $limit, $limit)
                 ->select();
+
+            $result = toTime($result, 't1_add_time');
+
 
             $count = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
@@ -97,13 +101,9 @@ class OrderController extends CommonController
             }
             echo json_encode($res);
             die;
-
-
-
-
         } else {
-            
-            
+
+
             // $result= $model->limit("$page,$limit")->order($order)->where($where)->select();
             // $res['sql']=$model->_sql();
             $where = [];
@@ -113,12 +113,14 @@ class OrderController extends CommonController
 
             $result = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
-                ->field('t1.*,t2.*,t3.*,t4.*')
+                ->field('t1.add_time as t1_add_time,t1.*,t2.*,t3.*,t4.*')
                 ->where("t1.subject_id = t2.subject_id AND t2.exam_id =  t3.exam_id AND t3.school_id = t4.school_id AND t4.school_id = " . $get['school_id'])
                 ->where($where)
                 ->order('t1.add_time desc')
                 ->limit(($page - 1) * $limit, $limit)
                 ->select();
+
+            $result = toTime($result, 't1_add_time');
 
             $count = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
@@ -140,11 +142,12 @@ class OrderController extends CommonController
             }
             echo json_encode($res);
             die;
-         
+
             // $count= $model->order($order)->where($where)->count();
             // $res['count']=$count;
         }
-    
+
+
         //转换时间戳
         $result = toTime($result);
 
@@ -152,8 +155,8 @@ class OrderController extends CommonController
         $Subject = D('Subject');
 
         $arr = $Subject->where($where)->select();
-      
-        
+
+
         //找到课程信息
         $subject = M('subject');
         $exam = M('exam');
@@ -168,7 +171,7 @@ class OrderController extends CommonController
             if ($subject_info) {
                 $result[$key] = array_merge($result[$key], $subject_info);
             }
-            
+
             //找exam
             $where = [];
             $where['exam_id'] = $subject_info['exam_id'];
@@ -176,7 +179,7 @@ class OrderController extends CommonController
             if ($exam_info) {
                 $result[$key] = array_merge($result[$key], $exam_info);
             }
-            
+
             //找school
             $where = [];
             $where['school_id'] = $exam_info['school_id'];
@@ -184,9 +187,8 @@ class OrderController extends CommonController
             if ($school_info) {
                 $result[$key] = array_merge($result[$key], $school_info);
             }
-
         }
-        
+
         //筛选学校
 
         $school_id = I('school_id');
@@ -196,7 +198,6 @@ class OrderController extends CommonController
             if ($value['school_id'] == $school_id) {
                 $arr[] = $value;
             }
-
         }
 
         $res['count'] = count($arr);
@@ -213,8 +214,6 @@ class OrderController extends CommonController
             $res['msg'] = '没有数据！';
         }
         echo json_encode($res);
-
-
     }
 
 
@@ -231,7 +230,6 @@ class OrderController extends CommonController
 
         $this->assign('school', $school);
         $this->display();
-
     }
 
     public function printXLS()
@@ -246,8 +244,8 @@ class OrderController extends CommonController
 
             $res['res'] = $order;
             $res['msg'] = U();
-            
-            
+
+
             //=========输出json=========
             echo json_encode($res);
             //=========输出json=========
@@ -263,9 +261,9 @@ class OrderController extends CommonController
                 $where['order_id'] = ['in', $list];
             }
             $order = $model->where($where)->select();
-            
-            
-            
+
+
+
             //找到课程信息
             $subject = M('subject');
             $exam = M('exam');
@@ -277,13 +275,13 @@ class OrderController extends CommonController
                 $where['subject_id'] = $value['subject_id'];
 
                 $subject_info = $subject->where($where)->find();
-                
+
                 //找exam
                 $where = [];
                 $where['exam_id'] = $subject_info['exam_id'];
                 $exam_info = $exam->where($where)->find();
-                
-                
+
+
                 //找school
                 $where = [];
                 $where['school_id'] = $exam_info['school_id'];
@@ -294,10 +292,9 @@ class OrderController extends CommonController
                 unset($school_info['add_time']);
 
                 $order[$key] = array_merge($order[$key], $subject_info, $exam_info, $school_info);
-
             }
-            
-            
+
+
             //转换时间戳
             $order = toTime($order);
 
@@ -308,10 +305,23 @@ class OrderController extends CommonController
             $this->assign('file_name', $file_name);
 
             $this->display('print');
-
         }
-
-
     }
+    public function delData()
+    {
 
+        $Order = D('Order');
+        $time = strtotime('-5 days');
+
+        $where = [];
+        $where['add_time'] = ['lt', $time];
+        $where['is'] = 0;
+
+        $result = $Order->where($where)->delete();
+
+        $res['res'] = 1;
+        //=========输出json=========
+        echo json_encode($res);
+        //=========输出json=========
+    }
 }

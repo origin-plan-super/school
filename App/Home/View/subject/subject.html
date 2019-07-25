@@ -107,9 +107,9 @@
 					<span id="sign-time">{$subject.subject_info}</span>
 				</div>
 			</div>
-			<button v-cloak v-if="!LisOpen" type="button" disabled
+			<button v-cloak v-if="!isOpen" type="button" disabled
 				class="am-btn am-btn-primary am-btn-block a-submit">暂未到报名时间！</button>
-			<div v-cloak v-if="LisOpen">
+			<div v-cloak v-if="isOpen">
 				<div v-if="Luse">
 					<a v-if="Lisbm" href="__CONTROLLER__/enlist/subject_id/{$subject.subject_id}/type/{$type}"
 						class="am-btn am-btn-primary am-btn-block a-sing">去报名</a>

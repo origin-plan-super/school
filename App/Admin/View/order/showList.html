@@ -9,85 +9,73 @@
     <include file="App/Admin/View/component/importComponent.html" />
     <style>
         body {
-        padding: 15px;
-        padding-top: 0;
-    }
+            padding: 15px;
+            padding-top: 0;
+        }
 
-      .subject-list {
+        .subject-list {}
 
-      }
+        .subject-item {
+            line-height: 1.5;
+            padding: 15px;
+            font-size: 15px;
+            display: inline-block;
+            width: 25%;
+            position: relative;
+            cursor: pointer;
+            border-radius: 5px;
+            vertical-align: top;
+        }
 
-    .subject-item {
+        .subject-item:hover {
+            background-color: #dddddd;
+        }
 
-        line-height: 1.5;
-        padding: 15px;
-        font-size: 15px;
-        display: inline-block;
-        width: 25%;
-        position: relative;
-        cursor: pointer;
-        border-radius: 5px;
-        vertical-align: top;
-    }
+        .subject-item .checkbox {
+            display: inline-block;
+        }
 
-    .subject-item:hover{
-        background-color: #dddddd;
-    }
-
-    .subject-item .checkbox {
-        display: inline-block;
-    }
-
-    .subject-list label {
-        user-select: none;
-        cursor: pointer;
-        font-weight: 400 !important;
-    }
+        .subject-list label {
+            user-select: none;
+            cursor: pointer;
+            font-weight: 400 !important;
+        }
     </style>
-
 </head>
 
 <body>
     <!-- 报名列表 -->
-
     <div class="page-header">
         <h1>
             <small> 【{$school.school_title}】报名列表</small>
         </h1>
     </div>
-
     <ol class="breadcrumb">
         <li>报名管理</li>
         <li class="active">报名列表</li>
     </ol>
-
     <div class="layui-row layui-form">
         <div class="layui-col-md12">
             <div class="layui-btn-group">
-                <button class="layui-btn layui-btn-sm layui-black" id="removeAll" data-tips='3' data-color='rgb(253, 51, 51)'
-                    title='批量删除'>
+                <button class="layui-btn layui-btn-sm layui-black" id="removeAll" data-tips='3'
+                    data-color='rgb(253, 51, 51)' title='批量删除'>
                     <i class="layui-icon">&#xe640;</i>
                 </button>
             </div>
             <div class="layui-btn-group">
                 <button class="layui-btn layui-btn-sm layui-black" id="getAll" data-tips='3' title='全部导出'>
-                    <i class="fa fa-download fa-fw"></i> 全部导出
-                </button>
+                    <i class="fa fa-download fa-fw"></i> 全部导出 </button>
                 <button class="layui-btn layui-btn-sm layui-black" id="getSelected" data-tips='3' title='导出选中'>
-                    <i class="fa fa-cloud-download fa-fw"></i> 选中导出
-                </button>
+                    <i class="fa fa-cloud-download fa-fw"></i> 选中导出 </button>
             </div>
             <div class="" style="float:right">
-                <button class="layui-btn layui-black layui-btn-sm" id="classreload" data-type="reload">
-                    筛选
-                </button>
+                <button class="layui-btn layui-black layui-btn-sm layui-btn-danger " id="delData">清空过期数据</button>
+                <button class="layui-btn layui-black layui-btn-sm" id="classreload" data-type="reload"> 筛选 </button>
                 <div class="layui-inline">
                     <input class="layui-input layui-input-sm" id="key" placeholder="搜索" autocomplete="off">
                 </div>
                 <button class="layui-btn layui-black layui-btn-sm" id="reload" data-type="reload">
-                    <i class="layui-icon">&#xe615;</i>
-                    搜索
-                </button>
+                    <i class="layui-icon">&#xe615;</i> 搜索 </button>
             </div>
         </div>
     </div>
@@ -99,7 +87,8 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">筛选科目</h4>
                     </div>
                     <div class="modal-body">
@@ -111,8 +100,8 @@
                                 </label>
                             </div>
                             <label v-for="item in list" :for="'subject_id'+item.subject_id" class="subject-item">
-                                <input type="checkbox" class="checkbox" :value="item.subject_id" :id="'subject_id'+item.subject_id"
-                                    v-model="select">
+                                <input type="checkbox" class="checkbox" :value="item.subject_id"
+                                    :id="'subject_id'+item.subject_id" v-model="select">
                                 <span>{{item.exam_title}}-{{item.subject_title}}</span>
                             </label>
                         </div>
@@ -124,9 +113,9 @@
             </div>
         </div>
     </div>
-
-
     <script type="text/html" id="bar1">
+        <input type="checkbox" name="is" value="{{d.order_id}}"   lay-filter="is" lay-skin="switch"  {{ d.is == 1 ? 'checked' : '' }} lay-text="已付|未付">
+
 <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" data-tips='2' data-color='rgb(253, 51, 51)' title='删除'>
 <i class="layui-icon">&#xe640;</i>
 </a>
@@ -135,7 +124,6 @@
     <script type="text/html" id="checkboxTpl">
         <input type="checkbox" name="lock" value="{{d.order_id}}" title="推荐" lay-filter="is_up" {{ d.is_up == 1 ? 'checked' : '' }}>
 </script>
-
     <script>
         var app = new Vue({
             el: '#App',
@@ -156,8 +144,6 @@
 
                         res = JSON.parse(res);
                         this.list = res.result;
-                        console.warn(this.select);
-                        console.warn(w);
                         this.selectAll = true;
                     })
 
@@ -231,9 +217,20 @@
                 ,
                 cols: [
                     [ //表头
-                        { type: 'checkbox', width: 50, fixed: 'left' }, { field: 'order_id', title: '报名号', width: 200 }, { field: 'user_id', title: '用户ID', width: 200 }, { field: 'school_title', title: '所属学校', width: 100 }, { field: 'exam_title', title: '科目名', width: 100 }, { field: 'subject_title', title: '课程名', width: 200 }, { field: 'date', title: '开课时间', width: 200 }, { field: 'user_name', title: '姓名', width: 150 }, { field: 'user_sex', title: '性别', width: 80 }, { field: 'user_age', title: '年龄', width: 80 }// , { field: 'user_mail', title: '邮箱', width: 200 }
-                        , { field: 'user_phone', title: '手机号', width: 200 }
-                        , { fixed: 'right', width: 100, align: 'center', title: '操作', toolbar: '#bar1' }
+                        { type: 'checkbox', width: 50, fixed: 'left' },
+                        { field: 'order_id', title: '报名号', width: 200 },
+                        { field: 'user_id', title: '用户ID', width: 200 },
+                        { field: 't1_add_time', title: '添加时间', width: 200 },
+                        { field: 'school_title', title: '所属学校', width: 100 },
+                        { field: 'exam_title', title: '科目名', width: 100 },
+                        { field: 'subject_title', title: '课程名', width: 200 },
+                        { field: 'date', title: '开课时间', width: 200 },
+                        { field: 'user_name', title: '姓名', width: 150 },
+                        { field: 'user_sex', title: '性别', width: 80 },
+                        { field: 'user_age', title: '年龄', width: 80 },
+                        // , { field: 'user_mail', title: '邮箱', width: 200 }
+                        { field: 'user_phone', title: '手机号', width: 200 },
+                        { fixed: 'right', width: 100, align: 'center', title: '操作', toolbar: '#bar1' }
 
                     ]
                 ]
@@ -259,6 +256,23 @@
                 }
 
             });
+
+            //监听是否显示操作
+            form.on('switch(is)', function (obj) {
+                var id = this.value;
+                var is = obj.elem.checked ? 1 : 0;
+
+                var save = {
+                    table: 'order',
+                    id: id,
+                    save: {
+                        is: is
+                    }
+                };
+                saveInfo(save);
+
+            });
+
             // 监听单元格编辑
             table.on('edit(table_filter)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
                 var save = {
@@ -428,6 +442,24 @@
          */
         $(document).on('click', '#getAll', function () {
             window.open('__CONTROLLER__/printXLS/is_all/t');
+        });
+
+
+        //   删除过期数据
+        $(document).on('click', '#delData', function () {
+            $.get('__CONTROLLER__/delData', {}, function (res) {
+                try {
+                    res = JSON.parse(res);
+                    layer.msg('清空完成~');
+                    window.location.reload()
+                } catch (error) {
+                    //转换错误
+                    layer.msg('接口错误！', {
+                        anim: 6
+                    });
+                    return
+                }
+            });
         });
 
         /**

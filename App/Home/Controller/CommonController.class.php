@@ -14,18 +14,19 @@
  * @author 代码狮
  *
  */
+
 namespace Home\Controller;
 
 use Think\Controller;
 
 class CommonController extends Controller
 {
-    
-    
+
+
     //ThinkPHP提供的构造方法
     public function _initialize()
     {
-        $this->assign('isOpen', true);//
+        $this->assign('isOpen', true); //
 
         //判断cookie的账户密码能用不
         $user_id = cookie('user_id');
@@ -59,13 +60,11 @@ class CommonController extends Controller
         $model = M('carousel');
         $carousel = $model->order('sort asc')->select();
         $this->assign('carousel', $carousel);
-
     }
-    
+
     //空操作
     public function _empty()
     {
         $this->error('页面不存在！', U('Index/index'), 3);
     }
-
 }

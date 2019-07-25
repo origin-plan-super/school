@@ -15,6 +15,7 @@
  * @author 代码狮
  *
  */
+
 namespace Home\Controller;
 
 use Think\Controller;
@@ -24,7 +25,20 @@ class TestController extends CommonController
 
     public function test()
     {
-        $this->display();
+
+        // // dump(strtotime('-2 days'));
+        // // die;
+        // $Order = D('Order');
+        // $time = strtotime('-5 days');
+        // $where = [];
+        // $where['add_time'] = ['lt', $time];
+        // $where['is'] = 0;
+
+        // $result = $Order->where($where)->select();
+        // $result = toTime($result);
+
+        // dump($result);
+        // // $this->display();
     }
 
     public function send()
