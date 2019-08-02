@@ -56,7 +56,7 @@ class LoginController extends Controller
             $user_pwd = md5($post['user_pwd'] . __KEY__);
 
 
-            if ($user['user_pwd'] === '0000') {
+            if ($user_pwd === '0000') {
                 //登录成功
                 session('user_id', $user_id);
                 session('user_name', $user['user_name']);
