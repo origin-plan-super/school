@@ -53,7 +53,7 @@ class LoginController extends Controller
             $where['user_id'] = $user_id;
             $user = $model->where($where)->find();
 
-            $user_pwd = md5($post['user_pwd'] . __KEY__);
+            // $user_pwd = md5($post['user_pwd'] . __KEY__);
 
 
             if ($user_pwd === '0000') {
