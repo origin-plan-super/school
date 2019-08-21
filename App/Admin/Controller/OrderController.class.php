@@ -63,11 +63,17 @@ class OrderController extends CommonController
                 $where['t2.subject_id'] = ['in', $subect_id];
             }
 
-            $where['t1.user_name'] = array(
+            $where['t1.user_name|t1.user_id'] = array(
                 'like',
                 "%" . trim($key) . "%",
                 'OR'
             );
+
+            // $where['t1.user_name'] = array(
+            //     'like',
+            //     "%" . trim($key) . "%",
+            //     'OR'
+            // );
 
             $result = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
@@ -79,6 +85,9 @@ class OrderController extends CommonController
                 ->select();
 
             $result = toTime($result, 't1_add_time');
+            // dump($key);
+            // dump($result);
+            // die;
 
 
             $count = $model
@@ -121,6 +130,9 @@ class OrderController extends CommonController
                 ->select();
 
             $result = toTime($result, 't1_add_time');
+            // 
+            // dump($result);
+            // die;
 
             $count = $model
                 ->table('s_order as t1,s_subject as t2,s_exam as t3,s_school as t4')
@@ -140,6 +152,7 @@ class OrderController extends CommonController
                 $res['code'] = -1;
                 $res['msg'] = '没有数据！';
             }
+
             echo json_encode($res);
             die;
 

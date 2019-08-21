@@ -26,6 +26,31 @@ class TestController extends CommonController
     public function test()
     {
 
+
+        // $Order = D('Order');
+        // $where = [];
+        // $where['user_name'] = ['exp', 'is null'];
+        // $user_id = $Order->where($where)->getField('user_id', true);
+
+        // $User = D('User');
+        // $where = [];
+        // $where['user_id'] = ['in', $user_id];
+        // $result = $User->where($where)->field('user_id,user_name')->select();
+
+        // foreach ($result as $k => $v) {
+        //     $where = [];
+        //     $where['user_id'] = $v['user_id'];
+        //     $save = [];
+        //     $save['user_name'] = $v['user_name'];
+        //     dump($where);
+        //     dump($save);
+        //     // $result = $Order->where($where)->save($save);
+        //     // dump($result);
+        // }
+
+        // dump($result);
+
+        die;
         // // dump(strtotime('-2 days'));
         // // die;
         // $Order = D('Order');

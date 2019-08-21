@@ -41,6 +41,7 @@ class LoginController extends Controller
     {
 
 
+        $res = [];
         if (IS_POST) {
 
             $post = I('post.');
@@ -52,6 +53,11 @@ class LoginController extends Controller
             $where = [];
             $where['user_id'] = $user_id;
             $user = $model->where($where)->find();
+            if (!$user) {
+                $res['res'] = -1;
+                echo json_encode($res);
+                return;
+            }
 
             // $user_pwd = md5($post['user_pwd'] . __KEY__);
 

@@ -23,10 +23,12 @@ class CommonController extends Controller
 {
 
 
+
+
     //ThinkPHP提供的构造方法
     public function _initialize()
     {
-        $this->assign('isOpen', false); //开启关闭
+        $this->assign('isOpen', true); //开启关闭
 
         //判断cookie的账户密码能用不
         $user_id = cookie('user_id');
@@ -37,16 +39,21 @@ class CommonController extends Controller
         $where = [];
         $where['user_id'] = $user_id;
         $user = $model->where($where)->find();
-
-        if ($user_pwd === '0000') {
-            //密码正确，就不重新登录了
-            session('user_id', $user_id);
-            session('user_name', $user['user_name']);
-            session('user_phone', $user['user_phone']);
-        } else {
-            //密码不正确，清空一下缓存
+        if (!$user) {
             session(null);
+        } else {
+
+            if ($user_pwd === '0000') {
+                //密码正确，就不重新登录了
+                session('user_id', $user_id);
+                session('user_name', $user['user_name']);
+                session('user_phone', $user['user_phone']);
+            } else {
+                //密码不正确，清空一下缓存
+                session(null);
+            }
         }
+
 
         if (empty(session('user_id'))) {
             $url = U('Login/login');
