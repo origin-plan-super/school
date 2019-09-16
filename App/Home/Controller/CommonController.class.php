@@ -28,7 +28,7 @@ class CommonController extends Controller
     //ThinkPHP提供的构造方法
     public function _initialize()
     {
-        $this->assign('isOpen', true); //开启关闭
+        $this->assign('isOpen', false); //开启关闭
 
         //判断cookie的账户密码能用不
         $user_id = cookie('user_id');
