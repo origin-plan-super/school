@@ -14,22 +14,22 @@ return array(
     ),
 
     /* 数据库设置 */
-    // 'DB_TYPE' => 'mysql', // 数据库类型
-    // 'DB_HOST' => '127.0.0.1', // 服务器地址
-    // 'DB_NAME' => 'school', // 数据库名
-    // 'DB_USER' => 'root', // 用户名
-    // 'DB_PWD' => 'yh12138..', // 密码
-    // 'DB_PORT' => '3306', // 端口
-    // 'DB_PREFIX' => 's_', // 数据库表前缀
-
-    /* 数据库设置 */
     'DB_TYPE' => 'mysql', // 数据库类型
-    'DB_HOST' => '47.104.95.233', // 服务器地址
+    'DB_HOST' => '127.0.0.1', // 服务器地址
     'DB_NAME' => 'school', // 数据库名
     'DB_USER' => 'root', // 用户名
-    'DB_PWD' => '1234', // 密码
+    'DB_PWD' => 'yh12138..', // 密码
     'DB_PORT' => '3306', // 端口
     'DB_PREFIX' => 's_', // 数据库表前缀
+
+    /* 数据库设置 */
+    // 'DB_TYPE' => 'mysql', // 数据库类型
+    // 'DB_HOST' => '47.104.95.233', // 服务器地址
+    // 'DB_NAME' => 'school', // 数据库名
+    // 'DB_USER' => 'root', // 用户名
+    // 'DB_PWD' => '1234', // 密码
+    // 'DB_PORT' => '3306', // 端口
+    // 'DB_PREFIX' => 's_', // 数据库表前缀
 
     'TMPL_ACTION_ERROR' => './tpl/jump.html',
     'TMPL_ACTION_SUCCESS' => './tpl/jump.html'
